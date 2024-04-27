@@ -2,10 +2,12 @@ package username;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class InsertDataController {
-
+    @FXML
+    private Label Login;
     @FXML
     private TextField usernameField;
     @FXML
@@ -24,7 +26,8 @@ public class InsertDataController {
     }
 
     @FXML
-    private void handleInsertButton(ActionEvent event) {
+    public void handleInsertButton(ActionEvent event) {
+        Login.setText("Details Entered");
         String username = usernameField.getText();
         String password = passwordField.getText();
         String firstName = firstNameField.getText();
@@ -41,4 +44,6 @@ public class InsertDataController {
         lastNameField.clear();
         ageField.clear();
     }
+
+
 }
