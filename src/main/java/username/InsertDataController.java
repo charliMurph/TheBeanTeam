@@ -7,7 +7,7 @@ import javafx.scene.control.TextField;
 
 public class InsertDataController {
     @FXML
-    private Label Login;
+    private Label SignUp;
     @FXML
     private TextField usernameField;
     @FXML
@@ -27,7 +27,16 @@ public class InsertDataController {
 
     @FXML
     public void handleInsertButton(ActionEvent event) {
-        Login.setText("Details Entered");
+        if (usernameField.getText().isEmpty() ||
+                passwordField.getText().isEmpty() ||
+                firstNameField.getText().isEmpty() ||
+                lastNameField.getText().isEmpty() ||
+                ageField.getText().isEmpty()) {
+            SignUp.setText("Please fill in all required fields.");
+            return; // Stop execution if any required field is empty
+        }
+
+        SignUp.setText("Details Entered");
         String username = usernameField.getText();
         String password = passwordField.getText();
         String firstName = firstNameField.getText();

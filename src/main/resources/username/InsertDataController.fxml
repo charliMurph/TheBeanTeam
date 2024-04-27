@@ -7,12 +7,12 @@
 <?import javafx.scene.control.TextField?>
 
 <VBox alignment="TOP_LEFT" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="username.InsertDataController">
+      fx:controller="username.InsertDataController" prefWidth="400" prefHeight="300">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
 
-    <Label fx:id="Login" />
+    <Label fx:id="SignUp" />
 
     <TextField fx:id="usernameField" promptText="Username"/>
     <TextField fx:id="passwordField" promptText="Password" />
@@ -22,5 +22,5 @@
 
     <TextField fx:id="ageField" promptText="Age" />
 
-    <Button text="Login!" onAction="#handleInsertButton"/>
+    <Button text="Sign Up!" onAction="#handleInsertButton"/>
 </VBox>
