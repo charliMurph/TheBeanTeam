@@ -27,7 +27,7 @@ public class DatabaseConnection {
         try {
             Statement createTable = connection.createStatement();
             createTable.execute(
-                    "CREATE TABLE IF NOT EXISTS Users ("
+                    "CREATE TABLE IF NOT EXISTS authentication ("
                             + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
                             + "username VARCHAR NOT NULL, "
                             + "password VARCHAR NOT NULL, "
