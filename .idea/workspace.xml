@@ -5,14 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="195bfca3-755a-419b-85be-3ab100768756" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/username/LoginApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/username/controller/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/username/Login-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/username/InsertApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/SignUpApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/InsertDataController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/SignUpController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/username/model/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/model/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/username/InsertDataController.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/username/SignUp-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/username/Login-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/username/Login-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/username/SignUp-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/username/SignUp-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,8 +24,25 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Samantha-Codes&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/charliMurph/TheBeanTeam.git&quot;,
+    &quot;accountId&quot;: &quot;f3fa1811-ca32-4b42-90dd-ba17ee043800&quot;
+  }
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -51,33 +63,33 @@
     <option name="openDirectoriesWithSingleClick" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.HelloApplication.executor": "Run",
-    "Application.InsertApplication.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.RunMain.executor": "Run",
-    "Application.SignUpApplication.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "true",
-    "JAR Application.sqlite-jdbc-3.36.0.3.jar.executor": "Run",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "Charli",
-    "ignore.virus.scanning.warn.message": "true",
-    "jdk.selected.JAVA_MODULE": "1.8",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/murph/CAB302/address-book",
-    "onboarding.tips.debug.path": "C:/Users/murph/TheBeanTeam/address-book/src/main/java/org/example/Main.java",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.InsertApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.RunMain.executor&quot;: &quot;Run&quot;,
+    &quot;Application.SignUpApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
+    &quot;JAR Application.sqlite-jdbc-3.36.0.3.jar.executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Samantha&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/murph/CAB302/address-book&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/murph/TheBeanTeam/address-book/src/main/java/org/example/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\murph\TheBeanTeam\src\main\java" />
@@ -88,7 +100,7 @@
       <recent name="username.controller" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.RunMain">
     <configuration name="RunMain" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="username.SignUpApplication" />
       <module name="The_Bean_Time_Screen_Time" />
@@ -109,13 +121,6 @@
         <item itemvalue="JAR Application.sqlite-jdbc-3.36.0.3.jar" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
