@@ -6,7 +6,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #E9E5E5;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #E9E5E5;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="username.controller.LoginController">
     <center>
         <AnchorPane prefHeight="444.0" prefWidth="640.0" style="-fx-background-color: E9E5E5;" BorderPane.alignment="CENTER">
             <children>
@@ -23,7 +23,7 @@
                 </Label>
                 <PasswordField layoutX="235.0" layoutY="260.0" promptText="Password" />
                 <TextField layoutX="235.0" layoutY="203.0" promptText="Username" />
-                <Button layoutX="232.0" layoutY="303.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="155.0" style="-fx-background-color: DFC6FF;" text="Login" textFill="#a259ff">
+                <Button layoutX="232.0" layoutY="303.0" mnemonicParsing="false" onAction="#userLoginIn" prefHeight="30.0" prefWidth="155.0" style="-fx-background-color: DFC6FF;" text="Login" textFill="#a259ff">
                     <font>
                         <Font size="14.0" />
                     </font>
@@ -39,7 +39,7 @@
                         <Font name="Arial" size="9.0" />
                     </font>
                 </Label>
-                <Hyperlink layoutX="332.0" layoutY="333.0" text="Register" textFill="#ff9090" underline="true">
+                <Hyperlink layoutX="332.0" layoutY="333.0" onAction="#HandleSignUpLink" text="Register" textFill="#ff9090" underline="true">
                     <font>
                         <Font name="Arial" size="9.0" />
                     </font>

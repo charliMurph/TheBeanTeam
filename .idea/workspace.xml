@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="195bfca3-755a-419b-85be-3ab100768756" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/the_bean_time_screen_time/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/the_bean_time_screen_time/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/username/Login-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/username/Login-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/username/SignUp-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/username/SignUp-view.fxml" afterDir="false" />
     </list>
@@ -18,8 +20,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>

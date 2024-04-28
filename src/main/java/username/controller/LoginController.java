@@ -9,10 +9,8 @@ public class LoginController {
 
     @FXML
     private TextField usernameField;
-
     @FXML
     private PasswordField passwordField;
-
     @FXML
     private Label loginStatus;
 
@@ -29,10 +27,9 @@ public class LoginController {
         // You can put initialization code here if needed
     }
 
-    @FXML
-    private void handleLoginButton(ActionEvent event) {
-        String username = usernameField.getText();
-        String password = passwordField.getText();
+    private void userLoginIn(ActionEvent event) {
+        String username = this.usernameField.getText();
+        String password = this.passwordField.getText();
 
         // Perform login authentication logic here
         if (isValidLogin(username, password)) {
@@ -42,14 +39,12 @@ public class LoginController {
             loginStatus.setText("Invalid username or password.");
         }
     }
-
     private boolean isValidLogin(String username, String password) {
         return user.isValidLogin(username, password);
     }
 
     @FXML
     private void handleSignUpLink(ActionEvent event) {
-        // Navigate to the sign-up page
-        // You can implement navigation using your application's framework
+        // Load SignUp-View.fxml and display it in a new window
+        }
     }
-}
