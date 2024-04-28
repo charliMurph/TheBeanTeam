@@ -2,30 +2,33 @@ package username.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import username.model.User;
 import username.model.UserDAO;
 
 public class InsertDataController {
+
     @FXML
     private Label SignUp;
+
     @FXML
     private TextField usernameField;
+
     @FXML
     private TextField passwordField;
+
     @FXML
     private TextField firstNameField;
+
     @FXML
     private TextField lastNameField;
+
     @FXML
     private TextField ageField;
 
-    private UserDAO userDAO;
-
-    public InsertDataController() {
-        userDAO = new UserDAO();
-    }
+    private final UserDAO userDAO = new UserDAO();
 
     @FXML
     public void handleInsertButton(ActionEvent event) {
@@ -38,7 +41,7 @@ public class InsertDataController {
             return; // Stop execution if any required field is empty
         }
 
-        SignUp.setText("Details Entered");
+        SignUp.setText("Details Entered"); // Update label text
         String username = usernameField.getText();
         String password = passwordField.getText();
         String firstName = firstNameField.getText();
@@ -55,6 +58,5 @@ public class InsertDataController {
         lastNameField.clear();
         ageField.clear();
     }
-
 
 }
