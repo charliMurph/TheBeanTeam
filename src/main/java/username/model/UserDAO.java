@@ -103,7 +103,18 @@ public class UserDAO implements IUserDAO{
         }
         return null;
     }
-
+    public boolean isValidLogin(String username, String password) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM users WHERE username = ? AND password = ?");
+            statement.setString(1, username);
+            statement.setString(2, password);
+            ResultSet resultSet = statement.executeQuery();
+            return resultSet.next(); // If there's a row in the result set, the login is valid
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false; // Return false in case of any exception
+        }
+    }
     public void close() {
         try {
             if (connection != null) {

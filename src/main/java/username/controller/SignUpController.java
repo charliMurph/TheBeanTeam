@@ -2,13 +2,12 @@ package username.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import username.model.User;
 import username.model.UserDAO;
 
-public class InsertDataController {
+public class SignUpController {
 
     @FXML
     private Label SignUp;
