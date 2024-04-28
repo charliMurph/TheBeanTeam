@@ -9,6 +9,7 @@ import username.model.UserDAO;
 
 public class SignUpController {
 
+    public TextField emailField;
     @FXML
     private Label SignUp;
 
@@ -32,6 +33,7 @@ public class SignUpController {
     @FXML
     public void handleInsertButton(ActionEvent event) {
         if (usernameField.getText().isEmpty() ||
+                emailField.getText().isEmpty() ||
                 passwordField.getText().isEmpty() ||
                 firstNameField.getText().isEmpty() ||
                 lastNameField.getText().isEmpty() ||
@@ -41,16 +43,18 @@ public class SignUpController {
         }
 
         SignUp.setText("Details Entered"); // Update label text
+        String email = emailField.getText();
         String username = usernameField.getText();
         String password = passwordField.getText();
         String firstName = firstNameField.getText();
         String lastName = lastNameField.getText();
         int age = Integer.parseInt(ageField.getText());
 
-        User newUser = new User(username, password, firstName, lastName, age);
+        User newUser = new User(email, username, password, firstName, lastName, age);
         userDAO.addUser(newUser);
 
         // Clear the input fields
+        emailField.clear();
         usernameField.clear();
         passwordField.clear();
         firstNameField.clear();
