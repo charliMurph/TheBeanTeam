@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+
+<VBox alignment="CENTER" spacing="20" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="username.controller.LoginController" prefWidth="400" prefHeight="300">
+    <padding>
+        <Insets top="50" bottom="20" />
+    </padding>
+
+    <Label text="Login" style="-fx-font-weight: bold;"/>
+
+    <TextField fx:id="usernameField" promptText="Username"/>
+    <PasswordField fx:id="passwordField" promptText="Password" />
+
+    <Button text="Login" onAction="#handleLoginButton"/>
+    <Label fx:id="loginStatus" />
+
+    <Hyperlink text="Don't have an account? Sign up!" onAction="#handleSignUpLink"/>
+</VBox>
