@@ -4,23 +4,34 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.stage.Stage;
+import username.controller.InsertDataController;
+
+import java.io.IOException;
 
 public class InsertApplication extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        // Load the FXML file
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("InsertDataController.fxml"));
-        Parent root = loader.load();
+    public void start(Stage primaryStage) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("InsertDataController.fxml"));
+            Parent root = loader.load();
+            InsertDataController controller = loader.getController();
+            Scene scene = new Scene(root);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException e) {
+            // Log the exception for debugging purposes
+            e.printStackTrace();
 
-        // Get the controller instance
-        InsertDataController controller = loader.getController();
-
-        // Set the scene
-        Scene scene = new Scene(root);
-        primaryStage.setScene(scene);
-        primaryStage.show();
+            // Display an error message to the user
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Failed to load FXML file");
+            alert.setContentText("An error occurred while loading the FXML file.");
+            alert.showAndWait();
+        }
     }
 
     public static void main(String[] args) {

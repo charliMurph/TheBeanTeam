@@ -1,35 +1,21 @@
-package username;
+package username.model;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserDAO {
+public class UserDAO implements IUserDAO{
     private Connection connection;
+    public DatabaseConnection dataconnect;
 
     public UserDAO() {
         connection = DatabaseConnection.getInstance();
+        // Initialize dataconnect here
+        dataconnect = new DatabaseConnection();
+        dataconnect.createTable(connection);
     }
-
-    public void createTable() {
-        try {
-            Statement createTable = connection.createStatement();
-            createTable.execute(
-                    "CREATE TABLE IF NOT EXISTS Users ("
-                            + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
-                            + "username VARCHAR NOT NULL, "
-                            + "password VARCHAR NOT NULL, "
-                            + "firstName VARCHAR NOT NULL, "
-                            + "lastName VARCHAR NOT NULL, "
-                            + "age INTEGER NOT NULL"
-                            + ")"
-            );
-        } catch (SQLException ex) {
-            System.err.println(ex);
-        }
-    }
-
-    public void insert(User User) {
+    @Override
+    public void addUser(User User) {
         try {
             PreparedStatement insertAccount = connection.prepareStatement(
                     "INSERT INTO Users (firstName, lastName, age, username, password) VALUES (?, ?, ?, ?, ?)"
@@ -44,7 +30,8 @@ public class UserDAO {
             System.err.println(ex);
         }
     }
-    public void update(User User) {
+    @Override
+    public void updateUser(User User) {
         try {
             PreparedStatement updateAccount = connection.prepareStatement(
                     "UPDATE Users SET username = ?, password = ?, firstName = ?, lastName = ?, age = ? WHERE id = ?"
@@ -61,16 +48,18 @@ public class UserDAO {
         }
     }
 
-    public void delete(int id) {
+    @Override
+    public void deleteUser(User user) {
         try {
-            PreparedStatement deleteAccount = connection.prepareStatement("DELETE FROM Users WHERE id = ?");
-            deleteAccount.setInt(1, id);
-            deleteAccount.execute();
-        } catch (SQLException ex) {
-            System.err.println(ex);
+            PreparedStatement statement = connection.prepareStatement("DELETE FROM contacts WHERE id = ?");
+            statement.setInt(1, user.getId());
+            statement.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
-    public List<User> getAll() {
+    @Override
+    public List<User> getAllUsers() {
         List<User> accounts = new ArrayList<>();
         try {
             Statement getAll = connection.createStatement();
@@ -93,7 +82,8 @@ public class UserDAO {
         return accounts;
     }
 
-    public User getById(int id) {
+    @Override
+    public User getUser(int id) {
         try {
             PreparedStatement getAccount = connection.prepareStatement("SELECT * FROM USERS WHERE id = ?");
             getAccount.setInt(1, id);
@@ -116,9 +106,13 @@ public class UserDAO {
 
     public void close() {
         try {
-            connection.close();
+            if (connection != null) {
+                connection.close();
+            }
         } catch (SQLException ex) {
-            System.err.println(ex);
+            // Log or handle the exception
+            ex.printStackTrace();
         }
     }
 }
+

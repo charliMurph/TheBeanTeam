@@ -1,9 +1,11 @@
-package username;
+package username.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import username.model.User;
+import username.model.UserDAO;
 
 public class InsertDataController {
     @FXML
@@ -44,7 +46,7 @@ public class InsertDataController {
         int age = Integer.parseInt(ageField.getText());
 
         User newUser = new User(username, password, firstName, lastName, age);
-        userDAO.insert(newUser);
+        userDAO.addUser(newUser);
 
         // Clear the input fields
         usernameField.clear();
