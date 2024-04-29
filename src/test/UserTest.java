@@ -21,6 +21,15 @@ public class UserTest {
     }
 
     @Test
+    public void testUserExists() {
+
+        // Test for an existing username
+        assertTrue(userDAO.userExists("lilypads"));
+
+        // Test for a non-existing username
+        assertFalse(userDAO.userExists("nonexistinguser"));
+    }
+    @Test
     public void testSetUsername() {
         user.setUsername("jane");
         assertEquals("jane", user.getUsername());
@@ -69,13 +78,5 @@ public class UserTest {
         user.setPassword("newpassword456");
         assertEquals("newpassword456", user.getPassword());
     }
-    @Test
-    public void testUserExists() {
 
-        // Test for an existing username
-        assertTrue(userDAO.userExists("lilypads"));
-
-        // Test for a non-existing username
-        assertFalse(userDAO.userExists("nonexistinguser"));
-    }
 }
