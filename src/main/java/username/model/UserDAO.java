@@ -117,6 +117,33 @@ public class UserDAO implements IUserDAO{
             return false; // Return false in case of any exception
         }
     }
+    public boolean userExists(String username) {
+        try {
+            // Prepare a SQL statement to query the database
+            String sql = "SELECT COUNT(*) FROM authentication WHERE username = ?";
+
+            // Create a PreparedStatement with the SQL query
+            PreparedStatement statement = connection.prepareStatement(sql);
+
+            // Set the username parameter in the PreparedStatement
+            statement.setString(1, username);
+
+            // Execute the query and retrieve the result set
+            ResultSet resultSet = statement.executeQuery();
+
+            // Check if the result set has any rows (i.e., if the username exists)
+            if (resultSet.next()) {
+                int count = resultSet.getInt(1);
+                return count > 0; // Return true if count > 0 (username exists)
+            }
+        } catch (SQLException e) {
+            // Handle any SQL exceptions (e.g., connection errors)
+            e.printStackTrace();
+        }
+
+        // Return false if an error occurred or if the username doesn't exist
+        return false;
+    }
     public void close() {
         try {
             if (connection != null) {

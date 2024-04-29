@@ -2,8 +2,14 @@ package username.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 import username.model.UserDAO;
+
+import java.io.IOException;
 
 public class LoginController {
 
@@ -16,6 +22,8 @@ public class LoginController {
     @FXML
     private Label loginStatus;
 
+    private Stage primaryStage; // Reference to the primaryStage
+
     private UserDAO user;
 
     // Constructor
@@ -27,6 +35,9 @@ public class LoginController {
     @FXML
     private void initialize() {
         // You can put initialization code here if needed
+    }
+    public void setLoginStatusStage(Stage primaryStage) {
+        this.primaryStage = primaryStage;
     }
 
     @FXML
@@ -49,7 +60,22 @@ public class LoginController {
 
     @FXML
     private void handleSignUpLink(ActionEvent event) {
-        // Navigate to the sign-up page
-        // You can implement navigation using your application's framework
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/username/SignUp-view.fxml"));
+            System.out.println("Sign Up FXML Path: " + getClass().getResource("SignUp-view.fxml")); // Logging statement
+            Parent root = loader.load();
+            SignUpController controller = loader.getController();
+            controller.setPrimaryStage(primaryStage); // Pass the primaryStage to the controller
+            Scene scene = new Scene(root);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Handle the exception
+        }
+    }
+
+    public void setPrimaryStage(Stage primaryStage) {
+        this.primaryStage = primaryStage;
     }
 }

@@ -2,10 +2,15 @@ package username.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.stage.Stage;
 import username.model.User;
 import username.model.UserDAO;
+
+import java.io.IOException;
 
 public class SignUpController {
 
@@ -29,6 +34,12 @@ public class SignUpController {
     private TextField ageField;
 
     private final UserDAO userDAO = new UserDAO();
+    private Stage primaryStage; // Reference to the primaryStage
+
+    // Constructor that receives the primaryStage
+    public void setPrimaryStage(Stage primaryStage) {
+        this.primaryStage = primaryStage; // Set the primaryStage reference
+    }
 
     @FXML
     public void handleInsertButton(ActionEvent event) {
@@ -41,7 +52,12 @@ public class SignUpController {
             SignUp.setText("Please fill in all required fields.");
             return; // Stop execution if any required field is empty
         }
-
+        if (userDAO.userExists(usernameField.getText()))
+        {
+            SignUp.setText("Username already exists");
+            emailField.clear();
+            return;
+        }
         SignUp.setText("Details Entered"); // Update label text
         String email = emailField.getText();
         String username = usernameField.getText();
@@ -61,5 +77,22 @@ public class SignUpController {
         lastNameField.clear();
         ageField.clear();
     }
+    @FXML
+    private void handleBackToLogin(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Login-view.fxml"));
+            System.out.println("Login FXML Path: " + getClass().getResource("Login-view.fxml")); // Logging statement
+            Parent root = loader.load();
+            LoginController controller = loader.getController();
+            controller.setPrimaryStage(primaryStage);
+            Scene scene = new Scene(root);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Handle the exception
+        }
+    }
+
 
 }

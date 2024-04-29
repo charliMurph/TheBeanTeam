@@ -18,6 +18,7 @@ public class LoginApplication extends Application {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Login-view.fxml"));
             Parent root = loader.load();
             LoginController controller = loader.getController();
+            controller.setPrimaryStage(primaryStage); // Pass the primaryStage to the controller
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.show();
@@ -35,7 +36,6 @@ public class LoginApplication extends Application {
     }
 
     public static void main(String[] args) {
-        // Launch the JavaFX application
-        launch(args);
+        launch(LoginApplication.class, args); // Launch the JavaFX application
     }
 }

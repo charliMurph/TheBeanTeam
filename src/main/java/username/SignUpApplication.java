@@ -18,6 +18,7 @@ public class SignUpApplication extends Application {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("SignUp-view.fxml"));
             Parent root = loader.load();
             SignUpController controller = loader.getController();
+            controller.setPrimaryStage(primaryStage); // Pass the primaryStage to the controller
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.show();
@@ -35,6 +36,6 @@ public class SignUpApplication extends Application {
     }
 
     public static void main(String[] args) {
-        launch(args);
+        launch(SignUpApplication.class, args); // Launch the JavaFX application
     }
 }
