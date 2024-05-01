@@ -1,0 +1,22 @@
+Project Brief:
+
+Bean Time Screen Time is an application that helps students track their screen time to
+promote healthy usage habits. Based on data collected from screen time tracker the
+application provides insight analytics, recommendations, and visual representations of
+screen time data to assist students in managing their digital habits.
+
+Key Features:
+Screen Time Tracking - accurately tracks the amount of time students spend on various
+devices and applications
+Data Visualisation - utilpusise graphs, charts, and infographics to visually represent
+screen time data and trends over time, show improvement in focus and productivity
+Recommendation Algorithm - incorporate an algorithm to analyse usage patterns and provide
+tailored recommendations for reducing excessive screen time
+Goal Setting Screens - allow students to set personalised goals, notifications, and limits
+based on their preferences and needs (possible goals will be recommended)
+Link to Education Resources - access to articles, tips, and resources on digital wellbeing
+and effective screen time management
+
+Intended Users: Students, while could be used by all aimed at high school and university students specifically.
+
+Stakeholders: Developers, users, digital wellbeing advocates.
