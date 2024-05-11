@@ -29,6 +29,7 @@ public class DatabaseConnection {
             createTable.execute(
                     "CREATE TABLE IF NOT EXISTS authentication ("
                             + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
+                            +"email VARCHAR NOT NULL, "
                             + "username VARCHAR NOT NULL, "
                             + "password VARCHAR NOT NULL, "
                             + "firstName VARCHAR NOT NULL, "

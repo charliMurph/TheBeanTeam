@@ -5,18 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="195bfca3-755a-419b-85be-3ab100768756" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/username/controller/HomePageController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/username/model/IScreenTIme.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/username/model/SceenAnalytics.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/username/model/UserPreferences.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/username/HomePage-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Screen_Time_Bean_Time.db" beforeDir="false" afterPath="$PROJECT_DIR$/Screen_Time_Bean_Time.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/username/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/MainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/LoginApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/MainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/SignUpApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/HomePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/HomePageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/UserProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/UserProfileController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/username/model/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/model/DatabaseConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/username/model/IUserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/model/IUserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/username/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/model/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/username/model/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/model/UserDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -27,9 +23,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -66,6 +62,7 @@
     "Application.MainApplication.executor": "Run",
     "Application.RunMain.executor": "Run",
     "Application.SignUpApplication.executor": "Run",
+    "Application.StartUp.executor": "Run",
     "Downloaded.Files.Path.Enabled": "true",
     "JAR Application.sqlite-jdbc-3.36.0.3.jar.executor": "Run",
     "JUnit.LoginTest.executor": "Run",
@@ -98,9 +95,9 @@
       <recent name="username.controller" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="Login" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="username.LoginApplication" />
+  <component name="RunManager" selected="Application.StartUp">
+    <configuration name="StartUp" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="username.MainApplication" />
       <module name="The_Bean_Time_Screen_Time" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -116,7 +113,7 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Login" />
+      <item itemvalue="Application.StartUp" />
       <item itemvalue="JUnit.UserTest" />
     </list>
     <recent_temporary>
@@ -142,16 +139,5 @@
       <updated>1713756810453</updated>
     </task>
     <servers />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/username/SignUpApplication.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

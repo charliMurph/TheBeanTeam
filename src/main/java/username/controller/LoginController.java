@@ -50,7 +50,7 @@ public class LoginController {
             loginStatus.setText("Login successful!");
             // Redirect to main application or dashboard
             int userId = user.getUserId(username, password); // Retrieve the user ID
-            redirectToHomePage(userId);
+            redirectToHomePage(userId, username, password);
         } else {
             loginStatus.setText("Invalid username or password.");
         }
@@ -77,15 +77,16 @@ public class LoginController {
         }
     }
 
-    private void redirectToHomePage(int userId) {
+    private void redirectToHomePage(int userId, String username, String password) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/username/HomePage.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/username/HomePage-view.fxml"));
             Parent root = loader.load();
             // Get the controller for the home page
             HomePageController homeController = loader.getController();
             // Pass any necessary data to the home controller if needed
             // For example, you can pass the username:
-            // homeController.setUsername(username);
+            homeController.setUserId(userId);
+            homeController.initialize();
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.show();

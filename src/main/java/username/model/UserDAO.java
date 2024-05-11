@@ -18,13 +18,14 @@ public class UserDAO implements IUserDAO{
     public void addUser(User User) {
         try {
             PreparedStatement insertAccount = connection.prepareStatement(
-                    "INSERT INTO authentication (firstName, lastName, age, username, password) VALUES (?, ?, ?, ?, ?)"
+                    "INSERT INTO authentication (email, firstName, lastName, age, username, password) VALUES (?, ?, ?, ?, ?, ?)"
             );
-            insertAccount.setString(1, User.getFirstName());
-            insertAccount.setString(2, User.getLastName());
-            insertAccount.setInt(3, User.getAge());
-            insertAccount.setString(4, User.getUsername());
-            insertAccount.setString(5, User.getPassword());
+            insertAccount.setString(1, User.getEmail());
+            insertAccount.setString(2, User.getFirstName());
+            insertAccount.setString(3, User.getLastName());
+            insertAccount.setInt(4, User.getAge());
+            insertAccount.setString(5, User.getUsername());
+            insertAccount.setString(6, User.getPassword());
             insertAccount.execute();
         } catch (SQLException ex) {
             System.err.println(ex);

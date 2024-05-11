@@ -10,7 +10,7 @@ import username.controller.LoginController;
 
 import java.io.IOException;
 
-public class LoginApplication extends Application {
+public class MainApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) {
@@ -36,6 +36,6 @@ public class LoginApplication extends Application {
     }
 
     public static void main(String[] args) {
-        launch(LoginApplication.class, args); // Launch the JavaFX application
+        launch(MainApplication.class, args); // Launch the JavaFX application
     }
 }
