@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Button?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="username.controller.UserPreferenceController"
+            prefHeight="400.0" prefWidth="600.0">
+
+    <VBox alignment="CENTER" spacing="10">
+        <Label text="App Preferences" style="-fx-font-weight: bold;"/>
+
+        <!-- Checkbox for selecting apps -->
+        <CheckBox text="App 1" fx:id="app1Checkbox"/>
+        <CheckBox text="App 2" fx:id="app2Checkbox"/>
+        <!-- Add more checkboxes for additional apps -->
+
+        <Label text="Screen Time Limits" style="-fx-font-weight: bold;"/>
+
+        <!-- Slider for setting monthly screen time limit -->
+        <Label text="Monthly Screen Time Limit:"/>
+        <Slider fx:id="monthlyScreenTimeSlider" min="0" max="720" blockIncrement="1" showTickLabels="true" showTickMarks="true"/>
+        <Label fx:id="monthlyScreenTimeLabel"/>
+
+        <!-- Slider for setting weekly screen time limit -->
+        <Label text="Weekly Screen Time Limit:"/>
+        <Slider fx:id="weeklyScreenTimeSlider" min="0" max="168" blockIncrement="1" showTickLabels="true" showTickMarks="true"/>
+        <Label fx:id="weeklyScreenTimeLabel"/>
+
+        <!-- Button to update preferences -->
+        <Button text="Update Preferences" onAction="#handleUpdatePreferences"/>
+    </VBox>
+</AnchorPane>

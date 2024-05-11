@@ -10,7 +10,6 @@ public class SceenAnalytics implements IScreenTIme{
         connection = DatabaseConnection.getInstance();
         // Initialize dataconnect here
         dataconnect = new DatabaseConnection();
-        dataconnect.createScreenLogs(connection);
     }
     @Override
     public void getUserName(User user) {

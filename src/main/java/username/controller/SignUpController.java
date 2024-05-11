@@ -33,14 +33,18 @@ public class SignUpController {
     @FXML
     private TextField ageField;
 
+    private User homepageuser;
+
     private final UserDAO userDAO = new UserDAO();
     private Stage primaryStage; // Reference to the primaryStage
-
     // Constructor that receives the primaryStage
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage; // Set the primaryStage reference
     }
-
+    public void setUserAs(User user)
+    {
+        this.homepageuser = user;
+    }
     @FXML
     public void handleInsertButton(ActionEvent event) {
         if (usernameField.getText().isEmpty() ||
@@ -55,7 +59,7 @@ public class SignUpController {
         if (userDAO.userExists(usernameField.getText()))
         {
             SignUp.setText("Username already exists");
-            emailField.clear();
+            usernameField.clear();
             return;
         }
         SignUp.setText("Details Entered"); // Update label text
@@ -68,6 +72,7 @@ public class SignUpController {
 
         User newUser = new User(email, username, password, firstName, lastName, age);
         userDAO.addUser(newUser);
+        setUserAs(newUser);
 
         // Clear the input fields
         emailField.clear();
@@ -76,6 +81,9 @@ public class SignUpController {
         firstNameField.clear();
         lastNameField.clear();
         ageField.clear();
+
+        // Navigate to the home page
+        navigateToHomePage();
     }
     @FXML
     private void handleBackToLogin(ActionEvent event) {
@@ -93,6 +101,24 @@ public class SignUpController {
             // Handle the exception
         }
     }
-
+    private void navigateToHomePage() {
+        try {
+            userDAO.close();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/username/HomePage-view.fxml"));
+            Parent root = loader.load();
+            HomePageController homeController = loader.getController();
+            System.out.println("homepage user: " + homepageuser);
+            homeController.setUser(homepageuser);
+            homeController.setPrimaryStage(primaryStage);
+            homeController.initialize();
+            // You can pass any necessary data to the home controller here if needed
+            Scene scene = new Scene(root);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Handle the exception
+        }
+    }
 
 }

@@ -20,6 +20,7 @@ public class MainApplication extends Application {
             LoginController controller = loader.getController();
             controller.setPrimaryStage(primaryStage); // Pass the primaryStage to the controller
             Scene scene = new Scene(root);
+            primaryStage.setTitle("Screen Time Bean Time!");
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException e) {

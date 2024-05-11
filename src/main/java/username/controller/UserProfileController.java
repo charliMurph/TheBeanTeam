@@ -21,6 +21,7 @@ public class UserProfileController {
     @FXML
     private Label ageLabel;
 
+
     // Method to initialize the profile with user data
     public void initializeProfile(User user) {
         // Populate the UI elements with user data
