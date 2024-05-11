@@ -12,7 +12,7 @@ public class UserDAO implements IUserDAO{
         connection = DatabaseConnection.getInstance();
         // Initialize dataconnect here
         dataconnect = new DatabaseConnection();
-        dataconnect.createTable(connection);
+        dataconnect.createUserTable(connection);
     }
     @Override
     public void addUser(User User) {
@@ -105,6 +105,22 @@ public class UserDAO implements IUserDAO{
         }
         return null;
     }
+    @Override
+    public int getUserId(String username, String password) {
+        try {
+            PreparedStatement getAccount = connection.prepareStatement("SELECT id FROM authentication WHERE username = ? AND password = ?");
+            getAccount.setString(1, username);
+            getAccount.setString(2, password);
+            ResultSet rs = getAccount.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("id");
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+        return -1; // Return a default value indicating failure (you may choose another value if -1 is not appropriate)
+    }
+
     public boolean isValidLogin(String username, String password) {
         try {
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM authentication WHERE username = ? AND password = ?");
@@ -144,6 +160,8 @@ public class UserDAO implements IUserDAO{
         // Return false if an error occurred or if the username doesn't exist
         return false;
     }
+
+
     public void close() {
         try {
             if (connection != null) {

@@ -49,6 +49,8 @@ public class LoginController {
         if (isValidLogin(username, password)) {
             loginStatus.setText("Login successful!");
             // Redirect to main application or dashboard
+            int userId = user.getUserId(username, password); // Retrieve the user ID
+            redirectToHomePage(userId);
         } else {
             loginStatus.setText("Invalid username or password.");
         }
@@ -75,6 +77,23 @@ public class LoginController {
         }
     }
 
+    private void redirectToHomePage(int userId) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/username/HomePage.fxml"));
+            Parent root = loader.load();
+            // Get the controller for the home page
+            HomePageController homeController = loader.getController();
+            // Pass any necessary data to the home controller if needed
+            // For example, you can pass the username:
+            // homeController.setUsername(username);
+            Scene scene = new Scene(root);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Handle the exception
+        }
+    }
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }

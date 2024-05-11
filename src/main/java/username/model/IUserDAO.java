@@ -32,4 +32,7 @@ public interface IUserDAO {
      * @return A list of all users in the database.
      */
     public List<User> getAllUsers();
+
+
+    int getUserId(String username, String password);
 }

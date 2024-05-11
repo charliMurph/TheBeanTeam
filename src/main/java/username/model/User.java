@@ -13,6 +13,9 @@ public class User {
     private String firstName;
     private String lastName;
     private int age;
+    private String applicationName;
+    private int hoursTracked;
+
     public User(int id, String email, String username, String password, String firstName, String lastName, int age) {
         this.id = id;
         this.email = email;
@@ -29,6 +32,10 @@ public class User {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
+    }
+    public User(String applicationName, int hoursTracked){
+        this.applicationName = applicationName;
+        this.hoursTracked = hoursTracked;
     }
 
     public int getId() {
@@ -65,21 +72,6 @@ public class User {
         this.username = username;
         this.password = password;
     }
-    
-
-    public void insertData(Connection connection) {
-        String insertQuery = "INSERT INTO authentication (username, password, first_name, last_name, age) VALUES (?, ?, ?, ?, ?)";
-        try (PreparedStatement statement = connection.prepareStatement(insertQuery)) {
-            statement.setString(1, getUsername());
-            statement.setString(2, getPassword());
-            statement.setString(3, getFirstName());
-            statement.setString(4, getLastName());
-            statement.setInt(5, getAge());
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 
     public void setUsername(String username){
         this.username = username;
@@ -99,5 +91,21 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getApplicationName() {
+        return applicationName;
+    }
+
+    public void setApplicationName(String applicationName) {
+        this.applicationName = applicationName;
+    }
+
+    public int getHoursTracked() {
+        return hoursTracked;
+    }
+
+    public void setHoursTracked(int hoursTracked) {
+        this.hoursTracked = hoursTracked;
     }
 }

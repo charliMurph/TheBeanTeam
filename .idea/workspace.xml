@@ -5,7 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="195bfca3-755a-419b-85be-3ab100768756" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/test/UserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/UserTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/username/controller/HomePageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/username/model/IScreenTIme.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/username/model/SceenAnalytics.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/username/model/UserPreferences.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Screen_Time_Bean_Time.db" beforeDir="false" afterPath="$PROJECT_DIR$/Screen_Time_Bean_Time.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/MainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/UserProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/UserProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/model/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/model/DatabaseConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/model/IUserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/model/IUserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/model/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/model/UserDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,8 +27,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="FxmlFile" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -48,8 +60,10 @@
   "keyToString": {
     "Application.HelloApplication.executor": "Run",
     "Application.InsertApplication.executor": "Run",
+    "Application.Login.executor": "Run",
     "Application.LoginApplication.executor": "Run",
     "Application.Main.executor": "Run",
+    "Application.MainApplication.executor": "Run",
     "Application.RunMain.executor": "Run",
     "Application.SignUpApplication.executor": "Run",
     "Downloaded.Files.Path.Enabled": "true",
@@ -84,7 +98,7 @@
       <recent name="username.controller" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.UserTest">
+  <component name="RunManager">
     <configuration name="Login" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="username.LoginApplication" />
       <module name="The_Bean_Time_Screen_Time" />
