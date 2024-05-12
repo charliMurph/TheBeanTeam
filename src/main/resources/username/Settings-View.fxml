@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.SettingsController">
+    <children>
+        <VBox layoutX="152.0" layoutY="74.0" spacing="10.0">
+            <children>
+                <Label text="Settings" />
+                <Separator />
+                <HBox spacing="10.0">
+                    <children>
+                        <Label text="Theme:" />
+                        <ChoiceBox fx:id="themeChoiceBox" prefWidth="150.0">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="Light" />
+                                    <String fx:value="Dark" />
+                                </FXCollections>
+                            </items>
+                        </ChoiceBox>
+                    </children>
+                </HBox>
+                <HBox spacing="10.0">
+                    <children>
+                        <Label text="Notifications:" />
+                        <ChoiceBox fx:id="NotificationsChoice" prefWidth="150.0">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="On" />
+                                    <String fx:value="Off" />
+                                </FXCollections>
+                            </items>
+                        </ChoiceBox>
+                    </children>
+                </HBox>
+                <HBox spacing="10.0">
+                    <children>
+                        <Button fx:id="saveButton" text="Save" onAction="#saveSettings" />
+                        <Button fx:id="cancelButton" text="Cancel" onAction="#cancelSettings" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

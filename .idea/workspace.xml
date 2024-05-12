@@ -5,8 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="195bfca3-755a-419b-85be-3ab100768756" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/username/controller/SettingsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/username/EditGoal-View.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/username/Educational-View.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/username/GoalSetting-View.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/username/NewGoal-View.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/username/Settings-View.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/SignUpController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/username/Login-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/username/Login-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/username/SignUp-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/username/SignUp-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -18,8 +24,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>

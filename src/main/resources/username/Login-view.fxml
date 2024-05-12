@@ -6,7 +6,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #E9E5E5;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="username.controller.LoginController">
+<BorderPane maxHeight="400" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #E9E5E5;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="username.controller.LoginController">
     <center>
         <AnchorPane prefHeight="444.0" prefWidth="640.0" style="-fx-background-color: E9E5E5;" BorderPane.alignment="CENTER">
             <children>
@@ -33,7 +33,7 @@
                         <Font name="Fira Code Medium" size="14.0" />
                     </font>
                 </Label>
-                <ImageView fitHeight="100.0" fitWidth="160.0" layoutX="230.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" />
+                g<ImageView fitHeight="100.0" fitWidth="160.0" layoutX="230.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" />
                 <Label layoutX="237.0" layoutY="336.0" text="Don't have an account?" textFill="#817f7f">
                     <font>
                         <Font name="Arial" size="9.0" />
