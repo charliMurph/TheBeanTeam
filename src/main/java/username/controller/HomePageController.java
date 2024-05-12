@@ -94,6 +94,7 @@ public class HomePageController {
             System.out.println("Button clicked. Navigating to user preferences page...");
             userDAO.close();
             preferences.setUser(user);
+            preferences.setUserDAO(userDAO);
             preferences.setPrimaryStage(primaryStage);
             preferences.initialize();
             Scene scene = new Scene(root);
