@@ -82,10 +82,6 @@ public class UserPreferenceController {
         userpreference = new UserPreferences(id);
 
     }
-    public void loadAppNames()
-    {
-        userpreference.addUserPreference(user);
-    }
     public void handleUpdatePreferences(ActionEvent actionEvent) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/username/HomePage-view.fxml"));
@@ -93,7 +89,7 @@ public class UserPreferenceController {
             HomePageController homepageController = loader.getController();
             homepageController.setPrimaryStage(primaryStage);
             homepageController.setUser(user); // Pass the user information to the home page controller
-
+            homepageController.initialize();
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.show();
@@ -101,4 +97,27 @@ public class UserPreferenceController {
             throw new RuntimeException(e);
         }
     }
+
+        @FXML
+        private void navigateToAddAppPage(ActionEvent event) {
+            try {
+                // Load the FXML file for the add app page
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/username/AddAppPage-view.fxml"));
+                Parent root = loader.load();
+
+                // Get the controller for the add app page
+                AddAppController addAppController = loader.getController();
+
+                // Set the primary stage and show the scene
+                addAppController.setPrimaryStage(primaryStage);
+                addAppController.setUser(user);
+                addAppController.initialize();
+
+                Scene scene = new Scene(root);
+                primaryStage.setScene(scene);
+                primaryStage.show();
+            } catch (IOException e) {
+                e.printStackTrace(); // Handle the exception appropriately
+            }
+        }
 }
