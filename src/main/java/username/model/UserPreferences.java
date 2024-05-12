@@ -9,6 +9,7 @@ public class UserPreferences {
     private Connection connection;
     public DatabaseConnection dataconnect;
     public UserPreferences(int id) {
+
         connection = DatabaseConnection.getInstance();
         // Initialize dataconnect here
         dataconnect = new DatabaseConnection();
