@@ -6,14 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="195bfca3-755a-419b-85be-3ab100768756" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Screen_Time_Bean_Time.db" beforeDir="false" afterPath="$PROJECT_DIR$/Screen_Time_Bean_Time.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/username/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/MainApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/HomePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/HomePageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/SignUpController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/UserProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/UserProfileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/username/model/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/model/DatabaseConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/username/model/SceenAnalytics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/model/SceenAnalytics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/AddAppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/AddAppController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/UserPreferenceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/UserPreferenceController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/username/model/UserPreferences.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/model/UserPreferences.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -140,6 +134,17 @@
       <updated>1713756810453</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,6 +1,7 @@
 package username.controller;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -22,16 +23,28 @@ public class AddAppController {
     }
 
     public void setUser(User user) {
-
         this.user = user;
-        this.id = user.getId();
     }
     public User getUser() {
-
         return user;
     }
 
-    public void onSaveButton(ActionEvent actionEvent) {
-        appNameTextField.setText("Done!");
+    @FXML
+    public void onSaveButton(ActionEvent event) {
+        // Read the input from the TextField for app name
+        String appName = appNameTextField.getText();
+        int weeklyLimit = (int) weeklyLimitSpinner.getValue();
+        int monthlyLimit = (int) monthlyLimitSpinner.getValue();
+        preferences.setMonthHours(monthlyLimit);
+        preferences.setWeekHours(weeklyLimit);
+        // Add the app name and limits to the user preferences
+        preferences.addAppName(id, appName);
+        // Clear the TextFields after saving
+        appNameTextField.clear();
+        weeklyLimitSpinner.getValueFactory().setValue(null);
+        monthlyLimitSpinner.getValueFactory().setValue(null);
+        // Add the app name to the user preferences
+        // Clear the TextField after saving
+        appNameTextField.clear();
     }
 }

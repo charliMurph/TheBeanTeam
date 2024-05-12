@@ -6,19 +6,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.Slider;
 import javafx.stage.Stage;
 import username.model.*;
 
 import java.io.IOException;
-import java.sql.Connection;
 
 public class UserPreferenceController {
     private User user;
     private UserDAO userDAO;
     private int id;
-    private UserPreferences userpreference;
+    private UserPreferences preference;
     private Stage primaryStage;
     @FXML
     private CheckBox app1Checkbox;
@@ -42,12 +39,12 @@ public class UserPreferenceController {
     }
     public void initialize() {
 
-        userpreference = new UserPreferences(id);
+        preference = new UserPreferences(user);
 
     }
     public void loadAppNames()
     {
-        userpreference.addUserPreference(user);
+        preference.addUserPreference(preference);
     }
     public void handleUpdatePreferences(ActionEvent actionEvent) {
         try {
@@ -56,7 +53,6 @@ public class UserPreferenceController {
             AddAppController addAppController = loader.getController();
             addAppController.setPrimaryStage(primaryStage);
             addAppController.setUser(user); // Pass the user information to the home page controller
-
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.show();
@@ -64,4 +60,5 @@ public class UserPreferenceController {
             throw new RuntimeException(e);
         }
     }
+
 }
