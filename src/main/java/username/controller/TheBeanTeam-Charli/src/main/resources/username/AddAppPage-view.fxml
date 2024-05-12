@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="username.controller.AddAppController"
+            prefHeight="400.0" prefWidth="600.0">
+    <VBox alignment="CENTER" spacing="10">
+        <!-- Text field for entering app name -->
+        <Label text="Enter App Name to Track:"/>
+        <TextField fx:id="appNameTextField"/>
+
+        <!-- Spinner for setting weekly limit -->
+        <Label text="Weekly Limit:"/>
+        <Spinner fx:id="weeklyLimitSpinner" min="0" max="168" initialValue="0" />
+
+        <!-- Spinner for setting monthly limit -->
+        <Label text="Monthly Limit:"/>
+        <Spinner fx:id="monthlyLimitSpinner" min="0" max="720" initialValue="0" />
+
+        <!-- Button to save preferences -->
+        <Button text="Save to User Preferences" onAction="#onSaveButton"/>
+
+    </VBox>
+</AnchorPane>
