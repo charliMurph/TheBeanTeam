@@ -8,7 +8,67 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="username.NewGoalView"
+            fx:controller="username.AddGoalView"
             prefHeight="400.0" prefWidth="600.0">
 
+    <!-- Header -->
+    <HBox style="-fx-background-color: rgba(233, 229, 229, 1); -fx-border-color: rgba(0, 0, 0, 1); -fx-border-style: solid; -fx-border-width: 1px; -fx-padding: 80px 60px;">
+        <ImageView>
+            <image>
+                <Image url=""/>
+            </image>
+        </ImageView>
+        <Label style="-fx-font-size: 40px; -fx-color: #000; -fx-font-weight: bold;" text="Add New Goal"/>
+    </HBox>
+
+    <!-- Goal Description -->
+    <VBox style="-fx-background-color: #f7f1ff; -fx-margin-top: 35px; -fx-padding: 40px 65px 0; -fx-color: #5915ae;">
+        <Label style="-fx-font-size: 35px; -fx-font-weight: bold;" text="Daily Usage :"/>
+        <VBox style="-fx-border-radius: 20px; -fx-border-color: rgba(89, 21, 174, 1); -fx-border-style: solid; -fx-border-width: 1px; -fx-margin-top: 16px; -fx-padding: 18px 80px 76px 20px;">
+            <Label style="-fx-font-weight: bold; -fx-font-size: 20px;" text="Goal Type Description :"/>
+            <Label style="-fx-font-size: 16px;" wrapText="true">
+                Daily Usage Goals are a goal type for lowering our daily overall
+                screen-time on this current device, you can set the threshold maximum
+                for the goal below.
+            </Label>
+        </VBox>
+    </VBox>
+
+    <!-- Goal Type -->
+    <HBox style="-fx-background-color: #f7f1ff; -fx-margin-top: 35px; -fx-padding: 40px 65px;">
+        <!-- Column 1 -->
+        <VBox style="-fx-width: 50%; -fx-margin-left: 0px;">
+            <VBox style="-fx-margin-top: 57px; -fx-font-weight: bold;">
+                <Label style="-fx-font-size: 20px; -fx-color: #5915ae;" text="Goal Type:"/>
+                <ChoiceBox style="-fx-margin-top: 10px;">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Daily Usage"/>
+                            <String fx:value="Weekly Usage"/>
+                            <String fx:value="Weekly Productive Time"/>
+                        </FXCollections>
+                    </items>
+                </ChoiceBox>
+            </VBox>
+        </VBox>
+
+        <!-- Column 2 -->
+        <VBox style="-fx-width: 50%; -fx-margin-left: 20px;">
+            <VBox style="-fx-margin-top: 57px; -fx-font-weight: bold;">
+                <Label style="-fx-font-size: 20px; -fx-color: #5915ae;" text="Maximum Threshold:"/>
+                <TextField style="-fx-margin-top: 10px;"/>
+            </VBox>
+        </VBox>
+    </HBox>
+
+    <!-- Goal Description -->
+    <VBox style="-fx-background-color: #f7f1ff; -fx-margin-top: 35px; -fx-padding: 40px 65px 0;">
+        <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Goal Description:"/>
+        <TextArea style="-fx-margin-top: 10px; -fx-pref-height: 100px;"/>
+    </VBox>
+
+    <!-- Save Button -->
+    <Button text="Save" style="-fx-margin-top: 20px; -fx-margin-left: 65px;"/>
+
 </AnchorPane>
+
