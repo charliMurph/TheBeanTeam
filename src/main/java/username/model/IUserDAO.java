@@ -32,6 +32,7 @@ public interface IUserDAO {
      * @return A list of all users in the database.
      */
     public List<User> getAllUsers();
+    public void addAppName(int id , String appName, int weekHours,int monthHours);
 
 
     int getUserId(String username, String password);

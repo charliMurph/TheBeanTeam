@@ -26,5 +26,7 @@
         <!-- Button to save preferences -->
         <Button text="Save to User Preferences" onAction="#onSaveButton"/>
 
+        <Button text="Back to User Preferences" onAction="#onBackButton"/>
+
     </VBox>
 </AnchorPane>

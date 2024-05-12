@@ -8,12 +8,14 @@ public class UserDAO implements IUserDAO{
     private Connection connection;
     public DatabaseConnection dataconnect;
 
+
     public UserDAO() {
 
         connection = DatabaseConnection.getInstance();
         // Initialize dataconnect here
         dataconnect = new DatabaseConnection();
         dataconnect.createUserTable(connection);
+//        dataconnect.createUserPreferences(connection);
         System.out.println("Connected DAO");
     }
     @Override
@@ -162,6 +164,23 @@ public class UserDAO implements IUserDAO{
 
         // Return false if an error occurred or if the username doesn't exist
         return false;
+    }
+@Override
+    public void addAppName(int id , String appName, int weekHours,int monthHours) {
+        try {
+            PreparedStatement insertPreference = connection.prepareStatement(
+                    "INSERT INTO userPreferences (authenticationId, applicationName, " +
+                            "weeklyHourLimit, monthlyHourLimit) VALUES (?, ?, ?, ?)"
+            );
+            insertPreference.setInt(1, id);
+            insertPreference.setString(2, appName);
+            insertPreference.setInt(3, weekHours);
+            insertPreference.setInt(4, monthHours);
+            insertPreference.execute();
+            System.out.println("Executed successfully!");
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
     }
 
 

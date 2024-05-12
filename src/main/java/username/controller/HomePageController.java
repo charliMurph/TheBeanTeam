@@ -22,7 +22,7 @@ public class HomePageController {
     // Getter methods for accessing UI elements
 
     private int id;
-    private UserDAO userDAO;
+    private final UserDAO userDAO;
     private User user;
     private Stage primaryStage;
 
@@ -86,17 +86,17 @@ public class HomePageController {
     @FXML
     private void handleUserPreferencesButtonClick() {
         try {
+            userDAO.close();
         // Implement the logic to navigate to the user preferences page here
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/username/PreferencesPage-view.fxml"));
             Parent root = loader.load();
         // Get the controller for the home page
             UserPreferenceController preferences = loader.getController();
             System.out.println("Button clicked. Navigating to user preferences page...");
-            userDAO.close();
+
             preferences.setUser(user);
             preferences.setUserDAO(userDAO);
             preferences.setPrimaryStage(primaryStage);
-            preferences.initialize();
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.show();
