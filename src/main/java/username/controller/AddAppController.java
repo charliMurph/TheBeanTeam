@@ -14,10 +14,10 @@ public class AddAppController {
     public Spinner weeklyLimitSpinner;
     public Spinner monthlyLimitSpinner;
     private User user;
-    private UserDAO userDAO;
     private int id;
     private UserPreferences preferences;
     private Stage primaryStage;
+
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
@@ -29,22 +29,39 @@ public class AddAppController {
         return user;
     }
 
+    public void initialize()
+    {
+        preferences = new UserPreferences();
+    }
+
     @FXML
     public void onSaveButton(ActionEvent event) {
         // Read the input from the TextField for app name
         String appName = appNameTextField.getText();
-        int weeklyLimit = (int) weeklyLimitSpinner.getValue();
-        int monthlyLimit = (int) monthlyLimitSpinner.getValue();
-        preferences.setMonthHours(monthlyLimit);
-        preferences.setWeekHours(weeklyLimit);
+        if (monthlyLimitSpinner.getValue() != null && monthlyLimitSpinner.getValue() != null) {
+
+            int weeklyLimit = (int) weeklyLimitSpinner.getValue();
+            int monthlyLimit = (int) monthlyLimitSpinner.getValue();
+            user = getUser();
+            id = user.getId();
+            System.out.println("id name: " + id);
+            System.out.println("user name: " + user.getFirstName());
+            preferences.addAppName(id, appName, weeklyLimit, monthlyLimit);
+            // Now you can proceed with your logic that depends on weeklyLimit and monthlyLimit
+        } else {
+            appNameTextField.setText("Values are non enter limit value");
+            // Handle the case where one or both spinner values are null
+            // For example, display an error message to the user or set default values
+            return;
+        }
+
         // Add the app name and limits to the user preferences
-        preferences.addAppName(id, appName);
+
         // Clear the TextFields after saving
         appNameTextField.clear();
-        weeklyLimitSpinner.getValueFactory().setValue(null);
-        monthlyLimitSpinner.getValueFactory().setValue(null);
         // Add the app name to the user preferences
         // Clear the TextField after saving
-        appNameTextField.clear();
     }
+
+
 }

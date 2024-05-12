@@ -9,10 +9,12 @@ public class UserDAO implements IUserDAO{
     public DatabaseConnection dataconnect;
 
     public UserDAO() {
+
         connection = DatabaseConnection.getInstance();
         // Initialize dataconnect here
         dataconnect = new DatabaseConnection();
         dataconnect.createUserTable(connection);
+        System.out.println("Connected DAO");
     }
     @Override
     public void addUser(User User) {
@@ -164,6 +166,7 @@ public class UserDAO implements IUserDAO{
 
 
     public void close() {
+        System.out.println("Closed user DAO");
         try {
             if (connection != null) {
                 connection.close();

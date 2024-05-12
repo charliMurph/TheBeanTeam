@@ -13,14 +13,17 @@ public class UserPreferences {
     private Connection connection;
     public DatabaseConnection dataconnect;
 
-    public UserPreferences(User user) {
-        this.user = user;
+    public UserPreferences() {
+
         connection = DatabaseConnection.getInstance();
+        System.out.println("Connect to user pref");
         // Initialize dataconnect here
         dataconnect = new DatabaseConnection();
         dataconnect.createUserPreferences(connection);
     }
-
+    public void addUser(User user) {
+        this.user = user;
+    }
     public int getId() {
         return id;
     }
@@ -52,22 +55,6 @@ public class UserPreferences {
     public void setMonthHours(int monthHours) {
         this.monthHours = monthHours;
     }
-
-    public User returnUser() {
-        return user;
-    }
-
-    public UserPreferences(int id, String appName, int weekHours, int monthHours) {
-        connection = DatabaseConnection.getInstance();
-        // Initialize dataconnect here
-        dataconnect = new DatabaseConnection();
-        dataconnect.createUserPreferences(connection);
-        this.id = id;
-        this.appName = appName;
-        this.weekHours = weekHours;
-        this.monthHours = monthHours;
-    }
-
     public void addUserPreference(UserPreferences userpref) {
         try {
             PreparedStatement insertPreference = connection.prepareStatement(
@@ -83,9 +70,11 @@ public class UserPreferences {
         } catch (SQLException ex) {
             System.err.println(ex);
         }
+
     }
 
-    public void addAppName(int id, String appName) {
+    public void addAppName(int id, String appName, int weekHours,int monthHours) {
+        System.out.println("user id: " + id);
         try {
             PreparedStatement insertPreference = connection.prepareStatement(
                     "INSERT INTO userPreferences (authenticationId, applicationName, " +
@@ -101,5 +90,18 @@ public class UserPreferences {
             System.err.println(ex);
         }
     }
+    public void close() {
+        try {
+            if (connection != null) {
+                connection.close();
+            }
+        } catch (SQLException ex) {
+            // Log or handle the exception
+            ex.printStackTrace();
+        }
+        System.out.println("Closed user pref");
+    }
+
+
 }
 
