@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.icons525.Icons525View?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.BorderPane?>
 
+<?import javafx.scene.control.Label?>
 <BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="username.controller.GoalsController">
     <VBox alignment="CENTER" prefHeight="800.0" prefWidth="62.0" spacing="20.0" style="-fx-background-color: DFC6FF;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
         <children>
@@ -79,8 +90,10 @@
     </top>
     <center>
         <HBox style="-fx-background-color: rgba(233, 229, 229, 1); -fx-border-color: rgba(0, 0, 0, 1); -fx-border-style: solid;     -fx-border-width: 1px; -fx-padding: 80px 60px;">
-            <Label style="-fx-font-size: 40px; -fx-color: #000; -fx-font-weight: bold;" text="Edit Current Goal" />
+            <Label style="-fx-font-size: 40px; -fx-color: #000; -fx-font-weight: bold;" text="Edit Current Goal">
+        </Label>
         </HBox>
+
     </center>
 
 </BorderPane>
