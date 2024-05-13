@@ -170,7 +170,7 @@ public class UserDAO implements IUserDAO{
         try {
             PreparedStatement insertPreference = connection.prepareStatement(
                     "INSERT INTO userPreferences (authenticationId, applicationName, " +
-                            "weeklyHourLimit, monthlyHourLimit) VALUES (?, ?, ?, ?)"
+                            "weeklyHourLimit, monthlyHourLimit, isActive) VALUES (?, ?, ?, ?, 1)"
             );
             insertPreference.setInt(1, id);
             insertPreference.setString(2, appName);
@@ -182,8 +182,85 @@ public class UserDAO implements IUserDAO{
             System.err.println(ex);
         }
     }
+    //change the names of sql appdata once Isaiah inserts his table with his value names
+    @Override
+    public double[] getLimitUsagePercentages(String appName, int userId) {
+        double[] percentages = new double[2]; // Array to store weekly and monthly percentages
 
+        try {
+            // Prepare the SQL query
+            String sqlQuery = "SELECT " +
+                    "CASE " +
+                    "    WHEN userPreferences.weeklyHourLimit > 0 THEN (appData.hoursTracked * 100.0) / userPreferences.weeklyHourLimit " +
+                    "    ELSE NULL " +
+                    "END AS weeklyLimitUsedPercentage, " +
+                    "CASE " +
+                    "    WHEN userPreferences.monthlyHourLimit > 0 THEN (appData.hoursTracked * 100.0) / userPreferences.monthlyHourLimit " +
+                    "    ELSE NULL " +
+                    "END AS monthlyLimitUsedPercentage " +
+                    "FROM " +
+                    "appData " +
+                    "JOIN " +
+                    "userPreferences ON appData.userID = userPreferences.authenticationId " +
+                    "WHERE " +
+                    "appData.userID = ? " +
+                    "AND appData.appName = ?;";
 
+            // Create a PreparedStatement
+            PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
+
+            // Set the parameters
+            preparedStatement.setInt(1, userId);
+            preparedStatement.setString(2, appName);
+
+            // Execute the query
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            // Retrieve the percentages
+            if (resultSet.next()) {
+                percentages[0] = resultSet.getDouble("weeklyLimitUsedPercentage");
+                percentages[1] = resultSet.getDouble("monthlyLimitUsedPercentage");
+            }
+        } catch (SQLException ex) {
+            System.err.println("Error retrieving limit usage percentages: " + ex.getMessage());
+        }
+
+        return percentages;
+    }
+
+    // change the names of app data once Isaiah inserts his data.
+    @Override
+    public int getHoursTracked(String appName, int userId) {
+        int hoursTracked = 0;
+
+        try {
+            // Prepare the SQL query
+            String sqlQuery = "SELECT appData.hoursTracked " +
+                    "FROM appData " +
+                    "JOIN userPreferences ON appData.userID = userPreferences.authenticationId " +
+                    "WHERE appData.userID = ? " +
+                    "AND appData.appName = ?;";
+
+            // Create a PreparedStatement
+            PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
+
+            // Set the parameters
+            preparedStatement.setInt(1, userId);
+            preparedStatement.setString(2, appName);
+
+            // Execute the query
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            // Retrieve the hours tracked
+            if (resultSet.next()) {
+                hoursTracked = resultSet.getInt("hoursTracked");
+            }
+        } catch (SQLException ex) {
+            System.err.println("Error retrieving hours tracked: " + ex.getMessage());
+        }
+
+        return hoursTracked;
+    }
     public void close() {
         System.out.println("Closed user DAO");
         try {

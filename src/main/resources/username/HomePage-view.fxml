@@ -14,5 +14,6 @@
 
     <!-- Button for navigating to user preferences page -->
     <Button layoutX="35.0" layoutY="100.0" text="User Preferences" onAction="#handleUserPreferencesButtonClick" />
+    <Button text="Logout" onAction="#handleLogoutButton"/>
 
 </AnchorPane>

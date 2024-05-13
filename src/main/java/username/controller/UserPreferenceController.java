@@ -52,8 +52,24 @@ public class UserPreferenceController {
             throw new RuntimeException(e);
         }
     }
-
-    public void setUserDAO(UserDAO userDAO) {
-
+    public void onbuttonBacktoHome(ActionEvent actionEvent)
+    {
+        try {
+            userDAO.close();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/username/HomePage-view.fxml"));
+            Parent root = loader.load();
+            // Get the controller for the home page
+            HomePageController homeController = loader.getController();
+            // Pass any necessary data to the home controller if needed
+            // For example, you can pass the username:
+            homeController.setUserId(id);
+            homeController.setPrimaryStage(primaryStage);
+            homeController.initialize();
+            Scene scene = new Scene(root);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

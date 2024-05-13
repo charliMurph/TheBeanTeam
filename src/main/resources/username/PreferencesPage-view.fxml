@@ -20,5 +20,6 @@
         <!-- Add more checkboxes for additional apps -->
         <!-- Button to update preferences -->
         <Button text="Update Preferences" onAction="#handleUpdatePreferences"/>
+        <Button text="Back to Home" onAction="#onbuttonBacktoHome"/>
     </VBox>
 </AnchorPane>

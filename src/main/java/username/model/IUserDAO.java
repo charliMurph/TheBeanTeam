@@ -34,6 +34,7 @@ public interface IUserDAO {
     public List<User> getAllUsers();
     public void addAppName(int id , String appName, int weekHours,int monthHours);
 
-
+    public double[] getLimitUsagePercentages(String appName, int userId);
     int getUserId(String username, String password);
+    public int getHoursTracked(String appName, int userId);
 }

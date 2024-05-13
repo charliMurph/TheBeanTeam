@@ -95,7 +95,6 @@ public class HomePageController {
             System.out.println("Button clicked. Navigating to user preferences page...");
 
             preferences.setUser(user);
-            preferences.setUserDAO(userDAO);
             preferences.setPrimaryStage(primaryStage);
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
@@ -104,4 +103,23 @@ public class HomePageController {
             throw new RuntimeException(e);
         }
     }
+    @FXML
+    private void handleLogoutButton() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/username/Login-view.fxml"));
+            System.out.println("Sign Up FXML Path: " + getClass().getResource("Login-view.fxml")); // Logging statement
+            Parent root = loader.load();
+            LoginController controller = loader.getController();
+            controller.setPrimaryStage(primaryStage); // Pass the primaryStage to the controller
+            userDAO.close();
+            Scene scene = new Scene(root);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Handle the exception
+        }
+    }
+
+
 }
