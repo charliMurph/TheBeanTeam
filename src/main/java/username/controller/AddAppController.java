@@ -5,77 +5,80 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
-import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import username.model.User;
-import username.model.UserPreferences;
+import username.model.UserDAO;
 
 import java.io.IOException;
 
-public class AddAppController implements IController {
-    private Stage primaryStage;
+public class AddAppController {
+    public TextField appNameTextField;
+    public Spinner weeklyLimitSpinner;
+    public Spinner monthlyLimitSpinner;
     private User user;
     private int id;
-    @FXML
-    private TextField appNameTextField;
-    @FXML
-    private Spinner weeklyLimitSpinner;
-    @FXML
-    private Spinner monthlyLimitSpinner;
+    private final UserDAO userDAO;
+    private Stage primaryStage;
+    public AddAppController(){ userDAO = new UserDAO();}
 
-
-    private UserPreferences userpref;
-    public void setUser(User user) {
-
-        this.user = user;
-        this.id = user.getId();
-    }
-    @Override
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
-    @Override
-    public void initialize() {
-        // Set default values for Spinner controls
-        weeklyLimitSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 168, 0));
-        monthlyLimitSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 720, 0));
 
-        // Configure behavior of Spinner controls
-        weeklyLimitSpinner.setEditable(true);
-        monthlyLimitSpinner.setEditable(true);
+    public void setUser(User user) {
+        this.user = user;
+    }
+    public User getUser() {
+        return user;
     }
 
-    public void onSaveButton(ActionEvent actionEvent) {
-        if (appNameTextField.getText().isEmpty())
-        {
-            appNameTextField.setText("Please fill in all required fields.");
-            return; // Stop execution if any required field is empty
-        }
+    @FXML
+    public void onSaveButton(ActionEvent event) {
+        // Read the input from the TextField for app name
         String appName = appNameTextField.getText();
-        int weeklyLimit = (int) weeklyLimitSpinner.getValue();
-        int monthlyLimit = (int) monthlyLimitSpinner.getValue();
-        userpref = new UserPreferences(id, appName, weeklyLimit, monthlyLimit);
-        userpref.addUserPreference(userpref);
+        if (monthlyLimitSpinner.getValue() != null && monthlyLimitSpinner.getValue() != null) {
+            saveFunction(appName);
+        } else {
+            appNameTextField.setText("Values are non enter limit value");
+            // Handle the case where one or both spinner values are null
+            // For example, display an error message to the user or set default values
+            return;
+        }
 
+        // Clear the TextFields after saving
+        appNameTextField.clear();
+        // Add the app name to the user preferences
+        // Clear the TextField after saving
+    }
+    public void saveFunction(String appName) {
+            int weeklyLimit = (int) weeklyLimitSpinner.getValue();
+            int monthlyLimit = (int) monthlyLimitSpinner.getValue();
+            user = getUser();
+            id = user.getId();
+            System.out.println("id name: " + id);
+            System.out.println("user name: " + user.getFirstName());
+            String username = user.getUsername();
+            userDAO.addAppName(id, appName, weeklyLimit, monthlyLimit);
+            // Now you can proceed with your logic that depends on weeklyLimit and monthlyLimit
+
+    }
+    public void onBackButton(ActionEvent actionEvent) {
         try {
+            System.out.println("Closed user DAO on back");
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/username/PreferencesPage-view.fxml"));
             Parent root = loader.load();
-            UserPreferenceController preferenceController = loader.getController();
-            preferenceController.setPrimaryStage(primaryStage);
-            preferenceController.setUser(user);
-            preferenceController.initialize();
-
+            UserPreferenceController userPreferenceController = loader.getController();
+            userPreferenceController.setPrimaryStage(primaryStage);
+            userPreferenceController.setUser(user);
+            userDAO.close();
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
-    public void onBackToHome(){
 
-    }
 }

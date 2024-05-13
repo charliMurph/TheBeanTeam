@@ -5,15 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="195bfca3-755a-419b-85be-3ab100768756" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/username/controller/AddAppController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/username/controller/IController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/username/AddAppPage-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Screen_Time_Bean_Time.db" beforeDir="false" afterPath="$PROJECT_DIR$/Screen_Time_Bean_Time.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/HomePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/HomePageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/UserPreferenceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/UserPreferenceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/UserProfileController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/username/model/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/model/DatabaseConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/username/model/UserPreferences.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/model/UserPreferences.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/model/IUserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/model/IUserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/model/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/model/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/username/HomePage-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/username/HomePage-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/username/PreferencesPage-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/username/PreferencesPage-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,13 +23,18 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
         <option value="FxmlFile" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="develop" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -42,6 +46,9 @@
         <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
       </MavenGeneralSettings>
     </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
@@ -120,6 +127,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.UserTest" />
+        <item itemvalue="JUnit.UserTest" />
+        <item itemvalue="JUnit.UserTest" />
       </list>
     </recent_temporary>
   </component>
@@ -140,6 +149,17 @@
       <updated>1713756810453</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

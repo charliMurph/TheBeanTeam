@@ -22,7 +22,7 @@ public class HomePageController {
     // Getter methods for accessing UI elements
 
     private int id;
-    private UserDAO userDAO;
+    private final UserDAO userDAO;
     private User user;
     private Stage primaryStage;
 
@@ -86,16 +86,16 @@ public class HomePageController {
     @FXML
     private void handleUserPreferencesButtonClick() {
         try {
+            userDAO.close();
         // Implement the logic to navigate to the user preferences page here
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/username/PreferencesPage-view.fxml"));
             Parent root = loader.load();
         // Get the controller for the home page
             UserPreferenceController preferences = loader.getController();
             System.out.println("Button clicked. Navigating to user preferences page...");
-            userDAO.close();
+
             preferences.setUser(user);
             preferences.setPrimaryStage(primaryStage);
-            preferences.initialize();
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.show();
@@ -103,4 +103,23 @@ public class HomePageController {
             throw new RuntimeException(e);
         }
     }
+    @FXML
+    private void handleLogoutButton() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/username/Login-view.fxml"));
+            System.out.println("Sign Up FXML Path: " + getClass().getResource("Login-view.fxml")); // Logging statement
+            Parent root = loader.load();
+            LoginController controller = loader.getController();
+            controller.setPrimaryStage(primaryStage); // Pass the primaryStage to the controller
+            userDAO.close();
+            Scene scene = new Scene(root);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Handle the exception
+        }
+    }
+
+
 }
