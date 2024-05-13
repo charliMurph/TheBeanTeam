@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="195bfca3-755a-419b-85be-3ab100768756" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/resources/username/EditGoalView2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/username/EditGoalView2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/username/NewGoal-View.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/username/NewGoal-View.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
