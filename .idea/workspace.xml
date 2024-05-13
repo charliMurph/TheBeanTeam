@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="195bfca3-755a-419b-85be-3ab100768756" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/username/controller/GoalsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/SignUpController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/username/EditGoal-View.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/username/EditGoal-View.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/username/GoalSetting-View.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/username/GoalSetting-View.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/username/NewGoal-View.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/username/NewGoal-View.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,6 +84,7 @@
     "ignore.virus.scanning.warn.message": "true",
     "jdk.selected.JAVA_MODULE": "1.8",
     "kotlin-language-version-configured": "true",
+    "last_directory_selection": "/Users/samanthagibson/Desktop/University/Semester 1 2024/CAB302/TheBeanTeam/src/main/resources/username",
     "last_opened_file_path": "C:/Users/murph/CAB302/address-book",
     "onboarding.tips.debug.path": "C:/Users/murph/TheBeanTeam/address-book/src/main/java/org/example/Main.java",
     "project.structure.last.edited": "Libraries",

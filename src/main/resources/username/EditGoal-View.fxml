@@ -11,18 +11,14 @@
 <?import javafx.scene.text.Text?>
 
 
+<?import javafx.scene.control.Label?>
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="username.EditGoal-View"
-            prefHeight="400.0" prefWidth="600.0">
+            fx:controller="username.controller.GoalsController"
+            prefHeight="600.0" prefWidth="300.0">
 
     <!-- Header -->
     <HBox style="-fx-background-color: rgba(233, 229, 229, 1); -fx-border-color: rgba(0, 0, 0, 1); -fx-border-style: solid; -fx-border-width: 1px; -fx-padding: 80px 60px;">
-        <ImageView>
-            <image>
-                <Image url=""/>
-            </image>
-        </ImageView>
         <Label style="-fx-font-size: 40px; -fx-color: #000; -fx-font-weight: bold;" text="Edit Current Goal"/>
     </HBox>
 
@@ -47,11 +43,6 @@
                 <Label style="-fx-font-size: 20px; -fx-color: #5915ae;" text="Goal Type:"/>
                 <HBox style="-fx-border-radius: 10px; -fx-border-color: rgba(217, 217, 217, 1); -fx-border-style: solid; -fx-border-width: 1px; -fx-background-color: #ddb9e2; -fx-margin-top: 10px; -fx-padding-left: 26px; -fx-spacing: 20px; -fx-font-size: 24px; -fx-color: #600b7e;">
                     <Label style="-fx-font-family: Inter, sans-serif; -fx-grow: 1; -fx-flex-basis: auto;" text="Daily Usage"/>
-                    <ImageView>
-                        <image>
-                            <Image url=""/>
-                        </image>
-                    </ImageView>
                 </HBox>
             </VBox>
         </VBox>

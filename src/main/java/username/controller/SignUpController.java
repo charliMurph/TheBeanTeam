@@ -69,7 +69,7 @@ public class SignUpController {
     }
 
     @FXML
-    public void handleLogin(ActionEvent event) {
+    public void HandleLogin(ActionEvent actionEvent) {
         // Code to navigate back to the login screen
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Login-View.fxml"));
