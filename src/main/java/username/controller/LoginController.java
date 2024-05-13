@@ -27,6 +27,7 @@ public class LoginController {
         // You can put initialization code here if needed
     }
 
+    @FXML
     private void userLoginIn(ActionEvent event) {
         String username = this.usernameField.getText();
         String password = this.passwordField.getText();
@@ -43,8 +44,7 @@ public class LoginController {
         return user.isValidLogin(username, password);
     }
 
-    @FXML
-    private void handleSignUpLink(ActionEvent event) {
+    public void HandleSignUpLink(ActionEvent actionEvent) {
         // Load SignUp-View.fxml and display it in a new window
-        }
     }
+}
