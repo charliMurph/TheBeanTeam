@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<?import javafx.scene.control.Label?>
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="username.controller.GoalsController"
-            prefHeight="400.0" prefWidth="600.0">
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="username.controller.GoalsController">
+    <left>
 
-</AnchorPane>
+    </left>
+    <top>
+    </top>
+    <center>
+        <HBox style="-fx-background-color: rgba(233, 229, 229, 1); -fx-border-color: rgba(0, 0, 0, 1); -fx-border-style: solid;     -fx-border-width: 1px; -fx-padding: 80px 60px;">
+            <Label style="-fx-font-size: 40px; -fx-color: #000; -fx-font-weight: bold;" text="Edit Current Goal" />
+        </HBox>
+    </center>
+
+</BorderPane>
