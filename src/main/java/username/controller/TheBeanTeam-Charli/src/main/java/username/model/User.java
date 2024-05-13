@@ -15,6 +15,11 @@ public class User {
     private int age;
     private String applicationName;
     private int hoursTracked;
+    private String appName;
+    private User user;
+    private int weekHours;
+    private int monthHours;
+
 
     public User(int id, String email, String username, String password, String firstName, String lastName, int age) {
         this.id = id;
@@ -33,11 +38,6 @@ public class User {
         this.lastName = lastName;
         this.age = age;
     }
-    public User(String applicationName, int hoursTracked){
-        this.applicationName = applicationName;
-        this.hoursTracked = hoursTracked;
-    }
-
     public int getId() {
         return id;
     }
@@ -107,5 +107,20 @@ public class User {
 
     public void setHoursTracked(int hoursTracked) {
         this.hoursTracked = hoursTracked;
+    }
+
+    public int getWeekHours() {
+        return weekHours;
+    }
+
+    public void setWeekHours(int weekHours) {
+        this.weekHours = weekHours;
+    }
+    public int getMonthHours() {
+        return monthHours;
+    }
+
+    public void setMonthHours(int monthHours) {
+        this.monthHours = weekHours;
     }
 }

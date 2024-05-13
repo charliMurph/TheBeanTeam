@@ -41,6 +41,7 @@
 //            System.err.println(ex);
 //        }
 //    }
+//
 //    public void createUserPreferences(Connection connection){
 //        try{
 //            Statement ScreenLogs = connection.createStatement();
@@ -59,22 +60,17 @@
 //            System.err.println(ex);
 //        }
 //    }
-////    public void createUserPreferences(Connection connection) {
-////        try {
-////            Statement createUserPreferences = connection.createStatement();
-////            createUserPreferences.execute(
-////                    "CREATE TABLE IF NOT EXISTS userPreferences ("
-////                            + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
-////                            + "authentication_id INTEGER NOT NULL, "
-////                            + "application_name VARCHAR NOT NULL, "
-////                            + "hours_per_week INTEGER NOT NULL, "
-////                            + "hours_per_month INTEGER NOT NULL, "
-////                            + "FOREIGN KEY (authentication_id) REFERENCES authentication(id)"
-////                            + ")"
-////            );
-////        } catch (SQLException ex) {
-////            System.err.println(ex);
-////        }
-////    }
-//
+//    public void addcolumn(Connection connection) {
+//        System.out.println("Added");
+//        try {
+//            Statement createUserPreferences = connection.createStatement();
+//            createUserPreferences.execute(
+//                    "ALTER TABLE userPreferences " +
+//                            "ADD COLUMN isActive INTEGER;"
+//            );
+//        } catch (SQLException ex) {
+//            System.err.println(ex);
+//        }
+//    }
+
 //}
