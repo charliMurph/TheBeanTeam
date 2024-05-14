@@ -5,28 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="195bfca3-755a-419b-85be-3ab100768756" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/bootstrapfx-core-0.4.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-base-17-win.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-base-17.0.6-win.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-base-17.0.6.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-base-17.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-controls-17-win.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-controls-17.0.6-win.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-controls-17.0.6.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-controls-17.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-graphics-17-win.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-graphics-17.0.6-win.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-graphics-17.0.6.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-graphics-17.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-media-17.0.6-win.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-media-17.0.6.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-web-17.0.6-win.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-web-17.0.6.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/username/controller/AnalyticsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/username/controller/DmanagementController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/username/model/Navigate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/username/Analytics-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/username/model/IScreenTIme.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,8 +17,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
