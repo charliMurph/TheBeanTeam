@@ -7,20 +7,34 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.stage.Stage;
+import org.controlsfx.control.ToggleSwitch;
 import username.model.*;
 
 import java.io.IOException;
 
 public class UserPreferenceController {
+    @FXML
+    public ToggleSwitch WordSwitch;
+    @FXML
+    public ToggleSwitch ChromeSwitch;
+    @FXML
+    public ToggleSwitch ExcelSwitch;
+    @FXML
+    public ToggleSwitch SteamSwitch;
+    @FXML
+    public ToggleSwitch PPTSwitch;
+    @FXML
+    public ToggleSwitch DiscordSwitch;
+    @FXML
+    public ToggleSwitch OfficeSwitch;
+    @FXML
+    public ToggleSwitch InstaSwitch;
+    @FXML
+    public ToggleSwitch FBSwitch;
     private User user;
     private int id;
     private final UserDAO userDAO;
     private Stage primaryStage;
-    @FXML
-    private CheckBox app1Checkbox;
-
-    @FXML
-    private CheckBox app2Checkbox;
 
     // Add more CheckBox fields for additional apps as needed
     public void setPrimaryStage(Stage primaryStage) {

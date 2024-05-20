@@ -6,7 +6,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Slider;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import username.model.Navigate;
 import username.model.UserDAO;
 import username.model.User;
 import javafx.fxml.FXML;
@@ -14,7 +16,7 @@ import javafx.scene.control.Label;
 
 import java.io.IOException;
 
-public class HomePageController {
+public class HomePageController implements IControllerPaths {
 
     @FXML
     private Label greetingLabel;
@@ -121,5 +123,35 @@ public class HomePageController {
         }
     }
 
-
+    @Override
+    public void Profile(MouseEvent event){
+        Navigate.goTo("/username/Profile-view.fxml", event);
+    }
+    @Override
+    public void Analytics(MouseEvent event){
+        Navigate.goTo("/username/Analytics-view.fxml", event);
+    }
+    @Override
+    public void Settings(MouseEvent event){
+        Navigate.goTo("/username/Settings-view.fxml", event);
+    }
+    @Override
+    public void Notifications(MouseEvent event){
+        Navigate.goTo("/username/Notifications-view.fxml", event);
+    }
+    @Override
+    public void DataMan(MouseEvent event){
+        Navigate.goTo("/username/PreferencesPage-view.fxml", event);
+    }
+    @Override
+    public void Resources(MouseEvent event){
+        Navigate.goTo("/username/Resource-view.fxml", event);
+    }
+    @Override
+    public void Goals(MouseEvent event){
+        Navigate.goTo("/username/Home-view.fxml", event);
+    }
+    public void Home(MouseEvent event){
+        Navigate.goTo("/username/Home-view.fxml", event);
+    }
 }

@@ -117,7 +117,7 @@
                                     </HBox.margin>
                                 </FontAwesomeIconView>
                                 <HBox prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                                <ToggleSwitch prefHeight="18.0" prefWidth="48.0">
+                                <ToggleSwitch fx:id="ChromeSwitch" prefHeight="18.0" prefWidth="48.0">
                                     <HBox.margin>
                                         <Insets right="5.0" />
                                     </HBox.margin>
@@ -145,7 +145,7 @@
                                     </HBox.margin>
                                 </Icons525View>
                                 <HBox prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                                <ToggleSwitch prefHeight="18.0" prefWidth="48.0">
+                                <ToggleSwitch fx:id="WordSwitch" prefHeight="18.0" prefWidth="48.0">
                                     <HBox.margin>
                                         <Insets right="5.0" />
                                     </HBox.margin>
@@ -176,7 +176,7 @@
                                     </HBox.margin>
                                 </Icons525View>
                                 <HBox prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                                <ToggleSwitch prefHeight="18.0" prefWidth="48.0">
+                                <ToggleSwitch fx:id="DiscordSwitch" prefHeight="18.0" prefWidth="48.0">
                                     <HBox.margin>
                                         <Insets right="5.0" />
                                     </HBox.margin>
@@ -207,7 +207,7 @@
                                     </HBox.margin>
                                 </FontAwesomeIconView>
                                 <HBox prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                                <ToggleSwitch prefHeight="18.0" prefWidth="48.0">
+                                <ToggleSwitch fx:id="SteamSwitch" prefHeight="18.0" prefWidth="48.0">
                                     <HBox.margin>
                                         <Insets right="5.0" />
                                     </HBox.margin>
@@ -238,7 +238,7 @@
                                     </HBox.margin>
                                 </Icons525View>
                                 <HBox prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                                <ToggleSwitch prefHeight="18.0" prefWidth="48.0">
+                                <ToggleSwitch fx:id="PPTSwitch" prefHeight="18.0" prefWidth="48.0">
                                     <HBox.margin>
                                         <Insets right="5.0" />
                                     </HBox.margin>
@@ -269,7 +269,7 @@
                                     </HBox.margin>
                                 </FontAwesomeIconView>
                                 <HBox prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                                <ToggleSwitch prefHeight="18.0" prefWidth="48.0">
+                                <ToggleSwitch fx:id="FBSwitch" prefHeight="18.0" prefWidth="48.0">
                                     <HBox.margin>
                                         <Insets right="5.0" />
                                     </HBox.margin>
@@ -300,7 +300,7 @@
                                     </HBox.margin>
                                 </FontAwesomeIconView>
                                 <HBox prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                                <ToggleSwitch prefHeight="18.0" prefWidth="48.0">
+                                <ToggleSwitch fx:id="InstaSwitch" prefHeight="18.0" prefWidth="48.0">
                                     <HBox.margin>
                                         <Insets right="5.0" />
                                     </HBox.margin>
@@ -331,7 +331,7 @@
                                     </HBox.margin>
                                 </Icons525View>
                                 <HBox prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                                <ToggleSwitch prefHeight="18.0" prefWidth="48.0">
+                                <ToggleSwitch fx:id="OfficeSwitch" prefHeight="18.0" prefWidth="48.0">
                                     <HBox.margin>
                                         <Insets right="5.0" />
                                     </HBox.margin>
@@ -362,7 +362,7 @@
                                     </HBox.margin>
                                 </Icons525View>
                                 <HBox prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                                <ToggleSwitch prefHeight="18.0" prefWidth="48.0">
+                                <ToggleSwitch fx:id="ExcelSwitch" prefHeight="18.0" prefWidth="48.0">
                                     <HBox.margin>
                                         <Insets right="5.0" />
                                     </HBox.margin>
