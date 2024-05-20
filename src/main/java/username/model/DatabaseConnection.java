@@ -51,7 +51,8 @@ public class DatabaseConnection {
                             + "authenticationId INTEGER NOT NULL, "
                             + "applicationName VARCHAR NOT NULL, "
                             + "weeklyHourLimit INTEGER NOT NULL, "  // Add comma here
-                            + "monthlyHourLimit INTEGER, "  // Add comma here
+                            + "monthlyHourLimit INTEGER, " +
+                            "isActive integer NOT NULL,"  // Add comma here
                             + "FOREIGN KEY (authenticationId) REFERENCES authentication(id)"
                             + ")"
             );

@@ -15,7 +15,7 @@ public class UserDAO implements IUserDAO{
         // Initialize dataconnect here
         dataconnect = new DatabaseConnection();
         dataconnect.createUserTable(connection);
-//        dataconnect.createUserPreferences(connection);
+        dataconnect.createUserPreferences(connection);
         System.out.println("Connected DAO");
     }
     @Override

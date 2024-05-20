@@ -88,8 +88,8 @@ public class SignUpController {
     @FXML
     private void handleBackToLogin(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Login-view.fxml"));
-            System.out.println("Login FXML Path: " + getClass().getResource("Login-view.fxml")); // Logging statement
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/username/Login-view.fxml"));
+            System.out.println("Login FXML Path: " + getClass().getResource("/username/Login-view.fxml")); // Logging statement
             Parent root = loader.load();
             LoginController controller = loader.getController();
             controller.setPrimaryStage(primaryStage);
