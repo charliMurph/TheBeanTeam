@@ -10,16 +10,16 @@
 <?import javafx.scene.text.*?>
 <?import org.controlsfx.control.*?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="username.controller.UserPreferenceController">
+<AnchorPane prefHeight="800.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="username.controller.DataManagementController">
     <children>
         <VBox alignment="CENTER" prefHeight="800.0" prefWidth="62.0" spacing="20.0" style="-fx-background-color: DFC6FF;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <Button mnemonicParsing="false" onAction="#onbuttonBacktoHome" style="-fx-background-color: NULL;">
+                <Button mnemonicParsing="false" onMouseClicked="#Home" style="-fx-background-color: NULL;">
                     <graphic>
                         <Icons525View fill="#af71ff" glyphName="HOME" size="40" />
                     </graphic>
                 </Button>
-                <Button mnemonicParsing="false" style="-fx-background-color: NULL;">
+                <Button mnemonicParsing="false" style="-fx-background-color: NULL;" onMouseClicked="#Analytics">
                     <graphic>
                         <FontAwesomeIconView fill="#af71ff" glyphName="PIE_CHART" size="40" />
                     </graphic>
@@ -374,7 +374,9 @@
                                 <Insets left="30.0" right="30.0" top="5.0" />
                             </VBox.margin>
                         </HBox>
-                        <Button alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="400.0" layoutY="300.0" mnemonicParsing="false" onAction="#handleUpdatePreferences" style="-fx-background-color: DFC6FF;" text="Edit Apps" textFill="#a259ff" translateX="500.0" translateY="20.0" />
+                        <Button alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="400.0" layoutY="300.0"
+                                mnemonicParsing="false" onAction="#Goals" style="-fx-background-color: DFC6FF;"
+                                text="Edit Apps" textFill="#a259ff" translateX="500.0" translateY="20.0"/>
                     </children>
                 </VBox>
             </children>

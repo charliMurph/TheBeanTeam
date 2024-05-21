@@ -1,22 +1,23 @@
 package username.controller;
 
-import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
-import username.model.Navigate;
 
 public interface IControllerPaths {
-    public void Profile();
-
+    @FXML
+    public void Profile(MouseEvent event);
+    @FXML
     public void Analytics(MouseEvent event);
+    @FXML
     public void Settings(MouseEvent event);
-
+    @FXML
     public void Notifications(MouseEvent event);
+    @FXML
+    public void DataMan(MouseEvent event);
 
-    public void UserPref(MouseEvent event);
+    @FXML
     public void Resources(MouseEvent event);
-
-    public void Goals(MouseEvent event);
-
+    @FXML
     public void Home(MouseEvent event);
 
 }

@@ -28,7 +28,7 @@
                         <FontAwesomeIconView fill="#af71ff" glyphName="LOCK" size="40" />
                     </graphic>
                 </Button>
-                <Button mnemonicParsing="false" style="-fx-background-color: NULL;" onAction="#handleUserPreferencesButtonClick" >
+                <Button mnemonicParsing="false" style="-fx-background-color: NULL;" onMouseClicked="#DataMan" >
                     <graphic>
                         <FontAwesomeIconView fill="#af71ff" glyphName="LIST_UL" size="40" />
                     </graphic>
@@ -70,7 +70,7 @@
                                 <FontAwesomeIconView fill="#7c7c7c" glyphName="BELL" size="20" />
                             </graphic>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#Profile" prefHeight="45.0" prefWidth="44.0" style="-fx-background-color: dfc6ff; -fx-background-radius: 100;" translateX="680.0" translateY="25.0">
+                        <Button mnemonicParsing="false" onMouseClicked="#Profile" prefHeight="45.0" prefWidth="44.0" style="-fx-background-color: dfc6ff; -fx-background-radius: 100;" translateX="680.0" translateY="25.0">
                             <graphic>
                                 <Icons525View fill="#af71ff" glyphName="USER" size="25" />
                             </graphic>

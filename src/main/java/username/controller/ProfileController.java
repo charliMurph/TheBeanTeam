@@ -1,6 +1,10 @@
 package username.controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -9,7 +13,9 @@ import username.model.Navigate;
 import username.model.User;
 import username.model.UserDAO;
 
-public class ProfileController {
+import java.io.IOException;
+
+public class ProfileController implements IControllerPaths{
 
     @FXML
     private TextField usernameLabel;
@@ -27,7 +33,9 @@ public class ProfileController {
     private TextField passwordLabel;
 
     private final UserDAO userDAO;
+
     private User user;
+
     private Stage primaryStage;
 
     public void setPrimaryStage(Stage primaryStage) {
@@ -61,25 +69,45 @@ public class ProfileController {
             System.out.println("user is null");
         }
     }
-
-    public void Profile(MouseEvent event) {
-        Navigate.goTo("/username/Profile-view.fxml", event);
+    @FXML
+    private void handleLogoutButton() {
+        try {
+            userDAO.close();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/username/Login-view.fxml"));
+            System.out.println("Sign Up FXML Path: " + getClass().getResource("Login-view.fxml")); // Logging statement
+            Parent root = loader.load();
+            LoginController controller = loader.getController();
+            controller.setPrimaryStage(primaryStage); // Pass the primaryStage to the controller
+            userDAO.close();
+            Scene scene = new Scene(root);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Handle the exception
+        }
     }
 
+    @Override
+    public void Profile(MouseEvent event) {
+        return;
+    }
+    @Override
     public void Analytics(MouseEvent event) {
         Navigate.goTo("/username/Analytics-view.fxml", event);
     }
-
+    @Override
     public void Settings(MouseEvent event) {
         Navigate.goTo("/username/Settings-view.fxml", event);
     }
-
+    @Override
     public void Notifications(MouseEvent event) {
         Navigate.goTo("/username/Notifications-view.fxml", event);
     }
 
+    @Override
     public void DataMan(MouseEvent event) {
-        Navigate.goTo("/username/Dmanagement-view.fxml", event);
+        Navigate.caseGoto(event, user,  primaryStage, "/username/DataManagementPage-view.fxml", "DataMan");
     }
 
     public void Resources(MouseEvent event) {
@@ -87,11 +115,12 @@ public class ProfileController {
     }
 
     public void Goals(MouseEvent event) {
-        Navigate.goTo("/username/Home-view.fxml", event);
+        Navigate.caseGoto(event, user,  primaryStage, "/username/Goals-view.fxml", "Goals");
     }
-
+    @Override
+    //(MouseEvent event, User user, Stage primaryStage)
     public void Home(MouseEvent event) {
-        Navigate.goTo("/username/Home-view.fxml", event);
+        Navigate.caseGoto(event, user,  primaryStage, "/username/HomePage-view.fxml", "Home");
     }
 
 }

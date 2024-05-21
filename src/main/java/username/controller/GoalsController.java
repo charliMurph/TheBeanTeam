@@ -9,14 +9,16 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import username.model.Navigate;
 import username.model.User;
 import username.model.UserDAO;
 
 import java.io.IOException;
 import java.util.List;
 
-public class AddAppController{
+public class GoalsController implements IControllerPaths {
     @FXML
     private ComboBox<String> appNameComboBox;  // Ensure this is typed with <String>
     @FXML
@@ -33,30 +35,10 @@ public class AddAppController{
     private final UserDAO userDAO;
     private Stage primaryStage;
 
-    public AddAppController() {
+    public GoalsController() {
         userDAO = new UserDAO();
     }
-    @FXML
-    public void onbuttonBacktoHome(ActionEvent actionEvent)
-    {
-        try {
-            userDAO.close();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/username/HomePage-view.fxml"));
-            Parent root = loader.load();
-            // Get the controller for the home page
-            HomePageController homeController = loader.getController();
-            // Pass any necessary data to the home controller if needed
-            // For example, you can pass the username:
-            homeController.setUser(user);
-            homeController.setPrimaryStage(primaryStage);
-            homeController.initialize();
-            Scene scene = new Scene(root);
-            primaryStage.setScene(scene);
-            primaryStage.show();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
+
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
@@ -126,20 +108,38 @@ public class AddAppController{
     }
 
     @FXML
-    public void onBackButton(ActionEvent actionEvent) {
-        try {
-            System.out.println("Closed user DAO on back");
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/username/PreferencesPage-view.fxml"));
-            Parent root = loader.load();
-            UserPreferenceController userPreferenceController = loader.getController();
-            userPreferenceController.setPrimaryStage(primaryStage);
-            userPreferenceController.setUser(user);
-            userDAO.close();
-            Scene scene = new Scene(root);
-            primaryStage.setScene(scene);
-            primaryStage.show();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+    public void onBackButton(MouseEvent event) {
+        Navigate.caseGoto(event, user,  primaryStage, "/username/DataManagementPage-view.fxml", "DataMan");
+    }
+    @Override
+    //(MouseEvent event, User user, Stage primaryStage)
+    public void Home(MouseEvent event) {
+        Navigate.caseGoto(event, user,  primaryStage, "/username/HomePage-view.fxml", "Home");
+    }
+    @Override
+    public void DataMan(MouseEvent event) {
+        Navigate.caseGoto(event, user, primaryStage,"/username/DataManagementPage-view.fxml", "DataMan");
+    }
+
+    @Override
+    public void Profile(MouseEvent event) {
+        Navigate.caseGoto(event, user, primaryStage,"/username/Profile-view.fxml", "Profile");
+    }
+    @Override
+    public void Analytics(MouseEvent event){
+        userDAO.close();
+        Navigate.caseGoto(event, user, primaryStage, "/username/Analytics-view.fxml", "Analytics");
+    }
+    @Override
+    public void Settings(MouseEvent event){
+        Navigate.goTo("/username/Settings-view.fxml", event);
+    }
+    @Override
+    public void Notifications(MouseEvent event){
+        Navigate.goTo("/username/Notifications-view.fxml", event);
+    }
+    @Override
+    public void Resources(MouseEvent event){
+        Navigate.goTo("/username/Resource-view.fxml", event);
     }
 }

@@ -14,17 +14,17 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="username.controller.AddAppController"
+            fx:controller="username.controller.GoalsController"
             prefHeight="800.0" prefWidth="1300.0">
     <children>
         <VBox alignment="CENTER" prefHeight="800.0" prefWidth="62.0" spacing="20.0" style="-fx-background-color: DFC6FF;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <Button mnemonicParsing="false" onAction="#onbuttonBacktoHome" style="-fx-background-color: NULL;">
+                <Button mnemonicParsing="false" onMouseClicked="#Home" style="-fx-background-color: NULL;">
                     <graphic>
                         <Icons525View fill="#af71ff" glyphName="HOME" size="40" />
                     </graphic>
                 </Button>
-                <Button mnemonicParsing="false" style="-fx-background-color: NULL;">
+                <Button mnemonicParsing="false" style="-fx-background-color: NULL;" onMouseClicked="#Analytics">
                     <graphic>
                         <FontAwesomeIconView fill="#af71ff" glyphName="PIE_CHART" size="40" />
                     </graphic>
@@ -144,7 +144,7 @@
                             </VBox.margin>
                         </Button>
 
-                        <Button text="Back to User Preferences" onAction="#onBackButton" style="-fx-background-color: #E9E5E5; -fx-background-radius: 15; -fx-text-fill: #868686;" prefWidth="200.0">
+                        <Button text="Back to User Preferences" onMouseClicked="#onBackButton" style="-fx-background-color: #E9E5E5; -fx-background-radius: 15; -fx-text-fill: #868686;" prefWidth="200.0">
                             <VBox.margin>
                                 <Insets top="10.0" />
                             </VBox.margin>
