@@ -77,6 +77,7 @@ public class UserPreferenceController {
             // Pass any necessary data to the home controller if needed
             // For example, you can pass the username:
             homeController.setUserId(id);
+            homeController.setUser(user);
             homeController.setPrimaryStage(primaryStage);
             homeController.initialize();
             Scene scene = new Scene(root);

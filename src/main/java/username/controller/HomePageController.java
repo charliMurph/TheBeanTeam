@@ -108,6 +108,7 @@ public class HomePageController implements IControllerPaths {
     @FXML
     private void handleLogoutButton() {
         try {
+            userDAO.close();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/username/Login-view.fxml"));
             System.out.println("Sign Up FXML Path: " + getClass().getResource("Login-view.fxml")); // Logging statement
             Parent root = loader.load();
@@ -124,8 +125,24 @@ public class HomePageController implements IControllerPaths {
     }
 
     @Override
-    public void Profile(MouseEvent event){
-        Navigate.goTo("/username/Profile-view.fxml", event);
+    public void Profile() {
+        try{
+            userDAO.close();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/username/Profile-view.fxml"));
+            System.out.println("Profile FXML Path: " + getClass().getResource("/username/Profile-view.fxml")); // Logging statement
+            Parent root = loader.load();
+            ProfileController profileController = loader.getController();
+            profileController.setPrimaryStage(primaryStage); // Pass the primaryStage to the controller
+            System.out.println("user is :" + user.getUsername());
+            profileController.setUser(user);
+            profileController.initializeProfile(user);
+            Scene scene = new Scene(root);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Handle the exception
+        }
     }
     @Override
     public void Analytics(MouseEvent event){

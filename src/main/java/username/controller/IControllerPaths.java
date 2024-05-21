@@ -1,10 +1,11 @@
 package username.controller;
 
+import javafx.event.ActionEvent;
 import javafx.scene.input.MouseEvent;
 import username.model.Navigate;
 
 public interface IControllerPaths {
-    public void Profile(MouseEvent event);
+    public void Profile();
 
     public void Analytics(MouseEvent event);
     public void Settings(MouseEvent event);
