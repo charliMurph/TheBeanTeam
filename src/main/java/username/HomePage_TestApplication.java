@@ -16,7 +16,7 @@ public class HomePage_TestApplication extends Application {
     private int userId;
     // (String email, String username, String password, String firstName, String lastName, int age)
     private User testuser = new User("charlitest@gmail.com", "charliTest", "tester", "Charli", "Test", 20);
-
+    private UserDAO userDAO = new UserDAO();
     @Override
     public void start(Stage primaryStage) {
         try {

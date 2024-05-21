@@ -96,7 +96,6 @@ public class GoalsController implements IControllerPaths {
         int weeklyLimit = weeklyLimitSpinner.getValue();
         int monthlyLimit = monthlyLimitSpinner.getValue();
         user = getUser();
-        id = user.getId();
         System.out.println("id name: " + id);
         System.out.println("user name: " + user.getFirstName());
         String username = user.getUsername();
@@ -142,5 +141,6 @@ public class GoalsController implements IControllerPaths {
 
     public void setUserId(int id) {
         this.id = id;
+        System.out.println("id name: " + id);
     }
 }
