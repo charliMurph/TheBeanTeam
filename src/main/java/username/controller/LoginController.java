@@ -24,12 +24,12 @@ public class LoginController {
 
     private Stage primaryStage; // Reference to the primaryStage
 
-    private UserDAO user;
+    private final UserDAO userDAO;
 
     // Constructor
     public LoginController() {
         // Initialize the UserDAO object
-        user = new UserDAO();
+        userDAO = new UserDAO();
     }
 
     @FXML
@@ -49,7 +49,7 @@ public class LoginController {
         if (isValidLogin(username, password)) {
             loginStatus.setText("Login successful!");
             // Redirect to main application or dashboard
-            int userId = user.getUserId(username, password); // Retrieve the user ID
+            int userId = userDAO.getUserId(username, password); // Retrieve the user ID
             redirectToHomePage(userId);
         } else {
             loginStatus.setText("Invalid username or password.");
@@ -57,7 +57,7 @@ public class LoginController {
     }
 
     private boolean isValidLogin(String username, String password) {
-        return user.isValidLogin(username, password);
+        return userDAO.isValidLogin(username, password);
     }
 
     @FXML
@@ -68,7 +68,7 @@ public class LoginController {
             Parent root = loader.load();
             SignUpController controller = loader.getController();
             controller.setPrimaryStage(primaryStage); // Pass the primaryStage to the controller
-            user.close();
+            userDAO.close();
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.show();
@@ -80,6 +80,7 @@ public class LoginController {
 
     private void redirectToHomePage(int userId) {
         try {
+            userDAO.close();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/username/HomePage-view.fxml"));
             Parent root = loader.load();
             // Get the controller for the home page

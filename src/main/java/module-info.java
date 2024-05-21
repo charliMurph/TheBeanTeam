@@ -4,10 +4,7 @@ module com.example.the_bean_time_screen_time {
 
     requires org.kordamp.bootstrapfx.core;
     requires java.sql;
-
-    opens com.example.the_bean_time_screen_time to javafx.fxml;
-    exports com.example.the_bean_time_screen_time;
-
+    requires org.controlsfx.controls;
     opens username to javafx.fxml;
     exports username;
     exports username.controller;

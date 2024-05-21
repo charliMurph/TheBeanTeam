@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.icons525.Icons525View?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <VBox alignment="CENTER" prefHeight="800.0" prefWidth="62.0" spacing="20.0" style="-fx-background-color: DFC6FF;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Button mnemonicParsing="false" style="-fx-background-color: NULL;">
+                    <graphic>
+                        <Icons525View fill="#af71ff" glyphName="HOME" size="40" />
+                    </graphic>
+                </Button>
+                <Button mnemonicParsing="false" style="-fx-background-color: NULL;">
+                    <graphic>
+                        <FontAwesomeIconView fill="#af71ff" glyphName="PIE_CHART" size="40" />
+                    </graphic>
+                </Button>
+                <Button mnemonicParsing="false" style="-fx-background-color: NULL;">
+                    <graphic>
+                        <FontAwesomeIconView fill="#af71ff" glyphName="LOCK" size="40" />
+                    </graphic>
+                </Button>
+                <Button mnemonicParsing="false" style="-fx-background-color: NULL;">
+                    <graphic>
+                        <FontAwesomeIconView fill="#af71ff" glyphName="LIST_UL" size="40" />
+                    </graphic>
+                </Button>
+                <Button mnemonicParsing="false" style="-fx-background-color: NULL;">
+                    <graphic>
+                        <FontAwesomeIconView fill="#af71ff" glyphName="COMMENTING" size="40" />
+                    </graphic>
+                </Button>
+                <FontAwesomeIconView fill="#828282" glyphName="GEAR" size="50" translateY="190.0">
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </FontAwesomeIconView>
+            </children>
+        </VBox>
+        <VBox layoutX="62.0" prefHeight="96.0" prefWidth="1238.0" style="-fx-background-color: ffffff;" AnchorPane.leftAnchor="62.0" AnchorPane.rightAnchor="0.0">
+            <children>
+                <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                    <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Profile">
+                            <font>
+                                <Font name="System Bold" size="24.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets left="10.0" top="10.0" />
+                            </HBox.margin>
+                        </Text>
+                        <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: E9E5E5; -fx-background-radius: 100;" translateX="850.0" translateY="25.0">
+                            <graphic>
+                                <FontAwesomeIconView fill="#7c7c7c" glyphName="BELL" size="20" />
+                            </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="44.0" style="-fx-background-color: dfc6ff; -fx-background-radius: 100; -fx-border-color: #af71ff; -fx-border-radius: 100;" translateX="850.0" translateY="25.0">
+                            <graphic>
+                                <Icons525View fill="#af71ff" glyphName="USER" size="25" />
+                            </graphic>
+                            <HBox.margin>
+                                <Insets left="10.0" />
+                            </HBox.margin>
+                            <effect>
+                                <DropShadow>
+                                    <color>
+                                        <Color red="0.7763158082962036" green="0.7763158082962036" blue="0.7763158082962036" />
+                                    </color>
+                                </DropShadow>
+                            </effect>
+                        </Button>
+                    </children>
+                </HBox>
+                <HBox prefHeight="100.0" prefWidth="500.0">
+                    <children>
+                        <Text fill="#757575" strokeType="OUTSIDE" strokeWidth="0.0" text="4th May, 2024" translateY="-3.0">
+                            <HBox.margin>
+                                <Insets left="13.0" />
+                            </HBox.margin>
+                        </Text>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+        <AnchorPane layoutX="62.0" layoutY="96.0" prefHeight="705.0" prefWidth="1238.0" style="-fx-background-color: E9E5E5;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="62.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="96.0">
+            <children>
+                <HBox layoutX="32.0" layoutY="38.0" prefHeight="437.0" prefWidth="1167.0" style="-fx-background-color: ffffff; -fx-background-radius: 25;">
+                    <effect>
+                        <DropShadow>
+                            <color>
+                                <Color red="0.6973684430122375" green="0.6779970526695251" blue="0.6779970526695251" />
+                            </color>
+                        </DropShadow>
+                    </effect>
+                    <children>
+                        <VBox alignment="CENTER_LEFT" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="445.0" prefWidth="791.0">
+                            <children>
+                                <HBox prefHeight="100.0" prefWidth="544.0">
+                                    <children>
+                                        <VBox prefHeight="200.0" prefWidth="100.0">
+                                            <children>
+                                                <Label text="First Name:" textFill="#606060">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Label>
+                                                <TextField minWidth="-Infinity" prefHeight="25.0" prefWidth="170.0" style="-fx-background-color: F6F6F6; -fx-border-color: D9D9D9; -fx-border-radius: 5;">
+                                                    <padding>
+                                                        <Insets bottom="10.0" top="10.0" />
+                                                    </padding>
+                                                </TextField>
+                                            </children>
+                                            <HBox.margin>
+                                                <Insets left="30.0" />
+                                            </HBox.margin>
+                                        </VBox>
+                                        <VBox prefHeight="200.0" prefWidth="100.0">
+                                            <children>
+                                                <Label text="Last Name:" textFill="#606060">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Label>
+                                                <TextField minWidth="-Infinity" prefWidth="170.0" style="-fx-background-color: F6F6F6; -fx-border-color: D9D9D9; -fx-border-radius: 5;">
+                                                    <padding>
+                                                        <Insets bottom="10.0" top="10.0" />
+                                                    </padding>
+                                                </TextField>
+                                            </children>
+                                            <HBox.margin>
+                                                <Insets left="30.0" />
+                                            </HBox.margin>
+                                        </VBox>
+                                        <Icons525View fill="#af71ff" glyphName="EDIT" size="30">
+                                            <HBox.margin>
+                                                <Insets left="30.0" top="24.0" />
+                                            </HBox.margin>
+                                        </Icons525View>
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets left="30.0" />
+                                    </VBox.margin>
+                                </HBox>
+                                <HBox prefHeight="100.0" prefWidth="200.0">
+                                    <children>
+                                        <VBox prefHeight="200.0" prefWidth="100.0">
+                                            <children>
+                                                <Label text="Email:" textFill="#606060">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Label>
+                                                <TextField minWidth="-Infinity" prefWidth="370.0" style="-fx-background-color: F6F6F6; -fx-border-color: D9D9D9; -fx-border-radius: 5;">
+                                                    <padding>
+                                                        <Insets bottom="10.0" top="10.0" />
+                                                    </padding>
+                                                </TextField>
+                                            </children>
+                                            <HBox.margin>
+                                                <Insets left="30.0" />
+                                            </HBox.margin>
+                                        </VBox>
+                                        <Icons525View fill="#af71ff" glyphName="EDIT" size="30">
+                                            <HBox.margin>
+                                                <Insets left="30.0" top="24.0" />
+                                            </HBox.margin>
+                                        </Icons525View>
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets left="30.0" />
+                                    </VBox.margin>
+                                </HBox>
+                                <HBox prefHeight="100.0" prefWidth="200.0">
+                                    <children>
+                                        <VBox prefHeight="100.0" prefWidth="152.0">
+                                            <children>
+                                                <Label text="Username:" textFill="#606060">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Label>
+                                                <TextField minWidth="-Infinity" prefWidth="170.0" style="-fx-background-color: F6F6F6; -fx-border-color: D9D9D9; -fx-border-radius: 5;">
+                                                    <padding>
+                                                        <Insets bottom="10.0" top="10.0" />
+                                                    </padding>
+                                                </TextField>
+                                            </children>
+                                            <HBox.margin>
+                                                <Insets left="30.0" />
+                                            </HBox.margin>
+                                        </VBox>
+                                        <VBox prefHeight="100.0" prefWidth="151.0">
+                                            <children>
+                                                <Label text="Password:" textFill="#606060">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Label>
+                                                <TextField minWidth="-Infinity" prefWidth="170.0" style="-fx-background-color: F6F6F6; -fx-border-color: D9D9D9; -fx-border-radius: 5;">
+                                                    <padding>
+                                                        <Insets bottom="10.0" top="10.0" />
+                                                    </padding>
+                                                </TextField>
+                                            </children>
+                                            <HBox.margin>
+                                                <Insets left="30.0" />
+                                            </HBox.margin>
+                                        </VBox>
+                                        <Icons525View fill="#af71ff" glyphName="EDIT" size="30">
+                                            <HBox.margin>
+                                                <Insets left="30.0" top="24.0" />
+                                            </HBox.margin>
+                                        </Icons525View>
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets left="30.0" />
+                                    </VBox.margin>
+                                </HBox>
+                                <Button mnemonicParsing="false" prefHeight="41.0" prefWidth="170.0" style="-fx-background-color: DFC6FF; -fx-background-radius: 10;" text="Logout" textFill="#af71ff">
+                                    <VBox.margin>
+                                        <Insets left="60.0" />
+                                    </VBox.margin>
+                                </Button>
+                            </children>
+                        </VBox>
+                        <VBox prefHeight="437.0" prefWidth="389.0" style="-fx-background-color: F7F1FF; -fx-background-radius: 25;">
+                            <children>
+                                <VBox alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="437.0" prefWidth="347.0" style="-fx-background-color: F7F1FF;">
+                                    <children>
+                                        <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="263.0" prefWidth="247.0" style="-fx-background-color: C8A9CF; -fx-background-radius: 200; -fx-border-color: #692680; -fx-border-radius: 200;" translateX="15.0">
+                                            <children>
+                                                <Icons525View fill="#692680" glyphName="USER" size="140" />
+                                            </children>
+                                        </VBox>
+                                        <Hyperlink text="Set Profile Picture" textFill="#692680">
+                                            <VBox.margin>
+                                                <Insets left="30.0" />
+                                            </VBox.margin>
+                                        </Hyperlink>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

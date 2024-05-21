@@ -6,7 +6,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Slider;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import username.model.Navigate;
 import username.model.UserDAO;
 import username.model.User;
 import javafx.fxml.FXML;
@@ -14,7 +16,7 @@ import javafx.scene.control.Label;
 
 import java.io.IOException;
 
-public class HomePageController {
+public class HomePageController implements IControllerPaths {
 
     @FXML
     private Label greetingLabel;
@@ -22,7 +24,7 @@ public class HomePageController {
     // Getter methods for accessing UI elements
 
     private int id;
-    private UserDAO userDAO;
+    private final UserDAO userDAO;
     private User user;
     private Stage primaryStage;
 
@@ -86,21 +88,70 @@ public class HomePageController {
     @FXML
     private void handleUserPreferencesButtonClick() {
         try {
+            userDAO.close();
         // Implement the logic to navigate to the user preferences page here
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/username/PreferencesPage-view.fxml"));
             Parent root = loader.load();
         // Get the controller for the home page
             UserPreferenceController preferences = loader.getController();
             System.out.println("Button clicked. Navigating to user preferences page...");
-            userDAO.close();
+
             preferences.setUser(user);
             preferences.setPrimaryStage(primaryStage);
-            preferences.initialize();
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+    @FXML
+    private void handleLogoutButton() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/username/Login-view.fxml"));
+            System.out.println("Sign Up FXML Path: " + getClass().getResource("Login-view.fxml")); // Logging statement
+            Parent root = loader.load();
+            LoginController controller = loader.getController();
+            controller.setPrimaryStage(primaryStage); // Pass the primaryStage to the controller
+            userDAO.close();
+            Scene scene = new Scene(root);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Handle the exception
+        }
+    }
+
+    @Override
+    public void Profile(MouseEvent event){
+        Navigate.goTo("/username/Profile-view.fxml", event);
+    }
+    @Override
+    public void Analytics(MouseEvent event){
+        Navigate.goTo("/username/Analytics-view.fxml", event);
+    }
+    @Override
+    public void Settings(MouseEvent event){
+        Navigate.goTo("/username/Settings-view.fxml", event);
+    }
+    @Override
+    public void Notifications(MouseEvent event){
+        Navigate.goTo("/username/Notifications-view.fxml", event);
+    }
+    @Override
+    public void UserPref(MouseEvent event){
+        Navigate.goTo("/username/PreferencesPage-view.fxml", event);
+    }
+    @Override
+    public void Resources(MouseEvent event){
+        Navigate.goTo("/username/Resource-view.fxml", event);
+    }
+    @Override
+    public void Goals(MouseEvent event){
+        Navigate.goTo("/username/Home-view.fxml", event);
+    }
+    public void Home(MouseEvent event){
+        Navigate.goTo("/username/Home-view.fxml", event);
     }
 }
