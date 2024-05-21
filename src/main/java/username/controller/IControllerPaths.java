@@ -11,7 +11,7 @@ public interface IControllerPaths {
 
     public void Notifications(MouseEvent event);
 
-    public void DataMan(MouseEvent event);
+    public void UserPref(MouseEvent event);
     public void Resources(MouseEvent event);
 
     public void Goals(MouseEvent event);

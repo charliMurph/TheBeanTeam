@@ -17,10 +17,6 @@ public class NotificationsController {
     public void Notifications(MouseEvent event){
         Navigate.goTo("/username/Notifications-view.fxml", event);
     }
-    public void DataMan(MouseEvent event){
-        Navigate.goTo("/username/Dmanagement-view.fxml", event);
-    }
-
     public void Resources(MouseEvent event){
         Navigate.goTo("/username/Resource-view.fxml", event);
     }

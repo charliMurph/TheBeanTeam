@@ -140,7 +140,7 @@ public class HomePageController implements IControllerPaths {
         Navigate.goTo("/username/Notifications-view.fxml", event);
     }
     @Override
-    public void DataMan(MouseEvent event){
+    public void UserPref(MouseEvent event){
         Navigate.goTo("/username/PreferencesPage-view.fxml", event);
     }
     @Override
