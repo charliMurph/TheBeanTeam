@@ -1,30 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import de.jensd.fx.glyphs.icons525.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.geometry.*?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<?import de.jensd.fx.glyphs.icons525.Icons525View?>
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="username.controller.GoalsController"
-            prefHeight="800.0" prefWidth="1300.0">
+<AnchorPane prefHeight="800.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="username.controller.GoalsController">
     <children>
         <VBox alignment="CENTER" prefHeight="800.0" prefWidth="62.0" spacing="20.0" style="-fx-background-color: DFC6FF;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
+
                 <Button mnemonicParsing="false" onMouseClicked="#Home" style="-fx-background-color: NULL;">
                     <graphic>
                         <Icons525View fill="#af71ff" glyphName="HOME" size="40" />
                     </graphic>
                 </Button>
-                <Button mnemonicParsing="false" style="-fx-background-color: NULL;" onMouseClicked="#Analytics">
+                <Button mnemonicParsing="false" onMouseClicked="#Analytics" style="-fx-background-color: NULL;">
                     <graphic>
                         <FontAwesomeIconView fill="#af71ff" glyphName="PIE_CHART" size="40" />
                     </graphic>
@@ -100,7 +95,11 @@
                         </DropShadow>
                     </effect>
                     <children>
-                        <Label text="App Name:" style="-fx-font-size: 17px;">
+                        <Label fx:id="appLabel" layoutX="10.0" layoutY="10.0" textFill="RED">
+                            <font>
+                                <Font name="Verdana Bold Italic" size="14.0" />
+                            </font></Label>
+                        <Label style="-fx-font-size: 17px;" text="App Name:">
                             <VBox.margin>
                                 <Insets top="20.0" />
                             </VBox.margin>
@@ -110,41 +109,36 @@
                                 <Insets bottom="20.0" />
                             </VBox.margin>
                         </ComboBox>
-                        <TextField fx:id="appNameTextField" prefWidth="300.0" style="-fx-background-color: #dfc6ff; -fx-border-radius: 5;">
-                            <VBox.margin>
-                                <Insets bottom="20.0" />
-                            </VBox.margin>
-                        </TextField>
 
-                        <Label text="Weekly Limit:" style="-fx-font-size: 17px;">
+                        <Label style="-fx-font-size: 17px;" text="Weekly Limit:">
                             <VBox.margin>
                                 <Insets bottom="10.0" />
                             </VBox.margin>
                         </Label>
-                        <Spinner fx:id="weeklyLimitSpinner" editable="true" min="0" max="168" initialValue="0" prefWidth="150.0" style="-fx-background-color: #dfc6ff; -fx-border-radius: 5;">
+                        <Spinner fx:id="weeklyLimitSpinner" editable="true" initialValue="0" max="168" min="0" prefWidth="150.0" style="-fx-background-color: #dfc6ff; -fx-border-radius: 5;">
                             <VBox.margin>
                                 <Insets bottom="20.0" />
                             </VBox.margin>
                         </Spinner>
 
-                        <Label text="Monthly Limit:" style="-fx-font-size: 17px;">
+                        <Label style="-fx-font-size: 17px;" text="Monthly Limit:">
                             <VBox.margin>
                                 <Insets bottom="10.0" />
                             </VBox.margin>
                         </Label>
-                        <Spinner fx:id="monthlyLimitSpinner" editable="true" min="0" max="720" initialValue="0" prefWidth="150.0" style="-fx-background-color: #dfc6ff; -fx-border-radius: 5;">
+                        <Spinner fx:id="monthlyLimitSpinner" editable="true" initialValue="0" max="720" min="0" prefWidth="150.0" style="-fx-background-color: #dfc6ff; -fx-border-radius: 5;">
                             <VBox.margin>
                                 <Insets bottom="20.0" />
                             </VBox.margin>
                         </Spinner>
 
-                        <Button text="Save to User Preferences" onAction="#onSaveButton" style="-fx-background-color: DFC6FF; -fx-background-radius: 15; -fx-text-fill: #a259ff;" prefWidth="200.0">
+                        <Button onAction="#onSaveButton" prefWidth="200.0" style="-fx-background-color: DFC6FF; -fx-background-radius: 15; -fx-text-fill: #a259ff;" text="Save to User Preferences">
                             <VBox.margin>
                                 <Insets top="20.0" />
                             </VBox.margin>
                         </Button>
 
-                        <Button text="Back to User Preferences" onMouseClicked="#onBackButton" style="-fx-background-color: #E9E5E5; -fx-background-radius: 15; -fx-text-fill: #868686;" prefWidth="200.0">
+                        <Button onMouseClicked="#onBackButton" prefWidth="200.0" style="-fx-background-color: #E9E5E5; -fx-background-radius: 15; -fx-text-fill: #868686;" text="Back to User Preferences">
                             <VBox.margin>
                                 <Insets top="10.0" />
                             </VBox.margin>

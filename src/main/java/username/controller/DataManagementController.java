@@ -90,6 +90,7 @@ public class DataManagementController implements IControllerPaths {
             Parent root = loader.load();
             GoalsController goalsController = loader.getController();
             System.out.println(" user: " + goalsController);
+            goalsController.setUserId(id);
             goalsController.setUser(user);
             goalsController.setPrimaryStage(primaryStage);
             goalsController.initialize();

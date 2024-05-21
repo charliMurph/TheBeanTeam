@@ -78,6 +78,7 @@ public class Navigate {
                     GoalsController goalsController = loader.getController();
                     goalsController.setPrimaryStage(primaryStage);
                     goalsController.setUser(user);
+                    goalsController.setUserId(user.getId());
                     break;
                 case "Notifications":
                     break;

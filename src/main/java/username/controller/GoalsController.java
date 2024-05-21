@@ -5,10 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Spinner;
-import javafx.scene.control.SpinnerValueFactory;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import username.model.Navigate;
@@ -22,7 +19,7 @@ public class GoalsController implements IControllerPaths {
     @FXML
     private ComboBox<String> appNameComboBox;  // Ensure this is typed with <String>
     @FXML
-    private TextField appNameTextField;
+    public Label appLabel;
 
     @FXML
     private Spinner<Integer> weeklyLimitSpinner;
@@ -76,23 +73,23 @@ public class GoalsController implements IControllerPaths {
     public void onSaveButton(ActionEvent event) {
         // Read the input from the ComboBox and TextField for app name
         String selectedAppName = appNameComboBox.getValue();
-        String appName = appNameTextField.getText().isEmpty() ? selectedAppName : appNameTextField.getText();
-
+        if(selectedAppName == null){
+            appLabel.setText("Enter App Name");
+            System.out.println("values not set");
+            return;
+        }
         if (weeklyLimitSpinner.getValue() != null && monthlyLimitSpinner.getValue() != null) {
-            saveFunction(appName);
+            saveFunction(selectedAppName);
         } else {
-            appNameTextField.setText("Values are non enter limit value");
+            appLabel.setText("Values are non enter limit value");
             // Handle the case where one or both spinner values are null
             // For example, display an error message to the user or set default values
             return;
         }
-
-        // Clear the TextFields after saving
-        appNameTextField.clear();
-        // Add the app name to the user preferences ComboBox if it's a new entry
-        if (!appNameComboBox.getItems().contains(appName)) {
-            appNameComboBox.getItems().add(appName);
-        }
+//        // Add the app name to the user preferences ComboBox if it's a new entry
+//        if (!appNameComboBox.getItems().contains(appName)) {
+//            appNameComboBox.getItems().add(appName);
+//        }
     }
 
     public void saveFunction(String appName) {
@@ -141,5 +138,9 @@ public class GoalsController implements IControllerPaths {
     @Override
     public void Resources(MouseEvent event){
         Navigate.goTo("/username/Resource-view.fxml", event);
+    }
+
+    public void setUserId(int id) {
+        this.id = id;
     }
 }
