@@ -2,9 +2,6 @@ package username.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -12,7 +9,6 @@ import username.model.Navigate;
 import username.model.User;
 import username.model.UserDAO;
 
-import java.io.IOException;
 import java.util.List;
 
 public class GoalsController implements IControllerPaths {
@@ -99,7 +95,7 @@ public class GoalsController implements IControllerPaths {
         System.out.println("id name: " + id);
         System.out.println("user name: " + user.getFirstName());
         String username = user.getUsername();
-        userDAO.addAppName(id, appName, weeklyLimit, monthlyLimit);
+        userDAO.AddOrUpdateUserPref(id, appName, weeklyLimit, monthlyLimit);
         // Now you can proceed with your logic that depends on weeklyLimit and monthlyLimit
     }
 

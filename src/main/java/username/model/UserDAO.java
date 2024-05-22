@@ -166,19 +166,31 @@ public class UserDAO implements IUserDAO{
         return false;
     }
 @Override
-    public void addAppName(int id , String appName, int weekHours,int monthHours) {
+    public void AddOrUpdateUserPref(int id , String appName, int weekHours, int monthHours) {
         try {
-            System.out.println("Authen id: " + id);
-            PreparedStatement insertPreference = connection.prepareStatement(
-                    "INSERT INTO userPreferences (authenticationId, applicationName, " +
-                            "weeklyHourLimit, monthlyHourLimit, isActive) VALUES (?, ?, ?, ?, 1)"
+            PreparedStatement updateStmt = connection.prepareStatement(
+                    "UPDATE userPreferences SET weeklyHourLimit = ?, monthlyHourLimit = ? WHERE authenticationId = ? AND applicationName = ?"
             );
-            insertPreference.setInt(1, id);
-            insertPreference.setString(2, appName);
-            insertPreference.setInt(3, weekHours);
-            insertPreference.setInt(4, monthHours);
-            insertPreference.execute();
-            System.out.println("Executed successfully!");
+            updateStmt.setInt(1, weekHours);
+            updateStmt.setInt(2, monthHours);
+            updateStmt.setInt(3, id);
+            updateStmt.setString(4, appName);
+            int rowsUpdated = updateStmt.executeUpdate();
+
+            if (rowsUpdated == 0) {
+                // If no row was updated, insert a new row
+                PreparedStatement insertStmt = connection.prepareStatement(
+                        "INSERT INTO userPreferences (authenticationId, applicationName, weeklyHourLimit, monthlyHourLimit, isActive) VALUES (?, ?, ?, ?, 1)"
+                );
+                insertStmt.setInt(1, id);
+                insertStmt.setString(2, appName);
+                insertStmt.setInt(3, weekHours);
+                insertStmt.setInt(4, monthHours);
+                insertStmt.executeUpdate();
+                System.out.println("Inserted user preferences successfully!");
+            } else {
+                System.out.println("Updated user preferences successfully!");
+            }
         } catch (SQLException ex) {
             System.err.println(ex);
         }
