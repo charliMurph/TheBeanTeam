@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import de.jensd.fx.glyphs.icons525.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import org.controlsfx.control.*?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="username.controller.DataManagementController">
+    <children>
+        <VBox alignment="CENTER" prefHeight="800.0" prefWidth="62.0" spacing="20.0" style="-fx-background-color: DFC6FF;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Button mnemonicParsing="false" onMouseClicked="#Home" style="-fx-background-color: NULL;">
+                    <graphic>
+                        <Icons525View fill="#af71ff" glyphName="HOME" size="40" />
+                    </graphic>
+                </Button>
+                <Button mnemonicParsing="false" style="-fx-background-color: NULL;" onMouseClicked="#Analytics">
+                    <graphic>
+                        <FontAwesomeIconView fill="#af71ff" glyphName="PIE_CHART" size="40" />
+                    </graphic>
+                </Button>
+                <Button mnemonicParsing="false" style="-fx-background-color: NULL;">
+                    <graphic>
+                        <FontAwesomeIconView fill="#af71ff" glyphName="LOCK" size="40" />
+                    </graphic>
+                </Button>
+                <Button mnemonicParsing="false" style="-fx-background-color: NULL;">
+                    <graphic>
+                        <FontAwesomeIconView fill="#af71ff" glyphName="LIST_UL" size="40" />
+                    </graphic>
+                </Button>
+                <Button mnemonicParsing="false" style="-fx-background-color: NULL;">
+                    <graphic>
+                        <FontAwesomeIconView fill="#af71ff" glyphName="COMMENTING" size="40" />
+                    </graphic>
+                </Button>
+                <FontAwesomeIconView fill="#828282" glyphName="GEAR" size="50" translateY="190.0">
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </FontAwesomeIconView>
+            </children>
+        </VBox>
+        <VBox layoutX="62.0" prefHeight="96.0" prefWidth="1238.0" style="-fx-background-color: ffffff;" AnchorPane.leftAnchor="62.0" AnchorPane.rightAnchor="0.0">
+            <children>
+                <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                    <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Data Management">
+                            <font>
+                                <Font name="System Bold" size="24.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets left="10.0" top="10.0" />
+                            </HBox.margin>
+                        </Text>
+                        <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: e0dee1; -fx-background-radius: 100;" translateX="850.0" translateY="25.0">
+                            <graphic>
+                                <FontAwesomeIconView fill="#7c7c7c" glyphName="BELL" size="20" />
+                            </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="44.0" style="-fx-background-color: dfc6ff; -fx-background-radius: 100;" translateX="850.0" translateY="25.0">
+                            <graphic>
+                                <Icons525View fill="#af71ff" glyphName="USER" size="25" />
+                            </graphic>
+                            <HBox.margin>
+                                <Insets left="10.0" />
+                            </HBox.margin>
+                        </Button>
+                    </children>
+                </HBox>
+                <HBox prefHeight="100.0" prefWidth="500.0">
+                    <children>
+                        <Text fill="#757575" strokeType="OUTSIDE" strokeWidth="0.0" text="4th May, 2024" translateY="-3.0">
+                            <HBox.margin>
+                                <Insets left="13.0" />
+                            </HBox.margin>
+                        </Text>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+        <AnchorPane layoutX="62.0" layoutY="96.0" prefHeight="705.0" prefWidth="1238.0" style="-fx-background-color: E9E5E5;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="62.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="96.0">
+            <children>
+                <VBox alignment="TOP_CENTER" layoutX="25.0" layoutY="30.0" prefHeight="643.0" prefWidth="1188.0" style="-fx-background-color: ffffff; -fx-background-radius: 15; -fx-alignment: inline-block;" AnchorPane.leftAnchor="25.0">
+                    <effect>
+                        <DropShadow>
+                            <color>
+                                <Color red="0.7764706015586853" green="0.7607843279838562" blue="0.7607843279838562" />
+                            </color>
+                        </DropShadow>
+                    </effect>
+                    <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="1128.0" style="-fx-border-color: DFC6FF; -fx-border-radius: 25;">
+                            <VBox.margin>
+                                <Insets left="30.0" right="30.0" top="30.0" />
+                            </VBox.margin>
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Google Chrome">
+                                    <font>
+                                        <Font size="17.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="15.0" />
+                                    </HBox.margin>
+                                </Text>
+                                <FontAwesomeIconView fill="#62b50a" glyphName="GOOGLE" size="20">
+                                    <HBox.margin>
+                                        <Insets left="15.0" />
+                                    </HBox.margin>
+                                </FontAwesomeIconView>
+                                <HBox prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                                <ToggleSwitch fx:id="ChromeSwitch" prefHeight="18.0" prefWidth="48.0">
+                                    <HBox.margin>
+                                        <Insets right="5.0" />
+                                    </HBox.margin>
+                                </ToggleSwitch>
+                                <Text fill="#868686" strokeType="OUTSIDE" strokeWidth="0.0" text="setting">
+                                    <HBox.margin>
+                                        <Insets right="15.0" />
+                                    </HBox.margin>
+                                </Text>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="1128.0" style="-fx-border-color: DFC6FF; -fx-border-radius: 25;">
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Microsoft Word">
+                                    <font>
+                                        <Font size="17.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="15.0" />
+                                    </HBox.margin>
+                                </Text>
+                                <Icons525View fill="#2c35e1" glyphName="WORD" size="20">
+                                    <HBox.margin>
+                                        <Insets left="10.0" />
+                                    </HBox.margin>
+                                </Icons525View>
+                                <HBox prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                                <ToggleSwitch fx:id="WordSwitch" prefHeight="18.0" prefWidth="48.0">
+                                    <HBox.margin>
+                                        <Insets right="5.0" />
+                                    </HBox.margin>
+                                </ToggleSwitch>
+                                <Text fill="#868686" strokeType="OUTSIDE" strokeWidth="0.0" text="setting">
+                                    <HBox.margin>
+                                        <Insets right="15.0" />
+                                    </HBox.margin>
+                                </Text>
+                            </children>
+                            <VBox.margin>
+                                <Insets left="30.0" right="30.0" top="5.0" />
+                            </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="1128.0" style="-fx-border-color: DFC6FF; -fx-border-radius: 25;">
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Discord">
+                                    <font>
+                                        <Font size="17.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="15.0" />
+                                    </HBox.margin>
+                                </Text>
+                                <Icons525View glyphName="" size="20">
+                                    <HBox.margin>
+                                        <Insets left="20.0" />
+                                    </HBox.margin>
+                                </Icons525View>
+                                <HBox prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                                <ToggleSwitch fx:id="DiscordSwitch" prefHeight="18.0" prefWidth="48.0">
+                                    <HBox.margin>
+                                        <Insets right="5.0" />
+                                    </HBox.margin>
+                                </ToggleSwitch>
+                                <Text fill="#868686" strokeType="OUTSIDE" strokeWidth="0.0" text="setting">
+                                    <HBox.margin>
+                                        <Insets right="15.0" />
+                                    </HBox.margin>
+                                </Text>
+                            </children>
+                            <VBox.margin>
+                                <Insets left="30.0" right="30.0" top="5.0" />
+                            </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="1128.0" style="-fx-border-color: DFC6FF; -fx-border-radius: 25;">
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Steam">
+                                    <font>
+                                        <Font size="17.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="15.0" />
+                                    </HBox.margin>
+                                </Text>
+                                <FontAwesomeIconView fill="#4e4e8a" glyphName="STEAM" size="20">
+                                    <HBox.margin>
+                                        <Insets left="15.0" />
+                                    </HBox.margin>
+                                </FontAwesomeIconView>
+                                <HBox prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                                <ToggleSwitch fx:id="SteamSwitch" prefHeight="18.0" prefWidth="48.0">
+                                    <HBox.margin>
+                                        <Insets right="5.0" />
+                                    </HBox.margin>
+                                </ToggleSwitch>
+                                <Text fill="#868686" strokeType="OUTSIDE" strokeWidth="0.0" text="setting">
+                                    <HBox.margin>
+                                        <Insets right="15.0" />
+                                    </HBox.margin>
+                                </Text>
+                            </children>
+                            <VBox.margin>
+                                <Insets left="30.0" right="30.0" top="5.0" />
+                            </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="1128.0" style="-fx-border-color: DFC6FF; -fx-border-radius: 25;">
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Microsoft PowerPoint">
+                                    <font>
+                                        <Font size="17.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="15.0" />
+                                    </HBox.margin>
+                                </Text>
+                                <Icons525View fill="#f05122" glyphName="POWERPOINT" size="20">
+                                    <HBox.margin>
+                                        <Insets left="10.0" />
+                                    </HBox.margin>
+                                </Icons525View>
+                                <HBox prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                                <ToggleSwitch fx:id="PPTSwitch" prefHeight="18.0" prefWidth="48.0">
+                                    <HBox.margin>
+                                        <Insets right="5.0" />
+                                    </HBox.margin>
+                                </ToggleSwitch>
+                                <Text fill="#868686" strokeType="OUTSIDE" strokeWidth="0.0" text="setting">
+                                    <HBox.margin>
+                                        <Insets right="15.0" />
+                                    </HBox.margin>
+                                </Text>
+                            </children>
+                            <VBox.margin>
+                                <Insets left="30.0" right="30.0" top="5.0" />
+                            </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="1128.0" style="-fx-border-color: DFC6FF; -fx-border-radius: 25;">
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Facebook">
+                                    <font>
+                                        <Font size="17.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="15.0" />
+                                    </HBox.margin>
+                                </Text>
+                                <FontAwesomeIconView fill="#3c7dee" glyphName="FACEBOOK" size="20">
+                                    <HBox.margin>
+                                        <Insets left="15.0" />
+                                    </HBox.margin>
+                                </FontAwesomeIconView>
+                                <HBox prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                                <ToggleSwitch fx:id="FBSwitch" prefHeight="18.0" prefWidth="48.0">
+                                    <HBox.margin>
+                                        <Insets right="5.0" />
+                                    </HBox.margin>
+                                </ToggleSwitch>
+                                <Text fill="#868686" strokeType="OUTSIDE" strokeWidth="0.0" text="setting">
+                                    <HBox.margin>
+                                        <Insets right="15.0" />
+                                    </HBox.margin>
+                                </Text>
+                            </children>
+                            <VBox.margin>
+                                <Insets left="30.0" right="30.0" top="5.0" />
+                            </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="1128.0" style="-fx-border-color: DFC6FF; -fx-border-radius: 25;">
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Instagram">
+                                    <font>
+                                        <Font size="17.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="15.0" />
+                                    </HBox.margin>
+                                </Text>
+                                <FontAwesomeIconView fill="#b20ba1" glyphName="INSTAGRAM" size="20">
+                                    <HBox.margin>
+                                        <Insets left="15.0" />
+                                    </HBox.margin>
+                                </FontAwesomeIconView>
+                                <HBox prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                                <ToggleSwitch fx:id="InstaSwitch" prefHeight="18.0" prefWidth="48.0">
+                                    <HBox.margin>
+                                        <Insets right="5.0" />
+                                    </HBox.margin>
+                                </ToggleSwitch>
+                                <Text fill="#868686" strokeType="OUTSIDE" strokeWidth="0.0" text="setting">
+                                    <HBox.margin>
+                                        <Insets right="15.0" />
+                                    </HBox.margin>
+                                </Text>
+                            </children>
+                            <VBox.margin>
+                                <Insets left="30.0" right="30.0" top="5.0" />
+                            </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="1128.0" style="-fx-border-color: DFC6FF; -fx-border-radius: 25;">
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Microsoft Office">
+                                    <font>
+                                        <Font size="17.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="15.0" />
+                                    </HBox.margin>
+                                </Text>
+                                <Icons525View fill="#ff6b6b" glyphName="OFFICE" size="20">
+                                    <HBox.margin>
+                                        <Insets left="10.0" />
+                                    </HBox.margin>
+                                </Icons525View>
+                                <HBox prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                                <ToggleSwitch fx:id="OfficeSwitch" prefHeight="18.0" prefWidth="48.0">
+                                    <HBox.margin>
+                                        <Insets right="5.0" />
+                                    </HBox.margin>
+                                </ToggleSwitch>
+                                <Text fill="#868686" strokeType="OUTSIDE" strokeWidth="0.0" text="setting">
+                                    <HBox.margin>
+                                        <Insets right="15.0" />
+                                    </HBox.margin>
+                                </Text>
+                            </children>
+                            <VBox.margin>
+                                <Insets left="30.0" right="30.0" top="5.0" />
+                            </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="1128.0" style="-fx-border-color: DFC6FF; -fx-border-radius: 25;">
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Microsoft Excel">
+                                    <font>
+                                        <Font size="17.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="15.0" />
+                                    </HBox.margin>
+                                </Text>
+                                <Icons525View fill="#09790f" glyphName="EXCEL" size="20">
+                                    <HBox.margin>
+                                        <Insets left="10.0" />
+                                    </HBox.margin>
+                                </Icons525View>
+                                <HBox prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                                <ToggleSwitch fx:id="ExcelSwitch" prefHeight="18.0" prefWidth="48.0">
+                                    <HBox.margin>
+                                        <Insets right="5.0" />
+                                    </HBox.margin>
+                                </ToggleSwitch>
+                                <Text fill="#868686" strokeType="OUTSIDE" strokeWidth="0.0" text="setting">
+                                    <HBox.margin>
+                                        <Insets right="15.0" />
+                                    </HBox.margin>
+                                </Text>
+                            </children>
+                            <VBox.margin>
+                                <Insets left="30.0" right="30.0" top="5.0" />
+                            </VBox.margin>
+                        </HBox>
+                        <Button alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="400.0" layoutY="300.0"
+                                mnemonicParsing="false" onAction="#Goals" style="-fx-background-color: DFC6FF;"
+                                text="Edit Apps" textFill="#a259ff" translateX="500.0" translateY="20.0"/>
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

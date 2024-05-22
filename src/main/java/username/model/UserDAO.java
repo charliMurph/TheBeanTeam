@@ -166,21 +166,54 @@ public class UserDAO implements IUserDAO{
         return false;
     }
 @Override
-    public void addAppName(int id , String appName, int weekHours,int monthHours) {
+    public void AddOrUpdateUserPref(int id , String appName, int weekHours, int monthHours) {
         try {
-            PreparedStatement insertPreference = connection.prepareStatement(
-                    "INSERT INTO userPreferences (authenticationId, applicationName, " +
-                            "weeklyHourLimit, monthlyHourLimit, isActive) VALUES (?, ?, ?, ?, 1)"
+            PreparedStatement updateStmt = connection.prepareStatement(
+                    "UPDATE userPreferences SET weeklyHourLimit = ?, monthlyHourLimit = ? WHERE authenticationId = ? AND applicationName = ?"
             );
-            insertPreference.setInt(1, id);
-            insertPreference.setString(2, appName);
-            insertPreference.setInt(3, weekHours);
-            insertPreference.setInt(4, monthHours);
-            insertPreference.execute();
-            System.out.println("Executed successfully!");
+            updateStmt.setInt(1, weekHours);
+            updateStmt.setInt(2, monthHours);
+            updateStmt.setInt(3, id);
+            updateStmt.setString(4, appName);
+            int rowsUpdated = updateStmt.executeUpdate();
+
+            if (rowsUpdated == 0) {
+                // If no row was updated, insert a new row
+                PreparedStatement insertStmt = connection.prepareStatement(
+                        "INSERT INTO userPreferences (authenticationId, applicationName, weeklyHourLimit, monthlyHourLimit, isActive) VALUES (?, ?, ?, ?, 1)"
+                );
+                insertStmt.setInt(1, id);
+                insertStmt.setString(2, appName);
+                insertStmt.setInt(3, weekHours);
+                insertStmt.setInt(4, monthHours);
+                insertStmt.executeUpdate();
+                System.out.println("Inserted user preferences successfully!");
+            } else {
+                System.out.println("Updated user preferences successfully!");
+            }
         } catch (SQLException ex) {
             System.err.println(ex);
         }
+    }
+    public List<String> getActiveApps(int id) {
+        try {
+            System.out.println(id);
+            PreparedStatement getApps = connection.prepareStatement(
+                    "SELECT applicationName FROM userPreferences WHERE authenticationId = ?"
+            );
+            getApps.setInt(1, id);
+            System.out.println("Executed successfully!");
+            ResultSet rs = getApps.executeQuery();
+            List<String> activeApps = new ArrayList<>();
+            while (rs.next()) {
+                String applicationName = rs.getString("applicationName");
+                activeApps.add(applicationName);
+            }
+            return activeApps;
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+        return null;
     }
     //change the names of sql appdata once Isaiah inserts his table with his value names
     @Override
@@ -272,5 +305,7 @@ public class UserDAO implements IUserDAO{
             ex.printStackTrace();
         }
     }
+
+
 }
 

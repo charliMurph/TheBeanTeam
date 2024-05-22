@@ -4,16 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="195bfca3-755a-419b-85be-3ab100768756" name="Changes" comment="">
+    <list default="true" id="195bfca3-755a-419b-85be-3ab100768756" name="Changes" comment="new main app for tester">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Screen_Time_Bean_Time.db" beforeDir="false" afterPath="$PROJECT_DIR$/Screen_Time_Bean_Time.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/AddAppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/AddAppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/DmanagementController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/HomePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/HomePageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/IControllerPaths.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/IControllerPaths.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/NotificationsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/NotificationsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/username/AddAppPage-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/username/AddAppPage-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/username/PreferencesPage-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/username/PreferencesPage-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/GoalsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/GoalsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/model/IUserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/model/IUserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/model/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/model/UserDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,11 +28,23 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;charliMurph&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/charliMurph/TheBeanTeam.git&quot;,
+    &quot;accountId&quot;: &quot;4f617908-429f-4774-b2af-4ee4625e5f55&quot;
+  }
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -63,6 +71,8 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.HomePageRun.executor&quot;: &quot;Run&quot;,
+    &quot;Application.HomePage_TestApplication.executor&quot;: &quot;Run&quot;,
     &quot;Application.InsertApplication.executor&quot;: &quot;Run&quot;,
     &quot;Application.Login.executor&quot;: &quot;Run&quot;,
     &quot;Application.LoginApplication.executor&quot;: &quot;Run&quot;,
@@ -103,8 +113,19 @@
       <recent name="username.model" />
       <recent name="username.controller" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="username" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.StartUp">
+  <component name="RunManager" selected="Application.HomePageRun">
+    <configuration name="HomePageRun" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="username.HomePage_TestApplication" />
+      <module name="The_Bean_Time_Screen_Time" />
+      <option name="PROGRAM_PARAMETERS" value="HomePage" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="StartUp" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="username.MainApplication" />
       <module name="The_Bean_Time_Screen_Time" />
@@ -123,6 +144,7 @@
     </configuration>
     <list>
       <item itemvalue="Application.StartUp" />
+      <item itemvalue="Application.HomePageRun" />
       <item itemvalue="JUnit.UserTest" />
     </list>
     <recent_temporary>
@@ -144,6 +166,55 @@
       <option name="presentableId" value="Default" />
       <updated>1713756810453</updated>
     </task>
+    <task id="LOCAL-00001" summary="added new AddAppPage fxml design">
+      <option name="closed" value="true" />
+      <created>1716249617159</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1716249617159</updated>
+    </task>
+    <task id="LOCAL-00002" summary="added new AddAppPage fxml design">
+      <option name="closed" value="true" />
+      <created>1716254006352</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1716254006352</updated>
+    </task>
+    <task id="LOCAL-00003" summary="added new AddAppPage fxml design">
+      <option name="closed" value="true" />
+      <created>1716254020451</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1716254020451</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added new AddAppPage fxml design">
+      <option name="closed" value="true" />
+      <created>1716285992550</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1716285992551</updated>
+    </task>
+    <task id="LOCAL-00005" summary="added new AddAppPage fxml design">
+      <option name="closed" value="true" />
+      <created>1716286177274</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1716286177274</updated>
+    </task>
+    <task id="LOCAL-00006" summary="new main app for tester">
+      <option name="closed" value="true" />
+      <created>1716286336569</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1716286336569</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -156,6 +227,11 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added new AddAppPage fxml design" />
+    <MESSAGE value="new main app for tester" />
+    <option name="LAST_COMMIT_MESSAGE" value="new main app for tester" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
