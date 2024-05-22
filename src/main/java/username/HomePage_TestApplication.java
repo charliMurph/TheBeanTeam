@@ -20,6 +20,7 @@ public class HomePage_TestApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+        userDAO.close();
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage-view.fxml"));
             Parent root = loader.load();

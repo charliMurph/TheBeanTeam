@@ -11,6 +11,7 @@ import org.controlsfx.control.ToggleSwitch;
 import username.model.*;
 
 import java.io.IOException;
+import java.util.List;
 
 public class DataManagementController implements IControllerPaths {
     @FXML
@@ -47,6 +48,11 @@ public class DataManagementController implements IControllerPaths {
     public void setUser(User user) {
         this.user = user;
         this.id = user.getId();
+    }
+    public void displayActiveApps()
+    {
+        List<String> appNames = userDAO.getActiveApps(id);
+        System.out.print(appNames);
     }
     public User getUser() {
         return user;

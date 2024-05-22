@@ -168,6 +168,7 @@ public class UserDAO implements IUserDAO{
 @Override
     public void addAppName(int id , String appName, int weekHours,int monthHours) {
         try {
+            System.out.println("Authen id: " + id);
             PreparedStatement insertPreference = connection.prepareStatement(
                     "INSERT INTO userPreferences (authenticationId, applicationName, " +
                             "weeklyHourLimit, monthlyHourLimit, isActive) VALUES (?, ?, ?, ?, 1)"
@@ -181,6 +182,26 @@ public class UserDAO implements IUserDAO{
         } catch (SQLException ex) {
             System.err.println(ex);
         }
+    }
+    public List<String> getActiveApps(int id) {
+        try {
+            System.out.println(id);
+            PreparedStatement getApps = connection.prepareStatement(
+                    "SELECT applicationName FROM userPreferences WHERE authenticationId = ?"
+            );
+            getApps.setInt(1, id);
+            System.out.println("Executed successfully!");
+            ResultSet rs = getApps.executeQuery();
+            List<String> activeApps = new ArrayList<>();
+            while (rs.next()) {
+                String applicationName = rs.getString("applicationName");
+                activeApps.add(applicationName);
+            }
+            return activeApps;
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+        return null;
     }
     //change the names of sql appdata once Isaiah inserts his table with his value names
     @Override
@@ -272,5 +293,7 @@ public class UserDAO implements IUserDAO{
             ex.printStackTrace();
         }
     }
+
+
 }
 

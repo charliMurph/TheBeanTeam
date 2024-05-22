@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="195bfca3-755a-419b-85be-3ab100768756" name="Changes" comment="new main app for tester">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Screen_Time_Bean_Time.db" beforeDir="false" afterPath="$PROJECT_DIR$/Screen_Time_Bean_Time.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/username/HomePage_TestApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/HomePage_TestApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/DataManagementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/DataManagementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/model/Navigate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/model/Navigate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/model/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/model/UserDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

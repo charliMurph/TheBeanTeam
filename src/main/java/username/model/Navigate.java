@@ -53,6 +53,7 @@ public class Navigate {
                     DataManagementController preferences = loader.getController();
                     System.out.println("Button clicked. Navigating to user preferences page...");
                     preferences.setUser(user);
+                    preferences.displayActiveApps();
                     preferences.setPrimaryStage(primaryStage);
                     break;
                 case "Profile":
