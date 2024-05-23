@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="195bfca3-755a-419b-85be-3ab100768756" name="Changes" comment="new main app for tester">
+    <list default="true" id="195bfca3-755a-419b-85be-3ab100768756" name="Changes" comment="added dynamic apps base on db">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Screen_Time_Bean_Time.db" beforeDir="false" afterPath="$PROJECT_DIR$/Screen_Time_Bean_Time.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/DataManagementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/DataManagementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/username/model/Navigate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/model/Navigate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/username/model/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/model/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/username/DataManagementPage-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/username/DataManagementPage-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -222,7 +220,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716286336569</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="added dynamic apps base on db">
+      <option name="closed" value="true" />
+      <created>1716441807248</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1716441807248</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -239,7 +245,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added new AddAppPage fxml design" />
     <MESSAGE value="new main app for tester" />
-    <option name="LAST_COMMIT_MESSAGE" value="new main app for tester" />
+    <MESSAGE value="added dynamic apps base on db" />
+    <option name="LAST_COMMIT_MESSAGE" value="added dynamic apps base on db" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

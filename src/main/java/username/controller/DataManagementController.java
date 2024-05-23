@@ -19,8 +19,7 @@ import java.util.List;
 public class DataManagementController implements IControllerPaths {
 
     public VBox AddApps;
-    @FXML
-    private ToggleSwitch FBSwitch;
+
     private User user;
     private int id;
     private final UserDAO userDAO;
@@ -63,10 +62,11 @@ public class DataManagementController implements IControllerPaths {
         ToggleSwitch toggleSwitch = new ToggleSwitch();
         toggleSwitch.setPrefHeight(18.0);
         toggleSwitch.setPrefWidth(45.0);
+
         HBox.setMargin(toggleSwitch, new Insets(0, 10, 0, 0));
         hBox.getChildren().add(toggleSwitch);
-
-//        initializeToggleSwitch(toggleSwitch, app.name);
+        toggleSwitch.setOnMouseClicked(event -> handleSwitch(app));
+        initializeToggleSwitch(toggleSwitch, app);
 
         return hBox;
     }
@@ -76,6 +76,7 @@ public class DataManagementController implements IControllerPaths {
         int isActive = userDAO.getIsActiveStatus(id, appName);
         if (isActive == -1) {
             toggleSwitch.setVisible(false);
+
             HBox parentBox = (HBox) toggleSwitch.getParent();
             Label addNewLabel = new Label("Add New");
             addNewLabel.setTextFill(Color.web("#af71ff"));
@@ -94,16 +95,14 @@ public class DataManagementController implements IControllerPaths {
         // Implementation for adding the new application to the database
     }
 
-    public void onSwitch() {
-        int currentStatus = userDAO.getIsActiveStatus(id, "Facebook");
+    public void handleSwitch(String appName) {
+        int currentStatus = userDAO.getIsActiveStatus(id, appName);
         if (currentStatus == -1) {
             System.err.println("Error fetching current status");
             return;
         }
-
         int newStatus = (currentStatus == 1) ? 0 : 1;
-        userDAO.setApplicationActiveStatus(id, "Facebook", newStatus);
-        FBSwitch.setSelected(newStatus == 1);
+        userDAO.setApplicationActiveStatus(id, appName, newStatus);
         System.out.println("Switch toggled to " + (newStatus == 1 ? "on" : "off"));
     }
 
@@ -113,11 +112,13 @@ public class DataManagementController implements IControllerPaths {
 
     @Override
     public void Home(MouseEvent event) {
+        userDAO.close();
         Navigate.caseGoto(event, user, primaryStage, "/username/HomePage-view.fxml", "Home");
     }
 
     @Override
     public void DataMan(MouseEvent event) {
+        userDAO.close();
         Navigate.caseGoto(event, user, primaryStage, "/username/DataManagementPage-view.fxml", "DataMan");
     }
 

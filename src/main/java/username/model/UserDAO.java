@@ -203,7 +203,7 @@ public class UserDAO implements IUserDAO {
         }
     }
 
-    public List<String> getActiveApps(int id) {
+    public List<String> getListOfApps(int id) {
         try {
             System.out.println(id);
             PreparedStatement getApps = connection.prepareStatement(
@@ -258,10 +258,6 @@ public class UserDAO implements IUserDAO {
         {
             System.out.println("Error: " + e);
         }
-    }
-
-    public List<String> getListOfApps(int id) {
-        return null;
     }
     public int countAppsListed(int id) {
         int count = 0;
