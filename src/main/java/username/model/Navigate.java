@@ -36,7 +36,6 @@ public class Navigate {
     public static void caseGoto(MouseEvent event, User user, Stage primaryStage, String fxmlFileName, String pageName)
     {
         try {
-
             FXMLLoader loader = new FXMLLoader(Navigate.class.getResource(fxmlFileName));
             Parent root = loader.load();
             Scene scene = new Scene(root);
@@ -50,11 +49,11 @@ public class Navigate {
                     homeController.initialize();
                     break;
                 case "DataMan":
-                    DataManagementController preferences = loader.getController();
+                    DataManagementController datamanController = loader.getController();
+                    datamanController.setPrimaryStage(primaryStage);
                     System.out.println("Button clicked. Navigating to user preferences page...");
-                    preferences.setUser(user);
-                    preferences.displayActiveApps();
-                    preferences.setPrimaryStage(primaryStage);
+                    datamanController.setUser(user);
+                    datamanController.init();
                     break;
                 case "Profile":
                     ProfileController profileController = loader.getController();
@@ -77,9 +76,11 @@ public class Navigate {
                     break;
                 case "Goals":
                     GoalsController goalsController = loader.getController();
-                    goalsController.setPrimaryStage(primaryStage);
-                    goalsController.setUser(user);
+                    System.out.println(" user: " + goalsController);
                     goalsController.setUserId(user.getId());
+                    goalsController.setUser(user);
+                    goalsController.initialize();
+                    goalsController.setPrimaryStage(primaryStage);
                     break;
                 case "Notifications":
                     break;

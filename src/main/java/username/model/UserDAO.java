@@ -1,10 +1,11 @@
 package username.model;
 
+import java.security.Principal;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserDAO implements IUserDAO{
+public class UserDAO implements IUserDAO {
     private Connection connection;
     public DatabaseConnection dataconnect;
 
@@ -18,6 +19,7 @@ public class UserDAO implements IUserDAO{
         dataconnect.createUserPreferences(connection);
         System.out.println("Connected DAO");
     }
+
     @Override
     public void addUser(User User) {
         try {
@@ -35,6 +37,7 @@ public class UserDAO implements IUserDAO{
             System.err.println(ex);
         }
     }
+
     @Override
     public void updateUser(User User) {
         try {
@@ -63,6 +66,7 @@ public class UserDAO implements IUserDAO{
             e.printStackTrace();
         }
     }
+
     @Override
     public List<User> getAllUsers() {
         List<User> accounts = new ArrayList<>();
@@ -96,13 +100,13 @@ public class UserDAO implements IUserDAO{
             ResultSet rs = getAccount.executeQuery();
             if (rs.next()) {
                 return new User(
-                    rs.getInt("id"),
+                        rs.getInt("id"),
                         rs.getString("email"),
-                    rs.getString("username"),
-                    rs.getString("password"),
-                    rs.getString("firstName"),
-                    rs.getString("lastName"),
-                    rs.getInt("age")
+                        rs.getString("username"),
+                        rs.getString("password"),
+                        rs.getString("firstName"),
+                        rs.getString("lastName"),
+                        rs.getInt("age")
                 );
             }
         } catch (SQLException ex) {
@@ -110,6 +114,7 @@ public class UserDAO implements IUserDAO{
         }
         return null;
     }
+
     @Override
     public int getUserId(String username, String password) {
         try {
@@ -138,6 +143,7 @@ public class UserDAO implements IUserDAO{
             return false; // Return false in case of any exception
         }
     }
+
     public boolean userExists(String username) {
         try {
             // Prepare a SQL statement to query the database
@@ -165,8 +171,9 @@ public class UserDAO implements IUserDAO{
         // Return false if an error occurred or if the username doesn't exist
         return false;
     }
-@Override
-    public void AddOrUpdateUserPref(int id , String appName, int weekHours, int monthHours) {
+
+    @Override
+    public void AddOrUpdateUserPref(int id, String appName, int weekHours, int monthHours) {
         try {
             PreparedStatement updateStmt = connection.prepareStatement(
                     "UPDATE userPreferences SET weeklyHourLimit = ?, monthlyHourLimit = ? WHERE authenticationId = ? AND applicationName = ?"
@@ -195,6 +202,7 @@ public class UserDAO implements IUserDAO{
             System.err.println(ex);
         }
     }
+
     public List<String> getActiveApps(int id) {
         try {
             System.out.println(id);
@@ -215,6 +223,72 @@ public class UserDAO implements IUserDAO{
         }
         return null;
     }
+
+    public int getIsActiveStatus(int id, String appName) {
+        try {
+            PreparedStatement getApps = connection.prepareStatement(
+                    "SELECT isActive FROM userPreferences WHERE authenticationId = ? AND applicationName = ?"
+            );
+            getApps.setInt(1, id);
+            getApps.setString(2, appName);
+            ResultSet psychoactive = getApps.executeQuery();
+            if (psychoactive.next()) {
+                System.out.println("Existent app: " + appName);
+                return psychoactive.getInt("isActive");
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+        return -1; // Default to inactive if there's an issue or no result found
+    }
+
+    public void setApplicationActiveStatus(int authenId, String appName, int isActive) {
+        String query = "UPDATE userPreferences SET isActive = ? WHERE authenticationId = ? AND applicationName = ?";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, isActive);
+            preparedStatement.setInt(2, authenId);
+            preparedStatement.setString(3, appName);
+            int affectedRows = preparedStatement.executeUpdate();
+                if (affectedRows > 0) {
+                    System.out.println("Application deactivated successfully.");
+                } else {
+                    System.out.println("No active application found to deactivate.");
+                }
+        }catch (Exception e)
+        {
+            System.out.println("Error: " + e);
+        }
+    }
+
+    public List<String> getListOfApps(int id) {
+        return null;
+    }
+    public int countAppsListed(int id) {
+        int count = 0;
+        try {
+            // Prepare the SQL query
+            String sqlQuery = ("SELECT COUNT(*)" +
+                    "FROM userPreferences " +
+                    "WHERE authenticationId = ?");
+
+            // Create a PreparedStatement
+            PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
+            // Set the parameters
+            preparedStatement.setInt(1, id);
+            // Execute the query
+            ResultSet countedApps = preparedStatement.executeQuery();
+            if(countedApps.next())
+            {
+                System.out.println("App count :" + countedApps.getInt(1));
+
+                return countedApps.getInt(1);
+            }
+        } catch (SQLException ex) {
+            System.err.println("Error retrieving hours tracked: " + ex.getMessage());
+        }
+        return count;
+    }
+
     //change the names of sql appdata once Isaiah inserts his table with his value names
     @Override
     public double[] getLimitUsagePercentages(String appName, int userId) {
@@ -305,7 +379,6 @@ public class UserDAO implements IUserDAO{
             ex.printStackTrace();
         }
     }
-
 
 }
 

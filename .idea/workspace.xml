@@ -7,9 +7,10 @@
     <list default="true" id="195bfca3-755a-419b-85be-3ab100768756" name="Changes" comment="new main app for tester">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Screen_Time_Bean_Time.db" beforeDir="false" afterPath="$PROJECT_DIR$/Screen_Time_Bean_Time.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/GoalsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/GoalsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/username/model/IUserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/model/IUserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/DataManagementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/DataManagementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/model/Navigate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/model/Navigate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/username/model/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/model/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/username/DataManagementPage-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/username/DataManagementPage-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,6 +157,13 @@
         <item itemvalue="JUnit.UserTest" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
