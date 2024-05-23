@@ -32,7 +32,7 @@ public class LoginController {
         userDAO = new UserDAO();
     }
 
-    @FXML
+
     private void initialize() {
         // You can put initialization code here if needed
     }

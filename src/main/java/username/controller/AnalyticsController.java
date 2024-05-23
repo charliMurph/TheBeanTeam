@@ -14,6 +14,7 @@ import java.io.IOException;
 public class AnalyticsController implements IControllerPaths {
     private final UserDAO userDAO;
     private User user;
+    private int id;
     private Stage primaryStage;
     public AnalyticsController() {
         userDAO = new UserDAO();
@@ -24,6 +25,20 @@ public class AnalyticsController implements IControllerPaths {
     public void setUser(User user){
         this.user = user;
         System.out.println("Set User as : " + user);
+    }
+    public void setUserID(int id){
+        this.id = id;
+        System.out.println("Set User as : " + id);
+    }
+
+    @Override
+    public void initialize(){
+        // check is active
+        System.out.println("hours tracked: " + userDAO.getHoursTracked("Instagram", id));
+        // for all is active return string list of their names
+        // match all names and user id to appdata
+        // return get hours tracked
+        return;
     }
     public void Profile(MouseEvent event){
         Navigate.goTo("/username/Profile-view.fxml", event);

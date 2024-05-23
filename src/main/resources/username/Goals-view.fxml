@@ -31,7 +31,7 @@
                 </Button>
                 <Button mnemonicParsing="false" style="-fx-background-color: NULL;">
                     <graphic>
-                        <FontAwesomeIconView fill="#af71ff" glyphName="LIST_UL" size="40" />
+                        <FontAwesomeIconView fill="#af71ff" glyphName="LIST_UL" size="40" onMouseClicked="#DataMan" />
                     </graphic>
                 </Button>
                 <Button mnemonicParsing="false" style="-fx-background-color: NULL;">

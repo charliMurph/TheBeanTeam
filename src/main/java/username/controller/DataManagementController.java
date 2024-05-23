@@ -38,6 +38,10 @@ public class DataManagementController implements IControllerPaths {
         this.user = user;
         this.id = user.getId();
     }
+    @Override
+    public void initialize(){
+        return;
+    }
 
     public void init() {
         List<String> apps = userDAO.getListOfApps(id);
@@ -50,24 +54,23 @@ public class DataManagementController implements IControllerPaths {
     }
     private HBox createAppHBox(String app) {
         HBox hBox = new HBox();
+        hBox.setSpacing(50);
         hBox.setAlignment(javafx.geometry.Pos.CENTER_LEFT);
         hBox.setPrefHeight(55.0);
         hBox.setStyle("-fx-border-color: DFC6FF; -fx-border-radius: 25;");
-
         Text appName = new Text(app);
         appName.setFont(new Font(17.0));
-        HBox.setMargin(appName, new Insets(0, 0, 0, 15.0));
+        HBox.setMargin(appName, new Insets(0, 0, 10, 15.0));
         hBox.getChildren().add(appName);
 
         ToggleSwitch toggleSwitch = new ToggleSwitch();
         toggleSwitch.setPrefHeight(18.0);
         toggleSwitch.setPrefWidth(45.0);
-
         HBox.setMargin(toggleSwitch, new Insets(0, 10, 0, 0));
+
         hBox.getChildren().add(toggleSwitch);
         toggleSwitch.setOnMouseClicked(event -> handleSwitch(app));
         initializeToggleSwitch(toggleSwitch, app);
-
         return hBox;
     }
 
@@ -76,7 +79,6 @@ public class DataManagementController implements IControllerPaths {
         int isActive = userDAO.getIsActiveStatus(id, appName);
         if (isActive == -1) {
             toggleSwitch.setVisible(false);
-
             HBox parentBox = (HBox) toggleSwitch.getParent();
             Label addNewLabel = new Label("Add New");
             addNewLabel.setTextFill(Color.web("#af71ff"));
@@ -124,8 +126,7 @@ public class DataManagementController implements IControllerPaths {
 
     @Override
     public void Profile(MouseEvent event) {
-        userDAO.close();
-        Navigate.caseGoto(event, user, primaryStage, "/username/Profile-view.fxml", "Profile");
+        Navigate.caseGoto(event, user,  primaryStage,"/username/Profile-view.fxml", "Profile");
     }
 
     @Override

@@ -51,8 +51,8 @@ public class GoalsController implements IControllerPaths {
         return List.of("Google Chrome", "Microsoft Word", "Discord", "Steam", "Microsoft PowerPoint", "Facebook", "Instagram", "Microsoft Office", "Microsoft Excel");
     }
 
-    @FXML
-    public void initialize() {
+    @Override
+    public void initialize(){
         // Initialize spinners
         weeklyLimitSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 168, 0));
         weeklyLimitSpinner.setEditable(true);

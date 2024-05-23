@@ -50,6 +50,12 @@ public class ProfileController implements IControllerPaths{
     public void setUser(User user)
     {this.user = user;
     System.out.println("user is: " + user.getUsername());}
+
+    @Override
+    public void initialize() {
+        initializeProfile(user);
+
+    }
     // Method to initialize the profile with user data
     public void initializeProfile(User user) {
         // Populate the UI elements with user data
@@ -107,6 +113,7 @@ public class ProfileController implements IControllerPaths{
 
     @Override
     public void DataMan(MouseEvent event) {
+        userDAO.close();
         Navigate.caseGoto(event, user,  primaryStage, "/username/DataManagementPage-view.fxml", "DataMan");
     }
 
@@ -115,11 +122,13 @@ public class ProfileController implements IControllerPaths{
     }
 
     public void Goals(MouseEvent event) {
+        userDAO.close();
         Navigate.caseGoto(event, user,  primaryStage, "/username/Goals-view.fxml", "Goals");
     }
     @Override
     //(MouseEvent event, User user, Stage primaryStage)
     public void Home(MouseEvent event) {
+        userDAO.close();
         Navigate.caseGoto(event, user,  primaryStage, "/username/HomePage-view.fxml", "Home");
     }
 

@@ -32,6 +32,7 @@ public class HomePageController implements IControllerPaths {
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
+    @Override
     public void initialize() {
         // Initialize the greeting label with a default message
         int userID = getUserID();
@@ -86,6 +87,7 @@ public class HomePageController implements IControllerPaths {
     }
     @Override
     public void Analytics(MouseEvent event){
+        userDAO.close();
         Navigate.caseGoto(event, user,  primaryStage, "/username/Analytics-view.fxml", "Analytics");
     }
     @Override

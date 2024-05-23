@@ -60,13 +60,15 @@ public class Navigate {
                     profileController.setPrimaryStage(primaryStage); // Pass the primaryStage to the controller
                     System.out.println("user is :" + user.getUsername());
                     profileController.setUser(user);
-                    profileController.initializeProfile(user);
+                    profileController.initialize();
                     break;
                 case "Analytics":
                     AnalyticsController Analytics = loader.getController();
-                    Analytics.setPrimaryStage(primaryStage); // Pass the primaryStage to the controller
                     System.out.println("user is :" + user.getUsername());
+                    Analytics.setUserID(user.getId());
                     Analytics.setUser(user);
+                    Analytics.setPrimaryStage(primaryStage); // Pass the primaryStage to the controller
+                    Analytics.initialize();
                     break;
                 case "Login":
                     LoginController controller = loader.getController();

@@ -13,7 +13,7 @@
     <children>
         <VBox alignment="CENTER" prefHeight="800.0" prefWidth="62.0" spacing="20.0" style="-fx-background-color: DFC6FF;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <Button mnemonicParsing="false" style="-fx-background-color: NULL;" onMouseClicked="#Home">
+                <Button mnemonicParsing="false" onMouseClicked="#Home" style="-fx-background-color: NULL;">
                     <graphic>
                         <Icons525View fill="#af71ff" glyphName="HOME" size="40" />
                     </graphic>
@@ -28,7 +28,7 @@
                         <FontAwesomeIconView fill="#af71ff" glyphName="LOCK" size="40" />
                     </graphic>
                 </Button>
-                <Button mnemonicParsing="false" style="-fx-background-color: NULL;" onMouseClicked="#DataMan">
+                <Button mnemonicParsing="false" onMouseClicked="#DataMan" style="-fx-background-color: NULL;">
                     <graphic>
                         <FontAwesomeIconView fill="#af71ff" glyphName="LIST_UL" size="40" />
                     </graphic>
@@ -204,7 +204,7 @@
                                                         <Font size="14.0" />
                                                     </font>
                                                 </Label>
-                                                <TextField minWidth="-Infinity" prefWidth="170.0" style="-fx-background-color: F6F6F6; -fx-border-color: D9D9D9; -fx-border-radius: 5;">
+                                                <TextField fx:id="passwordLabel" minWidth="-Infinity" prefWidth="170.0" style="-fx-background-color: F6F6F6; -fx-border-color: D9D9D9; -fx-border-radius: 5;">
                                                     <padding>
                                                         <Insets bottom="10.0" top="10.0" />
                                                     </padding>

@@ -225,6 +225,7 @@ public class UserDAO implements IUserDAO {
     }
 
     public int getIsActiveStatus(int id, String appName) {
+        System.out.println("set app id : " + id);
         try {
             PreparedStatement getApps = connection.prepareStatement(
                     "SELECT isActive FROM userPreferences WHERE authenticationId = ? AND applicationName = ?"
@@ -242,11 +243,12 @@ public class UserDAO implements IUserDAO {
         return -1; // Default to inactive if there's an issue or no result found
     }
 
-    public void setApplicationActiveStatus(int authenId, String appName, int isActive) {
+    public void setApplicationActiveStatus(int id, String appName, int isActive) {
+        System.out.println("set app id : " + id);
         String query = "UPDATE userPreferences SET isActive = ? WHERE authenticationId = ? AND applicationName = ?";
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setInt(1, isActive);
-            preparedStatement.setInt(2, authenId);
+            preparedStatement.setInt(2, id);
             preparedStatement.setString(3, appName);
             int affectedRows = preparedStatement.executeUpdate();
                 if (affectedRows > 0) {
@@ -259,46 +261,19 @@ public class UserDAO implements IUserDAO {
             System.out.println("Error: " + e);
         }
     }
-    public int countAppsListed(int id) {
-        int count = 0;
-        try {
-            // Prepare the SQL query
-            String sqlQuery = ("SELECT COUNT(*)" +
-                    "FROM userPreferences " +
-                    "WHERE authenticationId = ?");
-
-            // Create a PreparedStatement
-            PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
-            // Set the parameters
-            preparedStatement.setInt(1, id);
-            // Execute the query
-            ResultSet countedApps = preparedStatement.executeQuery();
-            if(countedApps.next())
-            {
-                System.out.println("App count :" + countedApps.getInt(1));
-
-                return countedApps.getInt(1);
-            }
-        } catch (SQLException ex) {
-            System.err.println("Error retrieving hours tracked: " + ex.getMessage());
-        }
-        return count;
-    }
-
     //change the names of sql appdata once Isaiah inserts his table with his value names
     @Override
     public double[] getLimitUsagePercentages(String appName, int userId) {
         double[] percentages = new double[2]; // Array to store weekly and monthly percentages
-
         try {
             // Prepare the SQL query
             String sqlQuery = "SELECT " +
                     "CASE " +
-                    "    WHEN userPreferences.weeklyHourLimit > 0 THEN (appData.hoursTracked * 100.0) / userPreferences.weeklyHourLimit " +
+                    "    WHEN userPreferences.weeklyHourLimit > 0 THEN (appData.hours * 100.0) / userPreferences.weeklyHourLimit " +
                     "    ELSE NULL " +
                     "END AS weeklyLimitUsedPercentage, " +
                     "CASE " +
-                    "    WHEN userPreferences.monthlyHourLimit > 0 THEN (appData.hoursTracked * 100.0) / userPreferences.monthlyHourLimit " +
+                    "    WHEN userPreferences.monthlyHourLimit > 0 THEN (appData.hours * 100.0) / userPreferences.monthlyHourLimit " +
                     "    ELSE NULL " +
                     "END AS monthlyLimitUsedPercentage " +
                     "FROM " +

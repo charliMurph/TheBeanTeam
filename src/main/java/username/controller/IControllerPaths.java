@@ -20,5 +20,7 @@ public interface IControllerPaths {
     @FXML
     public void Home(MouseEvent event);
 
+    public void initialize();
+
 }
 
