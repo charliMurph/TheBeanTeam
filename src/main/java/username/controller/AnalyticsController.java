@@ -10,6 +10,7 @@ import username.model.User;
 import username.model.UserDAO;
 
 import java.io.IOException;
+import java.util.List;
 
 public class AnalyticsController implements IControllerPaths {
     private final UserDAO userDAO;
@@ -34,9 +35,15 @@ public class AnalyticsController implements IControllerPaths {
     @Override
     public void initialize(){
         // check is active
-        System.out.println("hours tracked: " + userDAO.getHoursTracked("Instagram", id));
+        List<String> activeApps = userDAO.getActiveApplications(id);
+        System.out.println("Active applications: " + activeApps);
         // for all is active return string list of their names
         // match all names and user id to appdata
+        for (String appName : activeApps) {
+            // Fetch and print the hours tracked for each active application
+            int hoursTracked = userDAO.getHoursTracked(appName, id);
+            System.out.println("Hours tracked for " + appName + ": " + hoursTracked);
+        }
         // return get hours tracked
         return;
     }

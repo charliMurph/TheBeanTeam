@@ -4,23 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="195bfca3-755a-419b-85be-3ab100768756" name="Changes" comment="returned db list of apps dynamic">
+    <list default="true" id="195bfca3-755a-419b-85be-3ab100768756" name="Changes" comment="db was locking changed again">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Screen_Time_Bean_Time.db" beforeDir="false" afterPath="$PROJECT_DIR$/Screen_Time_Bean_Time.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/AnalyticsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/AnalyticsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/DataManagementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/DataManagementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/GoalsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/GoalsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/HomePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/HomePageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/IControllerPaths.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/IControllerPaths.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/ProfileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/username/model/Navigate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/model/Navigate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/username/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/model/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/username/model/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/model/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/username/Analytics-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/username/Analytics-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/username/DataManagementPage-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/username/DataManagementPage-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/username/Goals-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/username/Goals-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/username/Profile-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/username/Profile-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -248,7 +236,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716442585107</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="db was locking changed again">
+      <option name="closed" value="true" />
+      <created>1716458539624</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1716458539624</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -267,7 +263,8 @@
     <MESSAGE value="new main app for tester" />
     <MESSAGE value="added dynamic apps base on db" />
     <MESSAGE value="returned db list of apps dynamic" />
-    <option name="LAST_COMMIT_MESSAGE" value="returned db list of apps dynamic" />
+    <MESSAGE value="db was locking changed again" />
+    <option name="LAST_COMMIT_MESSAGE" value="db was locking changed again" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

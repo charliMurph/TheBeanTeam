@@ -261,7 +261,34 @@ public class UserDAO implements IUserDAO {
             System.out.println("Error: " + e);
         }
     }
-    //change the names of sql appdata once Isaiah inserts his table with his value names
+
+    public List<String> getActiveApplications(int id) {
+        System.out.println("set app id: " + id);
+        String query = """
+            SELECT DISTINCT appData.applicationName as app
+            FROM appData
+            JOIN userPreferences
+              ON appData.authenticationId = userPreferences.authenticationId
+              AND appData.applicationName = userPreferences.applicationName
+            WHERE appData.authenticationId = ?
+            AND userPreferences.isActive = 1;
+            """;
+        List<String> activeApps = new ArrayList<>();
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, id);
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                while (resultSet.next()) {
+                    String appName = resultSet.getString("app");
+                    activeApps.add(appName);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e);
+        }
+
+        return activeApps;
+    }
     @Override
     public double[] getLimitUsagePercentages(String appName, int userId) {
         double[] percentages = new double[2]; // Array to store weekly and monthly percentages
@@ -310,14 +337,13 @@ public class UserDAO implements IUserDAO {
     @Override
     public int getHoursTracked(String appName, int userId) {
         int hoursTracked = 0;
-
         try {
             // Prepare the SQL query
-            String sqlQuery = "SELECT appData.hoursTracked " +
+            String sqlQuery = "SELECT appData.hours as hoursTracked " +
                     "FROM appData " +
-                    "JOIN userPreferences ON appData.userID = userPreferences.authenticationId " +
-                    "WHERE appData.userID = ? " +
-                    "AND appData.appName = ?;";
+                    "JOIN userPreferences ON appData.authenticationId = userPreferences.authenticationId " +
+                    "WHERE appData.authenticationId = ? " +
+                    "AND appData.applicationName = ?;";
 
             // Create a PreparedStatement
             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
@@ -350,6 +376,7 @@ public class UserDAO implements IUserDAO {
             ex.printStackTrace();
         }
     }
+
 
 }
 
