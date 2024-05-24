@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.GlyphsStack?>
+<?import de.jensd.fx.glyphs.icons525.Icons525View?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="762.0" prefWidth="873.0" style="-fx-background-color: E9E5E5;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="username.controller.LoginController">
+    <children>
+        <VBox alignment="CENTER" layoutX="276.0" layoutY="99.0" prefHeight="564.0" prefWidth="321.0" spacing="20" style="-fx-background-color: FFFFFF; -fx-background-radius: 10;">
+            <padding>
+                <Insets bottom="20" top="50" />
+            </padding>
+            <children>
+                <Label fx:id="loginStatus" layoutX="10.0" layoutY="10.0" textFill="RED">
+               <font>
+                  <Font name="Verdana Bold Italic" size="14.0" />
+               </font></Label>
+                <Icons525View fill="#af71ff" glyphName="CLOCK" selectionFill="#af71ff" size="85" />
+                <GlyphsStack />
+                <Label style="-fx-background-radius: 25; -fx-font-weight: bold; -fx-background-color: F1F1F1;" text="Bean Time Screen Time Tracker" textFill="#a259ff" translateY="35.0">
+                    <padding>
+                        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                    </padding>
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Label>
+                <Label alignment="TOP_LEFT" graphicTextGap="1.0" style="-fx-font-weight: LIGHT;" text="Username:" textFill="#817f7f" translateY="35.0">
+                    <VBox.margin>
+                        <Insets right="160.0" />
+                    </VBox.margin>
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="usernameField" alignment="TOP_CENTER" maxHeight="45.0" prefHeight="27.0" prefWidth="221.0" promptText="Username" style="-fx-background-radius: 5; -fx-background-color: F6F6F6; -fx-border-color: D9D9D9; -fx-border-radius: 5;" translateY="20.0">
+                    <VBox.margin>
+                        <Insets left="50.0" right="50.0" />
+                    </VBox.margin>
+                    <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                    </padding>
+                </TextField>
+                <Label style="-fx-font-weight: light;" text="Password:" textFill="#817f7f" translateY="15.0">
+                    <VBox.margin>
+                        <Insets right="160.0" />
+                    </VBox.margin>
+                </Label>
+                <PasswordField fx:id="passwordField" alignment="TOP_CENTER" promptText="Password" style="-fx-background-radius: 5; -fx-background-color: F6F6F6; -fx-border-color: D9D9D9; -fx-border-radius: 5;">
+                    <VBox.margin>
+                        <Insets left="50.0" right="50.0" />
+                    </VBox.margin>
+                    <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                    </padding>
+                </PasswordField>
+                <Label contentDisplay="RIGHT" graphicTextGap="0.0" text="Don't have an account?" translateY="-15.0">
+                    <graphic>
+                        <Hyperlink alignment="CENTER_RIGHT" contentDisplay="BOTTOM" onAction="#handleSignUpLink" prefHeight="23.0" prefWidth="53.0" text="Register" textFill="#a259ff" />
+                    </graphic>
+                </Label>
+                <Button alignment="CENTER" contentDisplay="CENTER" onAction="#handleLoginButton" prefHeight="27.0" prefWidth="216.0" style="-fx-background-color: DFC6FF;" text="Login" textFill="#a259ff">
+                    <padding>
+                        <Insets bottom="5.0" top="5.0" />
+                    </padding>
+                    <VBox.margin>
+                        <Insets left="6.0" />
+                    </VBox.margin>
+                </Button>
+                <Hyperlink onAction="#handleSignUpLink" text="Forgot Password?" textFill="#a259ff" translateY="-15.0" />
+            </children>
+            <effect>
+                <DropShadow height="27.59" offsetY="1.0" radius="10.9125" spread="0.17" width="18.06">
+                    <color>
+                        <Color red="0.6710526347160339" green="0.6710526347160339" blue="0.6710526347160339" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </VBox>
+        <GlyphsStack />
+    </children>
+</AnchorPane>
