@@ -4,11 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="195bfca3-755a-419b-85be-3ab100768756" name="Changes" comment="db was locking changed again">
+    <list default="true" id="195bfca3-755a-419b-85be-3ab100768756" name="Changes" comment="new main app for tester">
+      <change afterPath="$PROJECT_DIR$/src/main/java/username/controller/AppUsageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/username/controller/WindowsAppMonitor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Screen_Time_Bean_Time.db" beforeDir="false" afterPath="$PROJECT_DIR$/Screen_Time_Bean_Time.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/AnalyticsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/AnalyticsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/MainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/DataManagementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/DataManagementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/model/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/model/DatabaseConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/username/model/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/model/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/track computer info.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/track computer info/out/production/track computer info/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/track computer info/out/production/track computer info/contollers/AppUsageTracker$User32.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/track computer info/out/production/track computer info/contollers/AppUsageTracker.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/track computer info/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/track computer info/src/contollers/AppUsageTracker.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/track computer info/track computer info.iml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +32,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -47,13 +60,6 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -67,44 +73,45 @@
     <option name="openDirectoriesWithSingleClick" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.HomePageRun.executor&quot;: &quot;Run&quot;,
-    &quot;Application.HomePage_TestApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.InsertApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Login.executor&quot;: &quot;Run&quot;,
-    &quot;Application.LoginApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.RunMain.executor&quot;: &quot;Run&quot;,
-    &quot;Application.SignUpApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.StartUp.executor&quot;: &quot;Run&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
-    &quot;JAR Application.sqlite-jdbc-3.36.0.3.jar.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.LoginTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserTest.executor&quot;: &quot;Run&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Charli&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/CharliMurphy/TBT/TheBeanTeam/lib/sqlite-jdbc-3.36.0.3.jar&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/murph/TheBeanTeam/address-book/src/main/java/org/example/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.HelloApplication.executor": "Run",
+    "Application.HomePageRun.executor": "Run",
+    "Application.HomePage_TestApplication.executor": "Run",
+    "Application.InsertApplication.executor": "Run",
+    "Application.Login.executor": "Run",
+    "Application.LoginApplication.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.MainApplication.executor": "Run",
+    "Application.RunMain.executor": "Run",
+    "Application.SignUpApplication.executor": "Run",
+    "Application.StartUp.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "true",
+    "JAR Application.sqlite-jdbc-3.36.0.3.jar.executor": "Run",
+    "JUnit.LoginTest.executor": "Run",
+    "JUnit.UserTest.executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "Isaiah",
+    "ignore.virus.scanning.warn.message": "true",
+    "jdk.selected.JAVA_MODULE": "1.8",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Steal/IdeaProjects/TheBeanTeam/src/main/java/username/controller",
+    "onboarding.tips.debug.path": "C:/Users/murph/TheBeanTeam/address-book/src/main/java/org/example/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Steal\IdeaProjects\TheBeanTeam\src\main\java\username\controller" />
       <recent name="C:\Users\murph\TheBeanTeam\src\main\java" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -116,7 +123,7 @@
       <recent name="username" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.HomePageRun">
+  <component name="RunManager" selected="Application.StartUp">
     <configuration name="HomePageRun" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="username.HomePage_TestApplication" />
       <module name="The_Bean_Time_Screen_Time" />
@@ -220,31 +227,7 @@
       <option name="project" value="LOCAL" />
       <updated>1716286336569</updated>
     </task>
-    <task id="LOCAL-00007" summary="added dynamic apps base on db">
-      <option name="closed" value="true" />
-      <created>1716441807248</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1716441807248</updated>
-    </task>
-    <task id="LOCAL-00008" summary="returned db list of apps dynamic">
-      <option name="closed" value="true" />
-      <created>1716442585107</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1716442585107</updated>
-    </task>
-    <task id="LOCAL-00009" summary="db was locking changed again">
-      <option name="closed" value="true" />
-      <created>1716458539624</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1716458539624</updated>
-    </task>
-    <option name="localTasksCounter" value="10" />
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -261,15 +244,12 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added new AddAppPage fxml design" />
     <MESSAGE value="new main app for tester" />
-    <MESSAGE value="added dynamic apps base on db" />
-    <MESSAGE value="returned db list of apps dynamic" />
-    <MESSAGE value="db was locking changed again" />
-    <option name="LAST_COMMIT_MESSAGE" value="db was locking changed again" />
+    <option name="LAST_COMMIT_MESSAGE" value="new main app for tester" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
+        <breakpoint enabled="true" log-message="true" type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="7" />
         </breakpoint>

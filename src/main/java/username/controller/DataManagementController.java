@@ -11,9 +11,15 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.controlsfx.control.ToggleSwitch;
+import username.model.DatabaseConnection;
 import username.model.Navigate;
 import username.model.User;
 import username.model.UserDAO;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 public class DataManagementController implements IControllerPaths {
@@ -24,6 +30,7 @@ public class DataManagementController implements IControllerPaths {
     private int id;
     private final UserDAO userDAO;
     private Stage primaryStage;
+    private AppUsageController appUsageController;
 
 
     public DataManagementController() {
@@ -37,6 +44,7 @@ public class DataManagementController implements IControllerPaths {
     public void setUser(User user) {
         this.user = user;
         this.id = user.getId();
+        this.appUsageController = new AppUsageController(user);
     }
     @Override
     public void initialize(){
@@ -154,4 +162,53 @@ public class DataManagementController implements IControllerPaths {
         userDAO.close();
         Navigate.caseGoto(null, user, primaryStage, "/username/Goals-view.fxml", "Goals");
     }
+
+//    public void handleLogout() {
+//        int userId = user.getId();
+//        logLogoutTime(userId);
+//        userDAO.close();
+//        Navigate.goTo("/username/Login-view.fxml", new MouseEvent());
+//    }
+
+    private void logLogoutTime(int userId) {
+        long usageTime = calculateUsageTime(userId); // Calculate the usage time in seconds
+        String appName = "Computer"; // or getCurrentAppName();
+        String query = "UPDATE appData SET stop_time = CURRENT_TIMESTAMP, hours = hours + ? WHERE authenticationId = ? AND applicationName = ? AND stop_time IS NULL";
+        try (Connection connection = DatabaseConnection.getInstance();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setLong(1, usageTime / 3600); // Convert seconds to hours
+            statement.setInt(2, userId);
+            statement.setString(3, appName);
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    private long calculateUsageTime(int userId) {
+        // Retrieve the latest login time
+        String query = "SELECT MAX(id) AS id FROM appData WHERE authenticationId = ? AND applicationName = ?";
+        String appName = "Computer"; // or getCurrentAppName();
+        try (Connection connection = DatabaseConnection.getInstance();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, userId);
+            statement.setString(2, appName);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String selectTimeQuery = "SELECT strftime('%s', 'now') - strftime('%s', start_time) AS usage_time FROM appData WHERE id = ?";
+                try (PreparedStatement timeStatement = connection.prepareStatement(selectTimeQuery)) {
+                    timeStatement.setInt(1, id);
+                    ResultSet timeResultSet = timeStatement.executeQuery();
+                    if (timeResultSet.next()) {
+                        return timeResultSet.getLong("usage_time");
+                    }
+                }
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return 0;
+    }
+
 }

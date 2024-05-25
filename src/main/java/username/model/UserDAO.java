@@ -251,11 +251,11 @@ public class UserDAO implements IUserDAO {
             preparedStatement.setInt(2, id);
             preparedStatement.setString(3, appName);
             int affectedRows = preparedStatement.executeUpdate();
-                if (affectedRows > 0) {
-                    System.out.println("Application deactivated successfully.");
-                } else {
-                    System.out.println("No active application found to deactivate.");
-                }
+            if (affectedRows > 0) {
+                System.out.println("Application deactivated successfully.");
+            } else {
+                System.out.println("No active application found to deactivate.");
+            }
         }catch (Exception e)
         {
             System.out.println("Error: " + e);
@@ -379,4 +379,3 @@ public class UserDAO implements IUserDAO {
 
 
 }
-
