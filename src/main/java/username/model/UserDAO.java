@@ -365,6 +365,19 @@ public class UserDAO implements IUserDAO {
 
         return hoursTracked;
     }
+    public void trackApps(int id, String appName, Long duration, String startTimeStr, String endTimeStr) {
+        String query = "INSERT INTO appData (authenticationId, applicationName, hours, start_time, stop_time) VALUES (?, ?, ?, ?, ?)";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, id);
+            statement.setString(2, appName);
+            statement.setLong(3, duration ); // Convert seconds to hours
+            statement.setString(4, startTimeStr);
+            statement.setString(5, endTimeStr);
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
     public void close() {
         System.out.println("Closed user DAO");
         try {
@@ -375,6 +388,16 @@ public class UserDAO implements IUserDAO {
             // Log or handle the exception
             ex.printStackTrace();
         }
+    }
+    public void open() {
+        connection = DatabaseConnection.getInstance();
+        // Initialize dataconnect here
+        dataconnect = new DatabaseConnection();
+        dataconnect.createUserTable(connection);
+        dataconnect.createUserPreferences(connection);
+        System.out.println("Connected DAO");
+
+
     }
 
 

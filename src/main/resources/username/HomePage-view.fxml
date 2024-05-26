@@ -18,17 +18,17 @@
                         <Icons525View fill="#af71ff" glyphName="HOME" size="40" />
                     </graphic>
                 </Button>
-                <Button mnemonicParsing="false" style="-fx-background-color: NULL;" onMouseClicked="#Analytics">
+                <Button mnemonicParsing="false" onMouseClicked="#Analytics" style="-fx-background-color: NULL;">
                     <graphic>
                         <FontAwesomeIconView fill="#af71ff" glyphName="PIE_CHART" size="40" />
                     </graphic>
                 </Button>
                 <Button mnemonicParsing="false" style="-fx-background-color: NULL;">
                     <graphic>
-                        <FontAwesomeIconView fill="#af71ff" glyphName="LOCK" size="40" />
+                        <FontAwesomeIconView onMouseClicked="#startStop" fill="#af71ff" glyphName="LOCK" size="40" />
                     </graphic>
                 </Button>
-                <Button mnemonicParsing="false" style="-fx-background-color: NULL;" onMouseClicked="#DataMan" >
+                <Button mnemonicParsing="false" onMouseClicked="#DataMan" style="-fx-background-color: NULL;">
                     <graphic>
                         <FontAwesomeIconView fill="#af71ff" glyphName="LIST_UL" size="40" />
                     </graphic>
@@ -65,7 +65,7 @@
                                 <Insets top="10.0" />
                             </HBox.margin>
                         </Label>
-                        <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: e0dee1; -fx-background-radius: 100;" onAction="#Notifications" translateX="690.0" translateY="25.0">
+                        <Button mnemonicParsing="false" onAction="#Notifications" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: e0dee1; -fx-background-radius: 100;" translateX="690.0" translateY="25.0">
                             <graphic>
                                 <FontAwesomeIconView fill="#7c7c7c" glyphName="BELL" size="20" />
                             </graphic>

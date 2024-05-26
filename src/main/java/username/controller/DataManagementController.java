@@ -44,7 +44,6 @@ public class DataManagementController implements IControllerPaths {
     public void setUser(User user) {
         this.user = user;
         this.id = user.getId();
-        this.appUsageController = new AppUsageController(user);
     }
     @Override
     public void initialize(){
