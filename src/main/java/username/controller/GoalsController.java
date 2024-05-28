@@ -13,6 +13,8 @@ import java.util.List;
 
 public class GoalsController implements IControllerPaths {
     @FXML
+    public TextField customAppNameField;
+    @FXML
     private ComboBox<String> appNameComboBox;  // Ensure this is typed with <String>
     @FXML
     public Label appLabel;
@@ -52,7 +54,7 @@ public class GoalsController implements IControllerPaths {
     }
 
     @Override
-    public void initialize(){
+    public void initialize() {
         // Initialize spinners
         weeklyLimitSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 168, 0));
         weeklyLimitSpinner.setEditable(true);
@@ -69,23 +71,29 @@ public class GoalsController implements IControllerPaths {
     public void onSaveButton(ActionEvent event) {
         // Read the input from the ComboBox and TextField for app name
         String selectedAppName = appNameComboBox.getValue();
-        if(selectedAppName == null){
+        String customAppName = customAppNameField.getText().trim();
+
+        if ((selectedAppName == null || selectedAppName.isEmpty()) && customAppName.isEmpty()) {
             appLabel.setText("Enter App Name");
-            System.out.println("values not set");
+            System.out.println("App name not provided");
             return;
         }
+
+        String appNameToSave = selectedAppName != null ? selectedAppName : customAppName;
+
         if (weeklyLimitSpinner.getValue() != null && monthlyLimitSpinner.getValue() != null) {
-            saveFunction(selectedAppName);
+            saveFunction(appNameToSave);
         } else {
-            appLabel.setText("Values are non enter limit value");
+            appLabel.setText("Enter limit values");
             // Handle the case where one or both spinner values are null
             // For example, display an error message to the user or set default values
             return;
         }
-//        // Add the app name to the user preferences ComboBox if it's a new entry
-//        if (!appNameComboBox.getItems().contains(appName)) {
-//            appNameComboBox.getItems().add(appName);
-//        }
+
+        // Add the app name to the user preferences ComboBox if it's a new entry
+        if (!appNameComboBox.getItems().contains(appNameToSave)) {
+            appNameComboBox.getItems().add(appNameToSave);
+        }
     }
 
     public void saveFunction(String appName) {
@@ -101,37 +109,44 @@ public class GoalsController implements IControllerPaths {
 
     @FXML
     public void onBackButton(MouseEvent event) {
-        Navigate.caseGoto(event, user,  primaryStage, "/username/DataManagementPage-view.fxml", "DataMan");
+        Navigate.caseGoto(event, user, primaryStage, "/username/DataManagementPage-view.fxml", "DataMan");
     }
-    @Override
+
     //(MouseEvent event, User user, Stage primaryStage)
+    @Override
     public void Home(MouseEvent event) {
-        Navigate.caseGoto(event, user,  primaryStage, "/username/HomePage-view.fxml", "Home");
+        userDAO.close();
+        Navigate.caseGoto(event, user, primaryStage, "/username/HomePage-view.fxml", "Home");
     }
+
     @Override
     public void DataMan(MouseEvent event) {
-        Navigate.caseGoto(event, user, primaryStage,"/username/DataManagementPage-view.fxml", "DataMan");
+        Navigate.caseGoto(event, user, primaryStage, "/username/DataManagementPage-view.fxml", "DataMan");
     }
 
     @Override
     public void Profile(MouseEvent event) {
-        Navigate.caseGoto(event, user, primaryStage,"/username/Profile-view.fxml", "Profile");
+        Navigate.caseGoto(event, user, primaryStage, "/username/Profile-view.fxml", "Profile");
     }
+
     @Override
-    public void Analytics(MouseEvent event){
+    public void Analytics(MouseEvent event) {
         userDAO.close();
         Navigate.caseGoto(event, user, primaryStage, "/username/Analytics-view.fxml", "Analytics");
     }
+
     @Override
-    public void Settings(MouseEvent event){
+    public void Settings(MouseEvent event) {
         Navigate.goTo("/username/Settings-view.fxml", event);
     }
+
     @Override
-    public void Notifications(MouseEvent event){
+    public void Notifications(MouseEvent event) {
         Navigate.goTo("/username/Notifications-view.fxml", event);
     }
+
     @Override
-    public void Resources(MouseEvent event){
+    public void Resources(MouseEvent event) {
         Navigate.goTo("/username/Resource-view.fxml", event);
     }
 

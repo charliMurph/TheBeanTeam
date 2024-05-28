@@ -43,7 +43,13 @@ public class AnalyticsController implements IControllerPaths {
             // Fetch and print the hours tracked for each active application
             int hoursTracked = userDAO.getHoursTracked(appName, id);
             System.out.println("Hours tracked for " + appName + ": " + hoursTracked);
+            double[] percentages = userDAO.getLimitUsagePercentages(appName, id);
+            for(double percentage : percentages)
+            {
+                System.out.println("Percentage:" + appName + ": " + percentage);
+            }
         }
+
         // return get hours tracked
         return;
     }

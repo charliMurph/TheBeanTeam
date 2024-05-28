@@ -42,8 +42,6 @@ public class Navigate {
             switch (pageName){
                 case "Home":
                     HomePageController homeController = loader.getController();
-                    // Pass any necessary data to the home controller if needed
-                    // For example, you can pass the username:
                     homeController.setUser(user);
                     homeController.setPrimaryStage(primaryStage);
                     homeController.initialize();

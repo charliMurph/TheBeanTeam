@@ -264,15 +264,13 @@ public class UserDAO implements IUserDAO {
 
     public List<String> getActiveApplications(int id) {
         System.out.println("set app id: " + id);
-        String query = """
-            SELECT DISTINCT appData.applicationName as app
-            FROM appData
-            JOIN userPreferences
-              ON appData.authenticationId = userPreferences.authenticationId
-              AND appData.applicationName = userPreferences.applicationName
-            WHERE appData.authenticationId = ?
-            AND userPreferences.isActive = 1;
-            """;
+        String query = "SELECT DISTINCT userPreferences.applicationName AS app " +
+                "FROM appData " +
+                "JOIN userPreferences " +
+                "ON appData.authenticationId = userPreferences.authenticationId " +
+                "AND appData.applicationName LIKE '%' || userPreferences.applicationName || '%' " +
+                "WHERE appData.authenticationId = ? " +
+                "AND userPreferences.isActive = 1";
         List<String> activeApps = new ArrayList<>();
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -291,33 +289,31 @@ public class UserDAO implements IUserDAO {
     }
     @Override
     public double[] getLimitUsagePercentages(String appName, int userId) {
+        System.out.println("Id :" + userId);
+        String app = "%" + appName + "%";
+        System.out.println("appname: " + app);
         double[] percentages = new double[2]; // Array to store weekly and monthly percentages
         try {
             // Prepare the SQL query
             String sqlQuery = "SELECT " +
-                    "CASE " +
-                    "    WHEN userPreferences.weeklyHourLimit > 0 THEN (appData.hours * 100.0) / userPreferences.weeklyHourLimit " +
-                    "    ELSE NULL " +
-                    "END AS weeklyLimitUsedPercentage, " +
-                    "CASE " +
-                    "    WHEN userPreferences.monthlyHourLimit > 0 THEN (appData.hours * 100.0) / userPreferences.monthlyHourLimit " +
-                    "    ELSE NULL " +
-                    "END AS monthlyLimitUsedPercentage " +
-                    "FROM " +
-                    "appData " +
+                    "ROUND((SUM(appData.hours) * 100.0) / userPreferences.weeklyHourLimit, 2) AS weeklyLimitUsedPercentage, " +
+                    "ROUND((SUM(appData.hours) * 100.0) / userPreferences.monthlyHourLimit, 2) AS monthlyLimitUsedPercentage " +
+                    "FROM appData " +
                     "JOIN " +
-                    "userPreferences ON appData.userID = userPreferences.authenticationId " +
+                    "userPreferences ON appData.authenticationId = userPreferences.authenticationId " +
                     "WHERE " +
-                    "appData.userID = ? " +
-                    "AND appData.appName = ?;";
-
+                    "appData.authenticationId = ? " +
+                    "AND userPreferences.applicationName LIKE ? " +
+                    "AND appData.applicationName LIKE ? " +
+                    "GROUP BY " +
+                    "userPreferences.weeklyHourLimit, userPreferences.monthlyHourLimit";
             // Create a PreparedStatement
             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
 
             // Set the parameters
             preparedStatement.setInt(1, userId);
-            preparedStatement.setString(2, appName);
-
+            preparedStatement.setString(2, app);
+            preparedStatement.setString(3, app);
             // Execute the query
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -339,18 +335,17 @@ public class UserDAO implements IUserDAO {
         int hoursTracked = 0;
         try {
             // Prepare the SQL query
-            String sqlQuery = "SELECT appData.hours as hoursTracked " +
+            String sqlQuery = "SELECT SUM(hours) AS hoursTracked " +
                     "FROM appData " +
-                    "JOIN userPreferences ON appData.authenticationId = userPreferences.authenticationId " +
-                    "WHERE appData.authenticationId = ? " +
-                    "AND appData.applicationName = ?;";
+                    "WHERE appData.applicationName LIKE ? " +
+                    "AND authenticationId = ? ";
 
             // Create a PreparedStatement
             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
 
             // Set the parameters
-            preparedStatement.setInt(1, userId);
-            preparedStatement.setString(2, appName);
+            preparedStatement.setInt(2, userId);
+            preparedStatement.setString(1, "%" + appName + "%");
 
             // Execute the query
             ResultSet resultSet = preparedStatement.executeQuery();
