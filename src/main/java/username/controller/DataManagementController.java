@@ -159,15 +159,9 @@ public class DataManagementController implements IControllerPaths {
 
     public void Goals() {
         userDAO.close();
-        Navigate.caseGoto(null, user, primaryStage, "/username/Goals-view.fxml", "Goals");
+        Navigate.caseGoto(null, user, primaryStage, "/username/AppGoals-view.fxml", "Goals");
     }
 
-//    public void handleLogout() {
-//        int userId = user.getId();
-//        logLogoutTime(userId);
-//        userDAO.close();
-//        Navigate.goTo("/username/Login-view.fxml", new MouseEvent());
-//    }
 
     private void logLogoutTime(int userId) {
         long usageTime = calculateUsageTime(userId); // Calculate the usage time in seconds

@@ -4,13 +4,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import username.model.DatabaseConnection;
 import username.model.Navigate;
 import username.model.User;
 import username.model.UserDAO;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Timer;
@@ -114,7 +111,7 @@ public class AppUsageController implements IControllerPaths{
 
     public void Goals() {
         userDAO.close();
-        Navigate.caseGoto(null, user, primaryStage, "/username/Goals-view.fxml", "Goals");
+        Navigate.caseGoto(null, user, primaryStage, "/username/AppGoals-view.fxml", "Goals");
     }
     @Override
     public void initialize(){return;}

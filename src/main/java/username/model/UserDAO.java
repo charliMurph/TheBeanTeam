@@ -3,7 +3,9 @@ package username.model;
 import java.security.Principal;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class UserDAO implements IUserDAO {
     private Connection connection;
@@ -372,6 +374,34 @@ public class UserDAO implements IUserDAO {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+    }
+    public Map<String, Integer> rankTopApps(int id) {
+        String rankquery = "SELECT userPreferences.applicationName, SUM(appData.hours) AS hoursTracked " +
+                "FROM appData " +
+                "JOIN userPreferences " +
+                "ON appData.authenticationId = userPreferences.authenticationId " +
+                "AND appData.applicationName LIKE '%' || userPreferences.applicationName || '%' " +
+                "WHERE userPreferences.isActive = 1 " +
+                "AND appData.authenticationId = ? " +
+                "GROUP BY userPreferences.applicationName " +
+                "ORDER BY hoursTracked DESC";
+
+        Map<String, Integer> appHoursMap = new HashMap<>();
+
+        try (PreparedStatement rankStatement = connection.prepareStatement(rankquery)) {
+            rankStatement.setInt(1, id);
+            ResultSet resultSet = rankStatement.executeQuery();
+
+            while (resultSet.next()) {
+                String appName = resultSet.getString("applicationName");
+                int hoursTracked = resultSet.getInt("hoursTracked");
+                appHoursMap.put(appName, hoursTracked);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return appHoursMap;
     }
     public void close() {
         System.out.println("Closed user DAO");

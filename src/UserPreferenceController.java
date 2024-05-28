@@ -40,7 +40,7 @@ public class UserPreferenceController {
     public void handleUpdatePreferences(ActionEvent actionEvent) {
         try {
             userDAO.close();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/username/Goals-view.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/username/AppGoals-view.fxml"));
             Parent root = loader.load();
             AddAppController addAppController = loader.getController();
             addAppController.setPrimaryStage(primaryStage);

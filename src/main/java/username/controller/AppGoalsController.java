@@ -11,7 +11,7 @@ import username.model.UserDAO;
 
 import java.util.List;
 
-public class GoalsController implements IControllerPaths {
+public class AppGoalsController implements IControllerPaths {
     @FXML
     public TextField customAppNameField;
     @FXML
@@ -30,7 +30,7 @@ public class GoalsController implements IControllerPaths {
     private final UserDAO userDAO;
     private Stage primaryStage;
 
-    public GoalsController() {
+    public AppGoalsController() {
         userDAO = new UserDAO();
     }
 

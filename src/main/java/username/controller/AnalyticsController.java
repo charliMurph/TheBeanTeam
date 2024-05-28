@@ -10,13 +10,16 @@ import username.model.User;
 import username.model.UserDAO;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class AnalyticsController implements IControllerPaths {
     private final UserDAO userDAO;
     private User user;
     private int id;
     private Stage primaryStage;
+
     public AnalyticsController() {
         userDAO = new UserDAO();
     }
@@ -50,11 +53,15 @@ public class AnalyticsController implements IControllerPaths {
             }
         }
 
+        Map<String, Integer> topRankedApps = userDAO.rankTopApps(id);
+        System.out.println("Top apps order: " + topRankedApps);
+
         // return get hours tracked
         return;
     }
     public void Profile(MouseEvent event){
-        Navigate.goTo("/username/Profile-view.fxml", event);
+        userDAO.close();
+        Navigate.caseGoto(event, user, primaryStage, "/username/Profile-view.fxml", "Profile");
     }
     @Override
     public void Analytics(MouseEvent event){return;} // already on page
@@ -72,45 +79,14 @@ public class AnalyticsController implements IControllerPaths {
     }
     @Override
     public void Home(MouseEvent event) {
-        try {
-            userDAO.close();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/username/HomePage-view.fxml"));
-            Parent root = loader.load();
-            // Get the controller for the home page
-            HomePageController homeController = loader.getController();
-            // Pass any necessary data to the home controller if needed
-            // For example, you can pass the username:
-            homeController.setUser(user);
-            homeController.setPrimaryStage(primaryStage);
-            homeController.initialize();
-            Scene scene = new Scene(root);
-            primaryStage.setScene(scene);
-            primaryStage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-            // Handle the exception
-        }
+        userDAO.close();
+        Navigate.caseGoto(event, user, primaryStage, "/username/HomePage-view.fxml", "Home");
     }
     @Override
     public void DataMan(MouseEvent event)
     {
-        try {
-            userDAO.close();
-            // Implement the logic to navigate to the user preferences page here
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/username/DataManagementPage-view.fxml"));
-            Parent root = loader.load();
-            // Get the controller for the home page
-            DataManagementController preferences = loader.getController();
-            System.out.println("Button clicked. Navigating to user preferences page...");
-
-            preferences.setUser(user);
-            preferences.setPrimaryStage(primaryStage);
-            Scene scene = new Scene(root);
-            primaryStage.setScene(scene);
-            primaryStage.show();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        userDAO.close();
+        Navigate.caseGoto(event, user, primaryStage, "/username/DataManagementPage-view.fxml", "DataMan");
     }
 
 }

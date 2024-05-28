@@ -75,12 +75,12 @@ public class Navigate {
                 case "SignUp":
                     break;
                 case "Goals":
-                    GoalsController goalsController = loader.getController();
-                    System.out.println(" user: " + goalsController);
-                    goalsController.setUserId(user.getId());
-                    goalsController.setUser(user);
-                    goalsController.initialize();
-                    goalsController.setPrimaryStage(primaryStage);
+                    AppGoalsController appGoalsController = loader.getController();
+                    System.out.println(" user: " + appGoalsController);
+                    appGoalsController.setUserId(user.getId());
+                    appGoalsController.setUser(user);
+                    appGoalsController.initialize();
+                    appGoalsController.setPrimaryStage(primaryStage);
                     break;
                 case "Notifications":
                     break;

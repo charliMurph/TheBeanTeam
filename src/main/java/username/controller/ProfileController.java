@@ -1,11 +1,9 @@
 package username.controller;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -37,6 +35,43 @@ public class ProfileController implements IControllerPaths{
     private User user;
 
     private Stage primaryStage;
+    @FXML
+    private void updateProfile() {
+        String newFirstName = firstNameLabel.getText();
+        String newLastName = lastNameLabel.getText();
+        String newEmail = emailLabel.getText();
+        String newUsername = usernameLabel.getText();
+        String newPassword = passwordLabel.getText();
+
+        boolean updated = false;
+
+        if (!newFirstName.equals(user.getFirstName())) {
+            user.setFirstName(newFirstName);
+            updated = true;
+        }
+        if (!newLastName.equals(user.getLastName())) {
+            user.setLastName(newLastName);
+            updated = true;
+        }
+        if (!newEmail.equals(user.getEmail())) {
+            user.setEmail(newEmail);
+            updated = true;
+        }
+        if (!newUsername.equals(user.getUsername())) {
+            user.setUsername(newUsername);
+            updated = true;
+        }
+        if (!newPassword.equals(user.getPassword())) {
+            user.setPassword(newPassword);
+            updated = true;
+        }
+        if (updated) {
+            userDAO.updateUser(user); // Replace with actual data saving logic
+            System.out.println("Profile updated successfully");
+        } else {
+            System.out.println("No changes detected");
+        }
+    }
 
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
@@ -123,7 +158,7 @@ public class ProfileController implements IControllerPaths{
 
     public void Goals(MouseEvent event) {
         userDAO.close();
-        Navigate.caseGoto(event, user,  primaryStage, "/username/Goals-view.fxml", "Goals");
+        Navigate.caseGoto(event, user,  primaryStage, "/username/AppGoals-view.fxml", "Goals");
     }
     @Override
     //(MouseEvent event, User user, Stage primaryStage)
