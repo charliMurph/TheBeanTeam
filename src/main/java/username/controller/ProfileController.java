@@ -135,7 +135,8 @@ public class ProfileController implements IControllerPaths{
     }
     @Override
     public void Analytics(MouseEvent event) {
-        Navigate.goTo("/username/Analytics-view.fxml", event);
+        userDAO.close();
+        Navigate.caseGoto(event, user,  primaryStage, "/username/Analytics-view.fxml", "Analytics");
     }
     @Override
     public void Settings(MouseEvent event) {

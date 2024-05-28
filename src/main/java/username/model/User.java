@@ -13,6 +13,8 @@ public class User {
     private String firstName;
     private String lastName;
     private int age;
+    private int weeklyLimit;
+    private int monthlyLimit;
 
     public User(int id, String email, String username, String password, String firstName, String lastName, int age) {
         this.id = id;
@@ -86,4 +88,14 @@ public class User {
         this.password = password;
     }
 
+    public void setGoalLimit(Integer weeklyLimit, Integer monthlyLimit) {
+        this.monthlyLimit = monthlyLimit;
+        this.weeklyLimit = weeklyLimit;
+    }
+    public int getWeeklyLimit(){
+        return this.weeklyLimit;
+    }
+    public int getMonthlyLimit(){
+        return this.monthlyLimit;
+    }
 }

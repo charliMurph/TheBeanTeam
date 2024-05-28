@@ -46,7 +46,7 @@ public class SignUpController {
         this.homepageuser = user;
     }
     @FXML
-    public void handleInsertButton(ActionEvent event) {
+    public void onRegisterButton(ActionEvent event) {
         if (usernameField.getText().isEmpty() ||
                 emailField.getText().isEmpty() ||
                 passwordField.getText().isEmpty() ||
@@ -83,7 +83,7 @@ public class SignUpController {
         ageField.clear();
 
         // Navigate to the home page
-        navigateToHomePage();
+        setUpUserGoals();
     }
     @FXML
     private void handleBackToLogin(ActionEvent event) {
@@ -101,16 +101,15 @@ public class SignUpController {
             // Handle the exception
         }
     }
-    private void navigateToHomePage() {
+    private void setUpUserGoals() {
         try {
             userDAO.close();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/username/HomePage-view.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/username/UserGoals-view.fxml"));
             Parent root = loader.load();
-            HomePageController homeController = loader.getController();
+            UserGoalsController userGoalsController = loader.getController();
             System.out.println("homepage user: " + homepageuser);
-            homeController.setUser(homepageuser);
-            homeController.setPrimaryStage(primaryStage);
-            homeController.initialize();
+            userGoalsController.setUser(homepageuser);
+            userGoalsController.setPrimaryStage(primaryStage);
             // You can pass any necessary data to the home controller here if needed
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);

@@ -173,6 +173,18 @@ public class UserDAO implements IUserDAO {
         // Return false if an error occurred or if the username doesn't exist
         return false;
     }
+    public void addLimits(User user) {
+        try {
+            PreparedStatement updateStmt = connection.prepareStatement(
+                            "UPDATE authentication SET userGoalWeekly = ?, userGoalMonthly = ? WHERE id = ?"
+            );
+            updateStmt.setInt(1, user.getWeeklyLimit());
+            updateStmt.setInt(2, user.getMonthlyLimit());
+            updateStmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     @Override
     public void AddOrUpdateUserPref(int id, String appName, int weekHours, int monthHours) {
@@ -424,6 +436,7 @@ public class UserDAO implements IUserDAO {
 
 
     }
+
 
 
 }

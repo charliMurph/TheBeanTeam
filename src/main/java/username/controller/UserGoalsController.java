@@ -1,10 +1,13 @@
 package username.controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import username.model.Navigate;
@@ -12,13 +15,14 @@ import username.model.User;
 import username.model.UserDAO;
 
 import java.io.IOException;
+import java.util.List;
 
 public class UserGoalsController implements IControllerPaths {
+    @FXML
+    private Spinner<Integer> weeklyLimitSpinner;
 
     @FXML
-    private Label greetingLabel;
-
-    // Getter methods for accessing UI elements
+    private Spinner<Integer> monthlyLimitSpinner;
 
     private int id;
     private final UserDAO userDAO;
@@ -34,37 +38,36 @@ public class UserGoalsController implements IControllerPaths {
     }
     @Override
     public void initialize() {
-        // Initialize the greeting label with a default message
-        int userID = getUserID();
-        if (getUser() != null) {
-            setGreetingMessage(user.getFirstName());
-        }
-        else {
-            if (userDAO != null) {
-                System.out.println("UserDAO not null");
-                User user = userDAO.getUser(userID);
-                setUser(user);
-                if (user != null) {
-                    setGreetingMessage(user.getFirstName());
-                } else {
-                    greetingLabel.setText("Hello, User!");
-                }
-            }
-        }
+        // Initialize spinners
+        weeklyLimitSpinner.getValueFactory().setValue(0);
+        weeklyLimitSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 168, 0));
+        weeklyLimitSpinner.setEditable(true);
+
+        monthlyLimitSpinner.getValueFactory().setValue(0);
+        monthlyLimitSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 720, 0));
+        monthlyLimitSpinner.setEditable(true);
+
+
     }
+    @FXML
+    public void onSaveButton(MouseEvent event) {
+        if (weeklyLimitSpinner.getValue() != null && monthlyLimitSpinner.getValue() != null) {
+            user.setGoalLimit(weeklyLimitSpinner.getValue(), monthlyLimitSpinner.getValue());
+            userDAO.addLimits(user);
+            Home(event);
+        } else {
+            System.out.println("Enter limit values");
+            // Handle the case where one or both spinner values are null
+            // For example, display an error message to the user or set default values
+            return;
+        }
 
-    // Method to update the greeting message
-    public void setGreetingMessage(String firstName) {
-
-        greetingLabel.setText("Hello, " + firstName + "!");
     }
-
     public void setUserId(int id) {
         this.id = id;
     }
     public void setUser(User user){
         this.user = user;
-        System.out.println("Set User as : " + user);
     }
     public User getUser()
     {
@@ -72,7 +75,6 @@ public class UserGoalsController implements IControllerPaths {
     }
     public int getUserID()
     {
-//        System.out.println("Id2: " + id); // Print user DAO
         return id;
     }
     @Override
@@ -86,29 +88,10 @@ public class UserGoalsController implements IControllerPaths {
         Navigate.caseGoto(event, user,  primaryStage,"/username/Profile-view.fxml", "Profile");
     }
     @Override
-    public void Analytics(MouseEvent event){
+    public void Analytics(MouseEvent event) {
         userDAO.close();
-        Navigate.caseGoto(event, user,  primaryStage, "/username/Analytics-view.fxml", "Analytics");
+        Navigate.caseGoto(event, user, primaryStage, "/username/Analytics-view.fxml", "Analytics");
     }
-    @FXML
-    public void startStop(MouseEvent event) {
-        try {
-            userDAO.close();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/username/AppUsageStart-view.fxml"));
-            Parent root = loader.load();
-            // Get the controller for the home page
-            AppUsageController appUsageController = loader.getController();
-            appUsageController.setUser(user);
-            appUsageController.setPrimaryStage(primaryStage);
-            Scene scene = new Scene(root);
-            primaryStage.setScene(scene);
-            primaryStage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-            // Handle the exception
-        }
-    }
-
     @Override
     public void Settings(MouseEvent event){
         Navigate.goTo("/username/Settings-view.fxml", event);
@@ -122,6 +105,7 @@ public class UserGoalsController implements IControllerPaths {
     }
     @Override
     public void Home(MouseEvent event){
-        return;
+        userDAO.close();
+        Navigate.caseGoto(event, user, primaryStage, "/username/HomePage-view.fxml", "Home");
     }
 }
