@@ -35,7 +35,7 @@
                 </Button>
                 <Button mnemonicParsing="false" style="-fx-background-color: NULL;">
                     <graphic>
-                        <FontAwesomeIconView fill="#af71ff" glyphName="COMMENTING" size="40" />
+                        <FontAwesomeIconView fill="#af71ff" glyphName="CALENDAR" size="40" />
                     </graphic>
                 </Button>
                 <FontAwesomeIconView fill="#828282" glyphName="GEAR" size="50" translateY="190.0">

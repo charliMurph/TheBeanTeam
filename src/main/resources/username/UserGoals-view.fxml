@@ -1,58 +1,136 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.icons525.Icons525View?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Spinner?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import de.jensd.fx.glyphs.icons525.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="username.controller.UserGoalsController">
+<AnchorPane prefHeight="800.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="username.controller.UserGoalsController">
     <children>
+        <VBox alignment="CENTER" prefHeight="800.0" prefWidth="62.0" spacing="20.0" style="-fx-background-color: DFC6FF;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Button mnemonicParsing="false" onMouseClicked="#Home" style="-fx-background-color: NULL;">
+                    <graphic>
+                        <Icons525View fill="#af71ff" glyphName="HOME" size="40" />
+                    </graphic>
+                </Button>
+                <Button mnemonicParsing="false" onMouseClicked="#Analytics" style="-fx-background-color: NULL;">
+                    <graphic>
+                        <FontAwesomeIconView fill="#af71ff" glyphName="PIE_CHART" size="40" />
+                    </graphic>
+                </Button>
+                <Button mnemonicParsing="false" style="-fx-background-color: NULL;">
+                    <graphic>
+                        <FontAwesomeIconView fill="#af71ff" glyphName="LOCK" size="40" />
+                    </graphic>
+                </Button>
+                <Button mnemonicParsing="false" style="-fx-background-color: NULL;">
+                    <graphic>
+                        <FontAwesomeIconView fill="#af71ff" glyphName="LIST_UL" onMouseClicked="#DataMan" size="40" />
+                    </graphic>
+                </Button>
+                <Button mnemonicParsing="false" style="-fx-background-color: NULL;">
+                    <graphic>
+                        <FontAwesomeIconView fill="#af71ff" glyphName="CALENDAR" size="40" />
+                    </graphic>
+                </Button>
+                <FontAwesomeIconView fill="#828282" glyphName="GEAR" size="50" translateY="190.0">
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </FontAwesomeIconView>
+            </children>
+        </VBox>
+        <VBox layoutX="62.0" prefHeight="96.0" prefWidth="1238.0" style="-fx-background-color: ffffff;" AnchorPane.leftAnchor="62.0" AnchorPane.rightAnchor="0.0">
+            <children>
+                <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                    <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Goal Setting">
+                            <font>
+                                <Font name="System Bold" size="24.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets left="10.0" top="10.0" />
+                            </HBox.margin>
+                        </Text>
+                        <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: e0dee1; -fx-background-radius: 100;" translateX="850.0" translateY="25.0">
+                            <graphic>
+                                <FontAwesomeIconView fill="#7c7c7c" glyphName="BELL" size="20" />
+                            </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" onMouseClicked="#Profile" prefHeight="45.0" prefWidth="44.0" style="-fx-background-color: dfc6ff; -fx-background-radius: 100;" translateX="850.0" translateY="25.0">
+                            <graphic>
+                                <Icons525View fill="#af71ff" glyphName="USER" size="25" />
+                            </graphic>
+                            <HBox.margin>
+                                <Insets left="10.0" />
+                            </HBox.margin>
+                        </Button>
+                    </children>
+                </HBox>
+                <HBox prefHeight="100.0" prefWidth="500.0">
+                    <children>
+                        <Text fill="#757575" strokeType="OUTSIDE" strokeWidth="0.0" text="4th May, 2024" translateY="-3.0">
+                            <HBox.margin>
+                                <Insets left="13.0" />
+                            </HBox.margin>
+                        </Text>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
         <AnchorPane layoutX="62.0" layoutY="96.0" prefHeight="705.0" prefWidth="1238.0" style="-fx-background-color: E9E5E5;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="62.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="96.0">
             <children>
-                <VBox alignment="CENTER" layoutY="30.0" prefHeight="643.0" prefWidth="396.0" style="-fx-background-color: ffffff; -fx-background-radius: 15; -fx-alignment: inline-block;" translateX="350.0" AnchorPane.leftAnchor="25.0">
+                <VBox fx:id="AddApps" alignment="TOP_CENTER" layoutX="25.0" layoutY="30.0" prefHeight="643.0" prefWidth="1188.0" style="-fx-background-color: ffffff; -fx-background-radius: 15; -fx-alignment: inline-block;" AnchorPane.leftAnchor="25.0">
+                    <effect>
+                        <DropShadow>
+                            <color>
+                                <Color red="0.7764706015586853" green="0.7607843279838562" blue="0.7607843279838562" />
+                            </color>
+                        </DropShadow>
+                    </effect>
                     <children>
-                        <Icons525View fill="#a259ff" glyphName="CLOCK" size="85" />
-                        <Label fx:id="Username" alignment="TOP_CENTER" layoutY="10.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="46.0" prefWidth="360.0" style="-fx-font-weight: bold; -fx-background-color: F1F1F1; -fx-background-radius: 25;" text="Enter your screen time goals below" textFill="#a259ff" translateY="20.0">
-                            <font>
-                                <Font name="System Bold" size="21.0" />
-                            </font>
-                        </Label>
-                      <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0" />
-                        <Label fx:id="appLabel" layoutX="10.0" layoutY="10.0" textFill="RED">
-                            <font>
-                                <Font name="Verdana Bold Italic" size="14.0" />
-                            </font>
-                        </Label>
-                        <Label style="-fx-font-size: 17px;" text="Weekly Screen Time Limit:" textFill="#a259ff" translateY="-50.0">
-                            <VBox.margin>
-                                <Insets top="20.0" />
-                            </VBox.margin>
-                        </Label>
-                        <Spinner fx:id="weeklyLimitSpinner" editable="true" initialValue="0" max="168" min="0" prefWidth="150.0" style="-fx-background-color: #dfc6ff; -fx-border-radius: 5;" translateY="-50.0">
-                            <VBox.margin>
-                                <Insets bottom="20.0" />
-                            </VBox.margin>
-                        </Spinner>
-                        <Label style="-fx-font-size: 17px;" text="Monthly Screen Time Limit:" textFill="#a259ff" translateY="-50.0">
-                            <VBox.margin>
-                                <Insets top="20.0" />
-                            </VBox.margin>
-                        </Label>
-                        <Spinner fx:id="monthlyLimitSpinner" editable="true" initialValue="0" max="168" min="0" prefWidth="150.0" style="-fx-background-color: #dfc6ff; -fx-border-radius: 5;" translateY="-50.0">
-                            <VBox.margin>
-                                <Insets bottom="20.0" />
-                            </VBox.margin>
-                        </Spinner>
-                        <Button onMouseClicked="#onSaveButton" prefWidth="200.0" style="-fx-background-color: DFC6FF; -fx-background-radius: 15; -fx-text-fill: #a259ff;" text="Save Goals">
-                            <VBox.margin>
-                                <Insets top="20.0" />
-                            </VBox.margin>
-                        </Button>
+                            <Icons525View fill="#a259ff" glyphName="CLOCK" size="85" translateY="50.0" />
+                            <Label fx:id="Username" alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="46.0" prefWidth="360.0" style="-fx-font-weight: bold; -fx-background-color: F1F1F1; -fx-background-radius: 25;" text="Enter your screen time goals below" textFill="#a259ff" translateY="50.0">
+                                <font>
+                                    <Font name="System Bold" size="21.0" />
+                                </font>
+                            </Label>
+                            <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0" />
+                            <Label fx:id="appLabel" textFill="RED">
+                                <font>
+                                    <Font name="Verdana Bold Italic" size="14.0" />
+                                </font>
+                            </Label>
+                            <Label style="-fx-font-size: 17px;" text="Weekly Screen Time Limit:" textFill="#a259ff">
+                                <VBox.margin>
+                                    <Insets top="20.0" />
+                                </VBox.margin>
+                            </Label>
+                            <Spinner fx:id="weeklyLimitSpinner" editable="true" initialValue="0" max="168" min="0" prefWidth="150.0" style="-fx-background-color: #dfc6ff; -fx-border-radius: 5;">
+                                <VBox.margin>
+                                    <Insets bottom="20.0" />
+                                </VBox.margin>
+                            </Spinner>
+                            <Label style="-fx-font-size: 17px;" text="Monthly Screen Time Limit:" textFill="#a259ff">
+                                <VBox.margin>
+                                    <Insets top="20.0" />
+                                </VBox.margin>
+                            </Label>
+                            <Spinner fx:id="monthlyLimitSpinner" editable="true" initialValue="0" max="168" min="0" prefWidth="150.0" style="-fx-background-color: #dfc6ff; -fx-border-radius: 5;">
+                                <VBox.margin>
+                                    <Insets bottom="20.0" />
+                                </VBox.margin>
+                            </Spinner>
+                            <Button onMouseClicked="#onSaveButton" prefWidth="200.0" style="-fx-background-color: DFC6FF; -fx-background-radius: 15; -fx-text-fill: #a259ff;" text="Save Goals">
+                                <VBox.margin>
+                                    <Insets top="20.0" />
+                                </VBox.margin>
+                            </Button>
                     </children>
                 </VBox>
             </children>
