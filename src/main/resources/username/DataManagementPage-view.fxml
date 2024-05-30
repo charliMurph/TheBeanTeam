@@ -13,33 +13,33 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="username.controller.DataManagementController">
+<AnchorPane prefHeight="800.0" prefWidth="1300.0" stylesheets="@Stylesheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="username.controller.DataManagementController">
     <children>
         <VBox alignment="CENTER" prefHeight="800.0" prefWidth="62.0" spacing="20.0" style="-fx-background-color: DFC6FF;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
                 <Button mnemonicParsing="false" onMouseClicked="#Home" style="-fx-background-color: NULL;">
                     <graphic>
-                        <Icons525View fill="#af71ff" glyphName="HOME" size="40" />
+                        <Icons525View fill="#af71ff" glyphName="HOME" size="40" styleClass="Navicon" />
                     </graphic>
                 </Button>
                 <Button mnemonicParsing="false" onMouseClicked="#Analytics" style="-fx-background-color: NULL;">
                     <graphic>
-                        <FontAwesomeIconView fill="#af71ff" glyphName="PIE_CHART" size="40" />
+                        <FontAwesomeIconView fill="#af71ff" glyphName="PIE_CHART" size="40" styleClass="Navicon" />
                     </graphic>
                 </Button>
                 <Button mnemonicParsing="false" style="-fx-background-color: NULL;">
                     <graphic>
-                        <FontAwesomeIconView fill="#af71ff" glyphName="LOCK" size="40" />
+                        <FontAwesomeIconView fill="#af71ff" glyphName="PLAY" size="40" styleClass="Navicon" />
                     </graphic>
                 </Button>
                 <Button mnemonicParsing="false" style="-fx-background-color: NULL;">
                     <graphic>
-                        <FontAwesomeIconView fill="#af71ff" glyphName="LIST_UL" size="40" onMouseClicked="#DataMan"/>
+                        <FontAwesomeIconView fill="#af71ff" glyphName="LIST_UL" onMouseClicked="#DataMan" size="40" styleClass="Navicon" />
                     </graphic>
                 </Button>
                 <Button mnemonicParsing="false" style="-fx-background-color: NULL;">
                     <graphic>
-                        <FontAwesomeIconView fill="#af71ff" glyphName="CALENDAR" size="40" />
+                        <FontAwesomeIconView fill="#af71ff" glyphName="CALENDAR" size="40" styleClass="Navicon" />
                     </graphic>
                 </Button>
                 <FontAwesomeIconView fill="#828282" glyphName="GEAR" size="50" translateY="190.0">
@@ -61,12 +61,12 @@
                                 <Insets left="10.0" top="10.0" />
                             </HBox.margin>
                         </Text>
-                        <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: e0dee1; -fx-background-radius: 100;" translateX="850.0" translateY="25.0">
+                        <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: e0dee1; -fx-background-radius: 100;" styleClass="noti-icon" translateX="850.0" translateY="25.0">
                             <graphic>
                                 <FontAwesomeIconView fill="#7c7c7c" glyphName="BELL" size="20" />
                             </graphic>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="44.0" style="-fx-background-color: dfc6ff; -fx-background-radius: 100;" translateX="850.0" translateY="25.0" onMouseClicked="#Profile">
+                        <Button mnemonicParsing="false" onMouseClicked="#Profile" prefHeight="45.0" prefWidth="44.0" style="-fx-background-color: dfc6ff; -fx-background-radius: 100;" styleClass="prof-icon" translateX="850.0" translateY="25.0">
                             <graphic>
                                 <Icons525View fill="#af71ff" glyphName="USER" size="25" />
                             </graphic>
@@ -98,7 +98,7 @@
                         </DropShadow>
                     </effect>
                     <children>
-                        <Button alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="400.0" layoutY="300.0" mnemonicParsing="false" onAction="#Goals" style="-fx-background-color: DFC6FF;" text="Edit Apps" textFill="#a259ff" translateX="500.0" translateY="590.0">
+                        <Button alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="400.0" layoutY="300.0" mnemonicParsing="false" onAction="#AppGoals" style="-fx-background-color: DFC6FF;" styleClass="purple-button" stylesheets="@Stylesheet.css" text="Edit Apps" textFill="#a259ff" translateX="500.0" translateY="590.0">
                      <rotationAxis>
                         <Point3D y="-100.0" z="1.0" />
                      </rotationAxis></Button>

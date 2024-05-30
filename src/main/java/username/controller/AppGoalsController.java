@@ -123,7 +123,10 @@ public class AppGoalsController implements IControllerPaths {
     public void DataMan(MouseEvent event) {
         Navigate.caseGoto(event, user, primaryStage, "/username/DataManagementPage-view.fxml", "DataMan");
     }
-
+    @Override
+    public void UserGoals(MouseEvent event) {
+        Navigate.caseGoto(null, user, primaryStage, "/username/UserGoals-view.fxml", "UserGoals");
+    }
     @Override
     public void Profile(MouseEvent event) {
         Navigate.caseGoto(event, user, primaryStage, "/username/Profile-view.fxml", "Profile");

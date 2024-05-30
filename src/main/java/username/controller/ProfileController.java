@@ -128,7 +128,10 @@ public class ProfileController implements IControllerPaths{
             // Handle the exception
         }
     }
-
+    @Override
+    public void UserGoals(MouseEvent event) {
+        Navigate.caseGoto(null, user, primaryStage, "/username/UserGoals-view.fxml", "UserGoals");
+    }
     @Override
     public void Profile(MouseEvent event) {
         return;

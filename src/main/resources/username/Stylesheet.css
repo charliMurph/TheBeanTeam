@@ -1,0 +1,107 @@
+<style>
+#purple {
+
+}
+
+#purple:hover {
+    -fx-text-fill: #7200cd; /* Text color on hover */
+    -fx-cursor: hand; /* Change cursor to hand on hover */
+}
+
+.purple-button {
+    -fx-background-color: #DFC6FF !important;
+    -fx-text-fill: #a259ff !important;
+}
+
+.purple-button:hover {
+    -fx-background-color: #ba84ff !important;
+    -fx-text-fill: #7200cd !important; /* Text color on hover */
+    -fx-cursor: hand !important; /* Change cursor to hand on hover */
+}
+
+.purple-hyperlink:hover {
+     -fx-text-fill: #7200cd !important; /* Text color on hover */
+}
+
+.purple-resource:hover {
+    -fx-background-color: #8f39ff !important; /* Text color on hover */
+    -fx-cursor: hand !important; /* Change cursor to hand on hover */
+}
+
+.noti-icon:hover {
+    -fx-background-color: #d1ced2 !important; /* Text color on hover */
+    -fx-fill: #655e68 !important; /* Text color on hover */
+    -fx-text-fill: #655e68 !important; /* Text color on hover */
+    -fx-cursor: hand; /* Change cursor to hand on hover */
+}
+
+.prof-icon:hover {
+    -fx-background-color: #bf8dff !important; /* Text color on hover */
+    -fx-fill: #46009f !important; /* Text color on hover */
+    -fx-cursor: hand; /* Change cursor to hand on hover */
+}
+
+
+/* Optional: Style for the thumb when the ToggleSwitch is selected */
+.toggle-switch:selected .thumb-area {
+    -fx-background-color: #87ea15;
+}
+
+/* Optional: Style for the ToggleSwitch thumb (the circular part) */
+.toggle-switch .thumb {
+    -fx-background-color: white; /* Set the thumb color */
+    -fx-background-radius: 50%; /* Make it circular */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 4, 0.5, 0, 1); /* Add a shadow */
+}
+
+.toggle-switch .thumb-area {
+    -fx-background-color: #cb1e08; /* Set the thumb color */
+}
+
+#Start {
+
+}
+.Start-button:hover {
+    -fx-background-color: #4BB262 !important;
+    -fx-text-fill: #297E3E !important;
+    -fx-cursor: hand !important; /* Change cursor to hand on hover */
+}
+
+#Stop{
+
+}
+.Stop-button:hover{
+   -fx-background-color: #F65353 !important;
+   -fx-text-fill: #AC1D0A !important;
+   -fx-cursor: hand !important; /* Change cursor to hand on hover */
+}
+#Cog {
+
+}
+
+#Cog:hover {
+    -fx-fill: #6c6861;
+    -fx-cursor: hand; /* Change cursor to hand on hover */
+}
+
+.Navicon {
+
+}
+
+.Navicon:hover {
+   -fx-fill: #8f39ff !important;
+   -fx-cursor: hand !important; /* Change cursor to hand on hover */
+}
+
+#Feature {
+
+}
+
+#Feature:hover {
+    -fx-background-fill: purple;
+    -fx-cursor: hand; /* Change cursor to hand on hover */
+}
+
+
+
+</style>

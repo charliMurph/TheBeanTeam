@@ -1,6 +1,5 @@
 package username.model;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -39,6 +38,10 @@ public class Navigate {
             FXMLLoader loader = new FXMLLoader(Navigate.class.getResource(fxmlFileName));
             Parent root = loader.load();
             Scene scene = new Scene(root);
+
+            // Load and apply the CSS stylesheet to the new scene
+            String css = Navigate.class.getResource("/username/Stylesheet.css").toExternalForm();
+            scene.getStylesheets().add(css);
             switch (pageName){
                 case "Home":
                     HomePageController homeController = loader.getController();
@@ -74,7 +77,15 @@ public class Navigate {
                     break;
                 case "SignUp":
                     break;
-                case "Goals":
+                case "UserGoals":
+                    UserGoalsController userGoalsController = loader.getController();
+                    System.out.println(" user: " + userGoalsController);
+                    userGoalsController.setUserId(user.getId());
+                    userGoalsController.setUser(user);
+                    userGoalsController.initialize();
+                    userGoalsController.setPrimaryStage(primaryStage);
+                    break;
+                case "AppGoals":
                     AppGoalsController appGoalsController = loader.getController();
                     System.out.println(" user: " + appGoalsController);
                     appGoalsController.setUserId(user.getId());

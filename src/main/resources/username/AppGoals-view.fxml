@@ -23,30 +23,30 @@
 
                 <Button mnemonicParsing="false" onMouseClicked="#Home" style="-fx-background-color: NULL;">
                     <graphic>
-                        <Icons525View fill="#af71ff" glyphName="HOME" size="40" />
+                        <Icons525View fill="#af71ff" glyphName="HOME" size="40" styleClass="Navicon" />
                     </graphic>
                 </Button>
                 <Button mnemonicParsing="false" onMouseClicked="#Analytics" style="-fx-background-color: NULL;">
                     <graphic>
-                        <FontAwesomeIconView fill="#af71ff" glyphName="PIE_CHART" size="40" />
+                        <FontAwesomeIconView fill="#af71ff" glyphName="PIE_CHART" size="40" styleClass="Navicon" />
                     </graphic>
                 </Button>
                 <Button mnemonicParsing="false" style="-fx-background-color: NULL;">
                     <graphic>
-                        <FontAwesomeIconView fill="#af71ff" glyphName="LOCK" size="40" />
+                        <FontAwesomeIconView fill="#af71ff" glyphName="PLAY" size="40" styleClass="Navicon" />
                     </graphic>
                 </Button>
                 <Button mnemonicParsing="false" style="-fx-background-color: NULL;">
                     <graphic>
-                        <FontAwesomeIconView fill="#af71ff" glyphName="LIST_UL" onMouseClicked="#DataMan" size="40" />
+                        <FontAwesomeIconView fill="#af71ff" glyphName="LIST_UL" onMouseClicked="#DataMan" size="40" styleClass="Navicon" />
                     </graphic>
                 </Button>
                 <Button mnemonicParsing="false" style="-fx-background-color: NULL;">
                     <graphic>
-                        <FontAwesomeIconView fill="#af71ff" glyphName="CALENDAR" size="40" />
+                        <FontAwesomeIconView fill="#af71ff" glyphName="CALENDAR" onMouseClicked="#UserGoals" size="40" styleClass="Navicon" />
                     </graphic>
                 </Button>
-                <FontAwesomeIconView fill="#828282" glyphName="GEAR" size="50" translateY="190.0">
+                <FontAwesomeIconView id="Cog" fill="#828282" glyphName="GEAR" size="50" translateY="190.0">
                     <VBox.margin>
                         <Insets />
                     </VBox.margin>
@@ -65,12 +65,12 @@
                                 <Insets left="10.0" top="10.0" />
                             </HBox.margin>
                         </Text>
-                        <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: e0dee1; -fx-background-radius: 100;" translateX="850.0" translateY="25.0">
+                        <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: e0dee1; -fx-background-radius: 100;" styleClass="noti-icon" translateX="850.0" translateY="25.0">
                             <graphic>
                                 <FontAwesomeIconView fill="#7c7c7c" glyphName="BELL" size="20" />
                             </graphic>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="44.0" style="-fx-background-color: dfc6ff; -fx-background-radius: 100;" translateX="850.0" translateY="25.0">
+                        <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="44.0" style="-fx-background-color: dfc6ff; -fx-background-radius: 100;" styleClass="prof-icon" translateX="850.0" translateY="25.0">
                             <graphic>
                                 <Icons525View fill="#af71ff" glyphName="USER" size="25" />
                             </graphic>
@@ -80,7 +80,7 @@
                         </Button>
                     </children>
                 </HBox>
-                <HBox prefHeight="100.0" prefWidth="500.0">
+                <HBox maxWidth="100.0" prefHeight="26.0" prefWidth="1238.0" translateY="-30.0">
                     <children>
                         <Text fill="#757575" strokeType="OUTSIDE" strokeWidth="0.0" text="4th May, 2024" translateY="-3.0">
                             <HBox.margin>
@@ -93,7 +93,7 @@
         </VBox>
         <AnchorPane layoutX="62.0" layoutY="96.0" prefHeight="705.0" prefWidth="1238.0" style="-fx-background-color: E9E5E5;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="62.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="96.0">
             <children>
-                <VBox alignment="CENTER" layoutX="25.0" layoutY="30.0" prefHeight="643.0" prefWidth="1188.0" style="-fx-background-color: ffffff; -fx-background-radius: 15; -fx-alignment: inline-block;" AnchorPane.leftAnchor="25.0">
+                <VBox alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="557.0" prefWidth="338.0" style="-fx-background-color: ffffff; -fx-background-radius: 15; -fx-alignment: inline-block;" AnchorPane.leftAnchor="14.0">
                     <effect>
                         <DropShadow>
                             <color>
@@ -106,6 +106,14 @@
                             <font>
                                 <Font name="Verdana Bold Italic" size="14.0" />
                             </font></Label>
+                        <Text fill="#a463ff" strokeType="OUTSIDE" strokeWidth="0.0" text="Options:">
+                            <font>
+                                <Font name="System Bold" size="27.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets />
+                            </VBox.margin>
+                        </Text>
                         <Label style="-fx-font-size: 17px;" text="App Name:">
                             <VBox.margin>
                                 <Insets top="20.0" />
@@ -113,11 +121,11 @@
                         </Label>
                         <ComboBox fx:id="appNameComboBox" prefWidth="300.0" style="-fx-background-color: #dfc6ff; -fx-border-radius: 5;">
                             <VBox.margin>
-                                <Insets bottom="20.0" />
+                                <Insets bottom="20.0" left="70.0" right="70.0" />
                             </VBox.margin>
                         </ComboBox>
                         <!-- Added TextField for custom app name entry -->
-                        <TextField fx:id="customAppNameField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="300.0" promptText="Enter Custom App Name!" style="-fx-background-color: #dfc6ff; -fx-border-radius: 5;">
+                        <TextField fx:id="customAppNameField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="200.0" promptText="Enter Custom App Name!" style="-fx-background-color: #dfc6ff; -fx-border-radius: 5;">
                             <VBox.margin>
                                 <Insets bottom="20.0" />
                             </VBox.margin>
@@ -144,17 +152,48 @@
                             </VBox.margin>
                         </Spinner>
 
-                        <Button onAction="#onSaveButton" prefWidth="200.0" style="-fx-background-color: DFC6FF; -fx-background-radius: 15; -fx-text-fill: #a259ff;" text="Save to User Preferences">
+                        <Button onAction="#onSaveButton" prefWidth="200.0" style="-fx-background-color: DFC6FF; -fx-background-radius: 15; -fx-text-fill: #a259ff;" styleClass="purple-button" text="Save to User Preferences">
                             <VBox.margin>
                                 <Insets top="20.0" />
                             </VBox.margin>
                         </Button>
 
-                        <Button onMouseClicked="#onBackButton" prefWidth="200.0" style="-fx-background-color: #E9E5E5; -fx-background-radius: 15; -fx-text-fill: #868686;" text="Back to User Preferences">
+                        <Button onMouseClicked="#onBackButton" prefWidth="200.0" style="-fx-background-color: #E9E5E5; -fx-background-radius: 15; -fx-text-fill: #868686;" styleClass="noti-icon" text="Back to User Preferences">
                             <VBox.margin>
                                 <Insets top="10.0" />
                             </VBox.margin>
                         </Button>
+                        <VBox prefHeight="90.0" prefWidth="282.0" style="-fx-background-color: f0efec; -fx-background-radius: 10;">
+                            <children>
+                                <Text fill="#af71ff" strokeType="OUTSIDE" strokeWidth="0.0" text="Description:">
+                                    <font>
+                                        <Font name="System Bold" size="18.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets left="10.0" />
+                                    </VBox.margin>
+                                </Text>
+                                <Text fill="#8960c6" strokeType="OUTSIDE" strokeWidth="0.0" text="You can add applications you want to track here and set weekly limits for these apps as apart of goal making." textAlignment="CENTER" wrappingWidth="254.80859375">
+                                    <VBox.margin>
+                                        <Insets left="10.0" />
+                                    </VBox.margin>
+                                </Text>
+                                <VBox maxWidth="200.0" minWidth="-Infinity" prefHeight="58.0" prefWidth="200.0">
+                                    <opaqueInsets>
+                                        <Insets />
+                                    </opaqueInsets>
+                                    <VBox.margin>
+                                        <Insets left="50.0" />
+                                    </VBox.margin>
+                                </VBox>
+                            </children>
+                            <VBox.margin>
+                                <Insets left="30.0" right="30.0" top="30.0" />
+                            </VBox.margin>
+                            <padding>
+                                <Insets top="10.0" />
+                            </padding>
+                        </VBox>
                     </children>
                 </VBox>
             </children>

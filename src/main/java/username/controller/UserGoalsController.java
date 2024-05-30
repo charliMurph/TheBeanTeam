@@ -108,4 +108,8 @@ public class UserGoalsController implements IControllerPaths {
         userDAO.close();
         Navigate.caseGoto(event, user, primaryStage, "/username/HomePage-view.fxml", "Home");
     }
+    @Override
+    public void UserGoals(MouseEvent event) {
+        return;
+    }
 }

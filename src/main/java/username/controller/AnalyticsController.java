@@ -64,6 +64,10 @@ public class AnalyticsController implements IControllerPaths {
         Navigate.caseGoto(event, user, primaryStage, "/username/Profile-view.fxml", "Profile");
     }
     @Override
+    public void UserGoals(MouseEvent event) {
+        Navigate.caseGoto(null, user, primaryStage, "/username/UserGoals-view.fxml", "UserGoals");
+    }
+    @Override
     public void Analytics(MouseEvent event){return;} // already on page
     @Override
     public void Settings(MouseEvent event){
