@@ -1,41 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.*?>
-<?import de.jensd.fx.glyphs.icons525.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.icons525.Icons525View?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="username.controller.UserGoalsController">
+<AnchorPane prefHeight="800.0" prefWidth="1300.0" stylesheets="@Stylesheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="username.controller.UserGoalsController">
     <children>
         <VBox alignment="CENTER" prefHeight="800.0" prefWidth="62.0" spacing="20.0" style="-fx-background-color: DFC6FF;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
                 <Button mnemonicParsing="false" onMouseClicked="#Home" style="-fx-background-color: NULL;">
                     <graphic>
-                        <Icons525View fill="#af71ff" glyphName="HOME" size="40" />
+                        <Icons525View fill="#af71ff" glyphName="HOME" size="40" styleClass="Navicon" />
                     </graphic>
                 </Button>
                 <Button mnemonicParsing="false" onMouseClicked="#Analytics" style="-fx-background-color: NULL;">
                     <graphic>
-                        <FontAwesomeIconView fill="#af71ff" glyphName="PIE_CHART" size="40" />
+                        <FontAwesomeIconView fill="#af71ff" glyphName="PIE_CHART" size="40" styleClass="Navicon" />
                     </graphic>
                 </Button>
                 <Button mnemonicParsing="false" style="-fx-background-color: NULL;">
                     <graphic>
-                        <FontAwesomeIconView fill="#af71ff" glyphName="LOCK" size="40" />
+                        <FontAwesomeIconView fill="#af71ff" glyphName="PLAY" size="40" styleClass="Navicon" />
                     </graphic>
                 </Button>
                 <Button mnemonicParsing="false" style="-fx-background-color: NULL;">
                     <graphic>
-                        <FontAwesomeIconView fill="#af71ff" glyphName="LIST_UL" onMouseClicked="#DataMan" size="40" />
+                        <FontAwesomeIconView fill="#af71ff" glyphName="LIST_UL" onMouseClicked="#DataMan" size="40" styleClass="Navicon" />
                     </graphic>
                 </Button>
                 <Button mnemonicParsing="false" style="-fx-background-color: NULL;">
                     <graphic>
-                        <FontAwesomeIconView fill="#af71ff" glyphName="CALENDAR" size="40" />
+                        <FontAwesomeIconView fill="#af71ff" glyphName="CALENDAR" size="40" styleClass="Navicon" />
                     </graphic>
                 </Button>
                 <FontAwesomeIconView fill="#828282" glyphName="GEAR" size="50" translateY="190.0">
@@ -57,12 +62,12 @@
                                 <Insets left="10.0" top="10.0" />
                             </HBox.margin>
                         </Text>
-                        <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: e0dee1; -fx-background-radius: 100;" translateX="850.0" translateY="25.0">
+                        <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: e0dee1; -fx-background-radius: 100;" styleClass="noti-icon" translateX="850.0" translateY="25.0">
                             <graphic>
                                 <FontAwesomeIconView fill="#7c7c7c" glyphName="BELL" size="20" />
                             </graphic>
                         </Button>
-                        <Button mnemonicParsing="false" onMouseClicked="#Profile" prefHeight="45.0" prefWidth="44.0" style="-fx-background-color: dfc6ff; -fx-background-radius: 100;" translateX="850.0" translateY="25.0">
+                        <Button mnemonicParsing="false" onMouseClicked="#Profile" prefHeight="45.0" prefWidth="44.0" style="-fx-background-color: dfc6ff; -fx-background-radius: 100;" styleClass="prof-icon" translateX="850.0" translateY="25.0">
                             <graphic>
                                 <Icons525View fill="#af71ff" glyphName="USER" size="25" />
                             </graphic>
@@ -95,38 +100,37 @@
                     </effect>
                     <children>
                             <Icons525View fill="#a259ff" glyphName="CLOCK" size="85" translateY="50.0" />
-                            <Label fx:id="Username" alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="46.0" prefWidth="360.0" style="-fx-font-weight: bold; -fx-background-color: F1F1F1; -fx-background-radius: 25;" text="Enter your screen time goals below" textFill="#a259ff" translateY="50.0">
+                            <Label fx:id="Username" alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="46.0" prefWidth="360.0" style="-fx-font-weight: bold; -fx-background-color: F1F1F1; -fx-background-radius: 25;" text="Enter your screen time goals below" textFill="#a259ff" translateY="80.0">
                                 <font>
                                     <Font name="System Bold" size="21.0" />
                                 </font>
                             </Label>
-                            <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0" />
                             <Label fx:id="appLabel" textFill="RED">
                                 <font>
                                     <Font name="Verdana Bold Italic" size="14.0" />
                                 </font>
                             </Label>
-                            <Label style="-fx-font-size: 17px;" text="Weekly Screen Time Limit:" textFill="#a259ff">
+                            <Label style="-fx-font-size: 17px;" text="Weekly Screen Time Limit:" textFill="#a259ff" translateY="100.0">
                                 <VBox.margin>
                                     <Insets top="20.0" />
                                 </VBox.margin>
                             </Label>
-                            <Spinner fx:id="weeklyLimitSpinner" editable="true" initialValue="0" max="168" min="0" prefWidth="150.0" style="-fx-background-color: #dfc6ff; -fx-border-radius: 5;">
+                            <Spinner fx:id="weeklyLimitSpinner" editable="true" initialValue="0" max="168" min="0" prefWidth="150.0" style="-fx-background-color: #dfc6ff; -fx-border-radius: 5;" translateY="100.0">
                                 <VBox.margin>
                                     <Insets bottom="20.0" />
                                 </VBox.margin>
                             </Spinner>
-                            <Label style="-fx-font-size: 17px;" text="Monthly Screen Time Limit:" textFill="#a259ff">
+                            <Label style="-fx-font-size: 17px;" text="Monthly Screen Time Limit:" textFill="#a259ff" translateY="100.0">
                                 <VBox.margin>
                                     <Insets top="20.0" />
                                 </VBox.margin>
                             </Label>
-                            <Spinner fx:id="monthlyLimitSpinner" editable="true" initialValue="0" max="168" min="0" prefWidth="150.0" style="-fx-background-color: #dfc6ff; -fx-border-radius: 5;">
+                            <Spinner fx:id="monthlyLimitSpinner" editable="true" initialValue="0" max="168" min="0" prefWidth="150.0" style="-fx-background-color: #dfc6ff; -fx-border-radius: 5;" translateY="100.0">
                                 <VBox.margin>
                                     <Insets bottom="20.0" />
                                 </VBox.margin>
                             </Spinner>
-                            <Button onMouseClicked="#onSaveButton" prefWidth="200.0" style="-fx-background-color: DFC6FF; -fx-background-radius: 15; -fx-text-fill: #a259ff;" text="Save Goals">
+                            <Button onMouseClicked="#onSaveButton" prefWidth="200.0" style="-fx-background-color: DFC6FF; -fx-background-radius: 15; -fx-text-fill: #a259ff;" styleClass="purple-button" text="Save Goals" translateY="100.0">
                                 <VBox.margin>
                                     <Insets top="20.0" />
                                 </VBox.margin>

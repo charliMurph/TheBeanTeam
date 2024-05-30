@@ -21,6 +21,7 @@
 
 .purple-hyperlink:hover {
      -fx-text-fill: #7200cd !important; /* Text color on hover */
+     -fx-cursor: hand !important; /* Change cursor to hand on hover */
 }
 
 .purple-resource:hover {

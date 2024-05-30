@@ -20,6 +20,7 @@ public class AppUsageController implements IControllerPaths{
     private String currentApp;
     private LocalDateTime startTime;
     private Boolean isclosed;
+    private Boolean isOn;
     private Stage primaryStage;
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
@@ -27,9 +28,11 @@ public class AppUsageController implements IControllerPaths{
     public AppUsageController() {
         userDAO = new UserDAO(); // new connection
         isclosed = false;
+        isOn = false;
     }
     @FXML
     private void setStartTime(ActionEvent event) {
+        isOn = true;
         Timer timer = new Timer(true);
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
@@ -47,25 +50,32 @@ public class AppUsageController implements IControllerPaths{
     }
 
     private synchronized void recordUsageData(String appName, LocalDateTime start, LocalDateTime end) {
-        if(isclosed)
-        {
+        if (isclosed) {
             userDAO.open(); // reopen if stopped
             isclosed = false;
         }
-        System.out.println("Starting recording...");
-        System.out.println("Id: " + user.getId());
-        System.out.println("App Name: " + appName);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        String startTimeStr = start.format(formatter);
-        String endTimeStr = end.format(formatter);
-        long duration = java.time.Duration.between(start, end).getSeconds();
-        userDAO.trackApps(user.getId(), appName, duration / 3600, startTimeStr, endTimeStr);
-        String query = "INSERT INTO appData (authenticationId, applicationName, hours, start_time, stop_time) VALUES (?, ?, ?, ?, ?)";
+        if (isOn) {
+            System.out.println("Starting recording...");
+            System.out.println("Id: " + user.getId());
+            System.out.println("App Name: " + appName);
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            String startTimeStr = start.format(formatter);
+            String endTimeStr = end.format(formatter);
+            long duration = java.time.Duration.between(start, end).getSeconds();
+            System.out.println("Hours in seconds: " + duration);
+            userDAO.trackApps(user.getId(), appName, duration , startTimeStr, endTimeStr);
+
+        }
+        else
+        {
+            System.out.println("recording is off");
+        }
     }
     @FXML
     private void stopMonitoring(ActionEvent event)
     {
         isclosed = true;
+        isOn = false;
         userDAO.close();
     }
     public void setUser(User user) {

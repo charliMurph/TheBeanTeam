@@ -53,7 +53,9 @@ public class UserGoalsController implements IControllerPaths {
     public void onSaveButton(MouseEvent event) {
         if (weeklyLimitSpinner.getValue() != null && monthlyLimitSpinner.getValue() != null) {
             user.setGoalLimit(weeklyLimitSpinner.getValue(), monthlyLimitSpinner.getValue());
+            System.out.println("values: " + weeklyLimitSpinner.getValue() + monthlyLimitSpinner.getValue());
             userDAO.addLimits(user);
+            System.out.println("added limits");
             Home(event);
         } else {
             System.out.println("Enter limit values");
@@ -61,7 +63,6 @@ public class UserGoalsController implements IControllerPaths {
             // For example, display an error message to the user or set default values
             return;
         }
-
     }
     public void setUserId(int id) {
         this.id = id;

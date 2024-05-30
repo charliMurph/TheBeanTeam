@@ -1,15 +1,16 @@
 package username.controller;
 
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.fxml.FXML;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.PieChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import username.model.Navigate;
 import username.model.User;
 import username.model.UserDAO;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,6 +20,17 @@ public class AnalyticsController implements IControllerPaths {
     private User user;
     private int id;
     private Stage primaryStage;
+    @FXML
+    private LineChart<String, Number> lineChart;
+
+    @FXML
+    private PieChart PvNPie;
+
+    @FXML
+    private PieChart AppPie;
+
+    @FXML
+    public BarChart<String, Number> DoWchart;
 
     public AnalyticsController() {
         userDAO = new UserDAO();
@@ -44,7 +56,7 @@ public class AnalyticsController implements IControllerPaths {
         // match all names and user id to appdata
         for (String appName : activeApps) {
             // Fetch and print the hours tracked for each active application
-            int hoursTracked = userDAO.getHoursTracked(appName, id);
+            int hoursTracked = userDAO.getTimeTracked(appName, id);
             System.out.println("Hours tracked for " + appName + ": " + hoursTracked);
             double[] percentages = userDAO.getLimitUsagePercentages(appName, id);
             for(double percentage : percentages)
@@ -55,9 +67,65 @@ public class AnalyticsController implements IControllerPaths {
 
         Map<String, Integer> topRankedApps = userDAO.rankTopApps(id);
         System.out.println("Top apps order: " + topRankedApps);
+        // Example data for PvNPie
+        HashMap<String, Integer> pvnData = userDAO.getWeekPvNP(id);
+        PvNPieint(pvnData, PvNPie);
+
+        // Example data for CustomPie
+        HashMap<String, Integer> customData = userDAO.rankTopApps(id);
+        AppPieint(customData, AppPie);
+
+        // Example data for CustomPie
+        HashMap<String, Integer> dayData = new HashMap<>();
+        dayData.put("Google", 3);
+        dayData.put("Youtube", 7);
+        dayData.put("Steam", 6);
+        dayBoxChart(dayData, DoWchart);
 
         // return get hours tracked
         return;
+
+    }
+    public void PvNPieint(HashMap<String, Integer> data, PieChart chart) {
+        PieChart.Data productiveData = new PieChart.Data("Productive", data.getOrDefault("productive", 0));
+        PieChart.Data nonProductiveData = new PieChart.Data("Non Productive", data.getOrDefault("non_productive", 0));
+
+        chart.getData().clear();
+        chart.getData().addAll(productiveData, nonProductiveData);
+        chart.setLabelsVisible(false);
+
+    }
+
+    public void AppPieint(HashMap<String, Integer> data, PieChart chart) {
+        chart.getData().clear();
+
+        for (Map.Entry<String, Integer> entry : data.entrySet()) {
+            chart.getData().add(new PieChart.Data(entry.getKey(), entry.getValue()));
+        }
+
+        chart.setLabelsVisible(false);
+
+    }
+
+    public void dayBoxChart(HashMap<String, Integer> data, BarChart chart) {
+        // Clear previous data
+        chart.getData().clear();
+
+        // Set chart title
+        chart.setTitle("Daily Usage");
+
+        // Create a series
+        XYChart.Series<String, Number> series = new XYChart.Series<>();
+        series.setName("Hours");
+
+        // Add data points to the series
+        for (String app : data.keySet()) {
+            series.getData().add(new XYChart.Data<>(app, data.get(app)));
+        }
+
+        // Add the series to the chart
+        chart.getData().add(series);
+
     }
     public void Profile(MouseEvent event){
         userDAO.close();

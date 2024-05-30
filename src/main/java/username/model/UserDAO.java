@@ -180,6 +180,7 @@ public class UserDAO implements IUserDAO {
             );
             updateStmt.setInt(1, user.getWeeklyLimit());
             updateStmt.setInt(2, user.getMonthlyLimit());
+            updateStmt.setInt(3, user.getId());
             updateStmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -310,8 +311,8 @@ public class UserDAO implements IUserDAO {
         try {
             // Prepare the SQL query
             String sqlQuery = "SELECT " +
-                    "ROUND((SUM(appData.hours) * 100.0) / userPreferences.weeklyHourLimit, 2) AS weeklyLimitUsedPercentage, " +
-                    "ROUND((SUM(appData.hours) * 100.0) / userPreferences.monthlyHourLimit, 2) AS monthlyLimitUsedPercentage " +
+                    "ROUND((SUM(appData.seconds) * 100.0) / (userPreferences.weeklyHourLimit * 3600), 2) AS weeklyLimitUsedPercentage, " +
+                    "ROUND((SUM(appData.seconds) * 100.0) / (userPreferences.monthlyHourLimit * 3600), 2) AS monthlyLimitUsedPercentage " +
                     "FROM appData " +
                     "JOIN " +
                     "userPreferences ON appData.authenticationId = userPreferences.authenticationId " +
@@ -345,11 +346,11 @@ public class UserDAO implements IUserDAO {
 
     // change the names of app data once Isaiah inserts his data.
     @Override
-    public int getHoursTracked(String appName, int userId) {
-        int hoursTracked = 0;
+    public int getTimeTracked(String appName, int userId) {
+        int timeTracked = 0;
         try {
             // Prepare the SQL query
-            String sqlQuery = "SELECT SUM(hours) AS hoursTracked " +
+            String sqlQuery = "SELECT SUM(seconds) AS timeTracked " +
                     "FROM appData " +
                     "WHERE appData.applicationName LIKE ? " +
                     "AND authenticationId = ? ";
@@ -366,29 +367,31 @@ public class UserDAO implements IUserDAO {
 
             // Retrieve the hours tracked
             if (resultSet.next()) {
-                hoursTracked = resultSet.getInt("hoursTracked");
+                timeTracked = resultSet.getInt("hoursTracked");
             }
         } catch (SQLException ex) {
             System.err.println("Error retrieving hours tracked: " + ex.getMessage());
         }
 
-        return hoursTracked;
+        return timeTracked;
     }
     public void trackApps(int id, String appName, Long duration, String startTimeStr, String endTimeStr) {
-        String query = "INSERT INTO appData (authenticationId, applicationName, hours, start_time, stop_time) VALUES (?, ?, ?, ?, ?)";
+        System.out.println("Duration is: " + duration);
+        System.out.println("Duration is: " + duration / 3600);
+        String query = "INSERT INTO appData (authenticationId, applicationName, start_time, stop_time, seconds) VALUES (?, ?, ?, ?, ?)";
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setInt(1, id);
             statement.setString(2, appName);
-            statement.setLong(3, duration ); // Convert seconds to hours
-            statement.setString(4, startTimeStr);
-            statement.setString(5, endTimeStr);
+            statement.setString(3, startTimeStr);
+            statement.setString(4, endTimeStr);
+            statement.setLong(5, duration);
             statement.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
     }
-    public Map<String, Integer> rankTopApps(int id) {
-        String rankquery = "SELECT userPreferences.applicationName, SUM(appData.hours) AS hoursTracked " +
+    public HashMap<String, Integer> rankTopApps(int id) {
+        String rankquery = "SELECT userPreferences.applicationName, SUM(appData.seconds) AS timeTracked " +
                 "FROM appData " +
                 "JOIN userPreferences " +
                 "ON appData.authenticationId = userPreferences.authenticationId " +
@@ -396,9 +399,9 @@ public class UserDAO implements IUserDAO {
                 "WHERE userPreferences.isActive = 1 " +
                 "AND appData.authenticationId = ? " +
                 "GROUP BY userPreferences.applicationName " +
-                "ORDER BY hoursTracked DESC";
+                "ORDER BY timeTracked DESC";
 
-        Map<String, Integer> appHoursMap = new HashMap<>();
+        HashMap<String, Integer> appHoursMap = new HashMap<>();
 
         try (PreparedStatement rankStatement = connection.prepareStatement(rankquery)) {
             rankStatement.setInt(1, id);
@@ -406,7 +409,7 @@ public class UserDAO implements IUserDAO {
 
             while (resultSet.next()) {
                 String appName = resultSet.getString("applicationName");
-                int hoursTracked = resultSet.getInt("hoursTracked");
+                int hoursTracked = resultSet.getInt("timeTracked");
                 appHoursMap.put(appName, hoursTracked);
             }
         } catch (Exception e) {
@@ -438,5 +441,35 @@ public class UserDAO implements IUserDAO {
     }
 
 
+    public HashMap<String, Integer> getWeekPvNP(int id) {
+        String sqlQuery = "SELECT " +
+                "ROUND((SUM(appData.seconds) * 100.0) / (userPreferences.weeklyHourLimit * 3600), 2) AS weeklyLimitUsedPercentage, " +
+                "ROUND(100 - ((SUM(appData.seconds) * 100.0) / (userPreferences.weeklyHourLimit * 3600)), 2) AS weeklyLimitNotUsedPercentage " +
+                "FROM appData " +
+                "JOIN " +
+                "userPreferences ON appData.authenticationId = userPreferences.authenticationId " +
+                "WHERE " +
+                "appData.authenticationId = ? " +
+                "AND userPreferences.applicationName LIKE ? " +
+                "AND appData.applicationName LIKE ? " +
+                "GROUP BY " +
+                "userPreferences.weeklyHourLimit";
 
+        HashMap<String, Integer> appHoursMap = new HashMap<>();
+
+        try (PreparedStatement rankStatement = connection.prepareStatement(sqlQuery)) {
+            rankStatement.setInt(1, id);
+            ResultSet resultSet = rankStatement.executeQuery();
+
+            while (resultSet.next()) {
+                String appName = resultSet.getString("applicationName");
+                int hoursTracked = resultSet.getInt("timeTracked");
+                appHoursMap.put(appName, hoursTracked);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return appHoursMap;
+    }
 }
