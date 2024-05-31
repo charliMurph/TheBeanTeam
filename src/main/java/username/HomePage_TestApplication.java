@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import username.controller.HomePageController;
+import username.model.Navigate;
 import username.model.User;
 import username.model.UserDAO;
 
@@ -26,6 +27,9 @@ public class HomePage_TestApplication extends Application {
             Parent root = loader.load();
             HomePageController homeController = loader.getController();
             Scene scene = new Scene(root);
+
+            String css = Navigate.class.getResource("/username/Stylesheet.css").toExternalForm();
+            scene.getStylesheets().add(css);
 
             homeController.setUser(testuser);
             homeController.setPrimaryStage(primaryStage);

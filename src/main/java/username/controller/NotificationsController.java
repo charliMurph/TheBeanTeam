@@ -23,7 +23,9 @@ public class NotificationsController {
     public void Goals(MouseEvent event){
         Navigate.goTo("/username/Home-view.fxml", event);
     }
-
+    public void AppUsageStart(MouseEvent event) {
+        Navigate.goTo("/username/AppUsageStart-view.fxml", event );
+    }
     public void Home(MouseEvent event){
         Navigate.goTo("/username/Home-view.fxml", event);
     }

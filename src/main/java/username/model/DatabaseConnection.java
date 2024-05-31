@@ -1,13 +1,14 @@
 package username.model;
 
-import java.sql.*;
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class DatabaseConnection {
     private static Connection instance = null;
 
-    DatabaseConnection() {
+    public DatabaseConnection() {
         String url = "jdbc:sqlite:Screen_Time_Bean_Time.db";
         try {
             instance = DriverManager.getConnection(url);
@@ -16,7 +17,7 @@ public class DatabaseConnection {
         }
     }
 
-    public static Connection getInstance() {
+    public static synchronized Connection getInstance() {
         if (instance == null) {
             new DatabaseConnection();
         }
@@ -29,7 +30,7 @@ public class DatabaseConnection {
             createTable.execute(
                     "CREATE TABLE IF NOT EXISTS authentication ("
                             + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
-                            +"email VARCHAR NOT NULL, "
+                            + "email VARCHAR NOT NULL, "
                             + "username VARCHAR NOT NULL, "
                             + "password VARCHAR NOT NULL, "
                             + "firstName VARCHAR NOT NULL, "
@@ -42,36 +43,48 @@ public class DatabaseConnection {
         }
     }
 
-    public void createUserPreferences(Connection connection){
-        try{
-            Statement ScreenLogs = connection.createStatement();
-            ScreenLogs.execute(
+    public void createUserPreferences(Connection connection) {
+        try {
+            Statement createTable = connection.createStatement();
+            createTable.execute(
                     "CREATE TABLE IF NOT EXISTS userPreferences ("
                             + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
                             + "authenticationId INTEGER NOT NULL, "
                             + "applicationName VARCHAR NOT NULL, "
-                            + "weeklyHourLimit INTEGER NOT NULL, "  // Add comma here
-                            + "monthlyHourLimit INTEGER, " +
-                            "isActive integer NOT NULL,"  // Add comma here
+                            + "weeklyHourLimit INTEGER NOT NULL, "
+                            + "monthlyHourLimit INTEGER, "
+                            + "isActive INTEGER NOT NULL, "
                             + "FOREIGN KEY (authenticationId) REFERENCES authentication(id)"
                             + ")"
             );
-        }
-        catch (SQLException ex) {
+        } catch (SQLException ex) {
             System.err.println(ex);
         }
     }
-//    public void addcolumn(Connection connection) {
-//        System.out.println("Added");
-//        try {
-//            Statement createUserPreferences = connection.createStatement();
-//            createUserPreferences.execute(
-//                    "ALTER TABLE userPreferences " +
-//                            "ADD COLUMN isActive INTEGER;"
-//            );
-//        } catch (SQLException ex) {
-//            System.err.println(ex);
-//        }
-//    }
 
+    public void createAppDataTable(Connection connection) {
+        try {
+            Statement createTable = connection.createStatement();
+            createTable.execute(
+                    "CREATE TABLE IF NOT EXISTS appData ("
+                            + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
+                            + "authenticationId INTEGER NOT NULL, "
+                            + "applicationName VARCHAR NOT NULL, "
+                            + "hours INTEGER NOT NULL, "
+                            + "start_time TIMESTAMP, "
+                            + "stop_time TIMESTAMP, "
+                            + "FOREIGN KEY (authenticationId) REFERENCES authentication(id)"
+                            + ")"
+            );
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+    }
+
+    public void initializeDatabase() {
+        Connection connection = getInstance();
+        createUserTable(connection);
+        createUserPreferences(connection);
+        createAppDataTable(connection);
+    }
 }

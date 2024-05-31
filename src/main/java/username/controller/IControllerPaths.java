@@ -19,6 +19,13 @@ public interface IControllerPaths {
     public void Resources(MouseEvent event);
     @FXML
     public void Home(MouseEvent event);
+    @FXML
+    public void UserGoals(MouseEvent event);
+
+    @FXML
+    public void AppUsageStart(MouseEvent event);
+
+    public void initialize();
 
 }
 

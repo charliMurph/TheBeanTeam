@@ -3,11 +3,11 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import de.jensd.fx.glyphs.icons525.Icons525View?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.PieChart?>
-<?import javafx.scene.chart.ScatterChart?>
 <?import javafx.scene.chart.StackedBarChart?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.effect.DropShadow?>
@@ -24,30 +24,30 @@
             <children>
                 <Button mnemonicParsing="false" onMouseClicked="#Home" style="-fx-background-color: NULL;">
                     <graphic>
-                        <Icons525View fill="#af71ff" glyphName="HOME" size="40" />
+                        <Icons525View fill="#af71ff" glyphName="HOME" size="40" styleClass="Navicon" />
                     </graphic>
                 </Button>
                 <Button mnemonicParsing="false" onMouseClicked="#Analytics" style="-fx-background-color: NULL;">
                     <graphic>
-                        <FontAwesomeIconView fill="#af71ff" glyphName="PIE_CHART" size="40" />
+                        <FontAwesomeIconView fx:id="pie" fill="#af71ff" glyphName="PIE_CHART" size="40" styleClass="Navicon" />
+                    </graphic>
+                </Button>
+                <Button mnemonicParsing="false" style="-fx-background-color: NULL;">
+                    <graphic>
+                        <FontAwesomeIconView fill="#af71ff" glyphName="PLAY" onMouseClicked="#" size="40" styleClass="Navicon" />
                     </graphic>
                 </Button>
                 <Button mnemonicParsing="false" onMouseClicked="#DataMan" style="-fx-background-color: NULL;">
                     <graphic>
-                        <FontAwesomeIconView fill="#af71ff" glyphName="LOCK" size="40" />
+                        <FontAwesomeIconView fill="#af71ff" glyphName="LIST_UL" size="40" styleClass="Navicon" />
                     </graphic>
                 </Button>
-                <Button mnemonicParsing="false" onMouseClicked="#Goals" style="-fx-background-color: NULL;">
+                <Button mnemonicParsing="false" onMouseClicked="#UserGoals" style="-fx-background-color: NULL;">
                     <graphic>
-                        <FontAwesomeIconView fill="#af71ff" glyphName="LIST_UL" size="40" />
+                        <FontAwesomeIconView fill="#af71ff" glyphName="CALENDAR" size="40" styleClass="Navicon" />
                     </graphic>
                 </Button>
-                <Button mnemonicParsing="false" onMouseClicked="#Resources" style="-fx-background-color: NULL;">
-                    <graphic>
-                        <FontAwesomeIconView fill="#af71ff" glyphName="COMMENTING" size="40" />
-                    </graphic>
-                </Button>
-                <FontAwesomeIconView fill="#828282" glyphName="GEAR" onMouseClicked="#Settings" size="50" translateY="190.0">
+                <FontAwesomeIconView id="Cog" fill="#828282" glyphName="GEAR" onMouseClicked="#Settings" size="50" translateY="190.0">
                     <VBox.margin>
                         <Insets />
                     </VBox.margin>
@@ -66,17 +66,18 @@
                                 <Insets left="10.0" top="10.0" />
                             </HBox.margin>
                         </Text>
-                        <Button mnemonicParsing="false" onMouseClicked="#Notifications" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: e0dee1; -fx-background-radius: 100;" translateX="820.0" translateY="25.0">
+                        <HBox prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                        <Button mnemonicParsing="false" onMouseClicked="#Notifications" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: e0dee1; -fx-background-radius: 100;" styleClass="noti-icon" translateY="25.0">
                             <graphic>
                                 <FontAwesomeIconView fill="#7c7c7c" glyphName="BELL" size="20" />
                             </graphic>
                         </Button>
-                        <Button mnemonicParsing="false" onMouseClicked="#Profile" prefHeight="45.0" prefWidth="44.0" style="-fx-background-color: dfc6ff; -fx-background-radius: 100;" translateX="820.0" translateY="25.0">
+                        <Button mnemonicParsing="false" onMouseClicked="#Profile" prefHeight="45.0" prefWidth="44.0" style="-fx-background-color: dfc6ff; -fx-background-radius: 100;" styleClass="prof-icon" translateY="25.0">
                             <graphic>
                                 <Icons525View fill="#af71ff" glyphName="USER" size="25" />
                             </graphic>
                             <HBox.margin>
-                                <Insets left="10.0" />
+                                <Insets left="10.0" right="25.0" />
                             </HBox.margin>
                         </Button>
                     </children>
@@ -183,7 +184,7 @@
                         </DropShadow>
                     </effect>
                     <children>
-                        <PieChart />
+                        <PieChart fx:id="PvNPie" styleClass="pie-chart" />
                     </children>
                 </VBox>
                 <VBox layoutX="330.0" layoutY="143.0" prefHeight="294.0" prefWidth="269.0" style="-fx-background-color: ffffff; -fx-background-radius: 10;">
@@ -194,6 +195,9 @@
                             </color>
                         </DropShadow>
                     </effect>
+                    <children>
+                        <PieChart fx:id="AppPie" />
+                    </children>
                 </VBox>
                 <VBox layoutX="25.0" layoutY="448.0" prefHeight="242.0" prefWidth="574.0" style="-fx-background-color: ffffff; -fx-background-radius: 10;">
                     <effect>
@@ -204,14 +208,14 @@
                         </DropShadow>
                     </effect>
                     <children>
-                        <ScatterChart>
+                        <BarChart fx:id="DoWchart">
                             <xAxis>
                                 <CategoryAxis side="BOTTOM" />
                             </xAxis>
                             <yAxis>
                                 <NumberAxis side="LEFT" />
                             </yAxis>
-                        </ScatterChart>
+                        </BarChart>
                     </children>
                 </VBox>
                 <VBox layoutX="640.0" layoutY="143.0" prefHeight="294.0" prefWidth="269.0" style="-fx-background-color: ffffff; -fx-background-radius: 10;">
@@ -223,7 +227,7 @@
                         </DropShadow>
                     </effect>
                     <children>
-                        <PieChart />
+                        <PieChart fx:id="WeekAppPie" />
                     </children>
                 </VBox>
                 <VBox layoutX="945.0" layoutY="143.0" prefHeight="294.0" prefWidth="269.0" style="-fx-background-color: ffffff; -fx-background-radius: 10;">
@@ -235,7 +239,7 @@
                         </DropShadow>
                     </effect>
                     <children>
-                        <LineChart>
+                        <LineChart fx:id="summaryLineChart">
                             <xAxis>
                                 <CategoryAxis side="BOTTOM" />
                             </xAxis>
@@ -254,14 +258,14 @@
                         </DropShadow>
                     </effect>
                     <children>
-                        <StackedBarChart>
+                        <BarChart fx:id="WoMchart">
                             <xAxis>
                                 <CategoryAxis side="BOTTOM" />
                             </xAxis>
                             <yAxis>
                                 <NumberAxis side="LEFT" />
                             </yAxis>
-                        </StackedBarChart>
+                        </BarChart>
                     </children>
                 </VBox>
             </children>

@@ -4,12 +4,55 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="195bfca3-755a-419b-85be-3ab100768756" name="Changes" comment="new main app for tester">
+    <list default="true" id="195bfca3-755a-419b-85be-3ab100768756" name="Changes" comment="added linechart">
+      <change afterPath="$PROJECT_DIR$/changes/Navigate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/Stylesheet.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/controllers/AddAppController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/controllers/AnalyticsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/controllers/AppUsageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/controllers/DataManagementController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/controllers/DmanagementController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/controllers/GoalsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/controllers/HomeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/controllers/HomePageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/controllers/IController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/controllers/IControllerPaths.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/controllers/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/controllers/NotificationsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/controllers/ProfileController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/controllers/SignUpController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/views/AddAppPage-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/views/Analytics-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/views/AppUsageStart-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/views/DataManagementPage-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/views/Dmanagement-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/views/Goals-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/views/Home-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/views/HomePage-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/views/Login-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/views/Notifications-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/views/PreferencesPage-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/views/Profile-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/views/Resource-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/views/Settings-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/views/SignUp-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Screen_Time_Bean_Time.db" beforeDir="false" afterPath="$PROJECT_DIR$/Screen_Time_Bean_Time.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/GoalsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/GoalsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/username/model/IUserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/model/IUserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/username/model/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/model/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/AnalyticsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/AnalyticsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/AppGoalsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/AppGoalsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/AppUsageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/AppUsageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/DataManagementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/DataManagementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/HomePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/HomePageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/IControllerPaths.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/IControllerPaths.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/NotificationsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/NotificationsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/ProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/UserGoalsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/UserGoalsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/model/Navigate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/model/Navigate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/username/Analytics-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/username/Analytics-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/username/DataManagementPage-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/username/DataManagementPage-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/username/Login-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/username/Login-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/username/SignUp-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/username/SignUp-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/username/UserGoals-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/username/UserGoals-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +71,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="Isaiah" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -62,7 +105,9 @@
   &quot;associatedIndex&quot;: 1
 }</component>
   <component name="ProjectId" id="2fRH8Fvlaig4Jm9rc2HOrTwlRs7" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="openDirectoriesWithSingleClick" value="true" />
@@ -70,6 +115,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
     &quot;Application.HomePageRun.executor&quot;: &quot;Run&quot;,
     &quot;Application.HomePage_TestApplication.executor&quot;: &quot;Run&quot;,
@@ -95,7 +141,7 @@
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/CharliMurphy/TBT/TheBeanTeam/lib/sqlite-jdbc-3.36.0.3.jar&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/murph/v2/TheBeanTeam/src/main/resources/username&quot;,
     &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/murph/TheBeanTeam/address-book/src/main/java/org/example/Main.java&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
@@ -106,7 +152,14 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\murph\v2\TheBeanTeam\src\main\resources\username" />
+      <recent name="C:\Users\Steal\IdeaProjects\TheBeanTeam\src\main\java\username\controller" />
       <recent name="C:\Users\murph\TheBeanTeam\src\main\java" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\murph\v2\TheBeanTeam\src\main\java\username" />
+      <recent name="C:\Users\murph\v2\TheBeanTeam\src\main\java\username\model" />
+      <recent name="C:\Users\murph\v2\TheBeanTeam\src\main\resources\username" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="username" />
@@ -114,6 +167,7 @@
       <recent name="username.controller" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="username.controller" />
       <recent name="username" />
     </key>
   </component>
@@ -214,7 +268,63 @@
       <option name="project" value="LOCAL" />
       <updated>1716286336569</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="currently haveing problem with database locking">
+      <option name="closed" value="true" />
+      <created>1716638983130</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1716638983130</updated>
+    </task>
+    <task id="LOCAL-00008" summary="added isaiah changes">
+      <option name="closed" value="true" />
+      <created>1716714402614</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1716714402614</updated>
+    </task>
+    <task id="LOCAL-00009" summary="added updated sql inserts">
+      <option name="closed" value="true" />
+      <created>1716867946747</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1716867946747</updated>
+    </task>
+    <task id="LOCAL-00010" summary="added updated sql inserts">
+      <option name="closed" value="true" />
+      <created>1716882620909</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1716882620909</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Added stylesheet changes">
+      <option name="closed" value="true" />
+      <created>1717031094518</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1717031094518</updated>
+    </task>
+    <task id="LOCAL-00012" summary="added debug">
+      <option name="closed" value="true" />
+      <created>1717056695994</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1717056695994</updated>
+    </task>
+    <task id="LOCAL-00013" summary="added linechart">
+      <option name="closed" value="true" />
+      <created>1717116101342</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1717116101342</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -229,16 +339,27 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="added new AddAppPage fxml design" />
     <MESSAGE value="new main app for tester" />
-    <option name="LAST_COMMIT_MESSAGE" value="new main app for tester" />
+    <MESSAGE value="currently haveing problem with database locking" />
+    <MESSAGE value="added isaiah changes" />
+    <MESSAGE value="added updated sql inserts" />
+    <MESSAGE value="Added stylesheet changes" />
+    <MESSAGE value="added debug" />
+    <MESSAGE value="added linechart" />
+    <option name="LAST_COMMIT_MESSAGE" value="added linechart" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
+        <breakpoint enabled="true" log-message="true" type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="7" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
+          <option name="timeStamp" value="9" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -1,11 +1,9 @@
 package username.controller;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -37,6 +35,43 @@ public class ProfileController implements IControllerPaths{
     private User user;
 
     private Stage primaryStage;
+    @FXML
+    private void updateProfile() {
+        String newFirstName = firstNameLabel.getText();
+        String newLastName = lastNameLabel.getText();
+        String newEmail = emailLabel.getText();
+        String newUsername = usernameLabel.getText();
+        String newPassword = passwordLabel.getText();
+
+        boolean updated = false;
+
+        if (!newFirstName.equals(user.getFirstName())) {
+            user.setFirstName(newFirstName);
+            updated = true;
+        }
+        if (!newLastName.equals(user.getLastName())) {
+            user.setLastName(newLastName);
+            updated = true;
+        }
+        if (!newEmail.equals(user.getEmail())) {
+            user.setEmail(newEmail);
+            updated = true;
+        }
+        if (!newUsername.equals(user.getUsername())) {
+            user.setUsername(newUsername);
+            updated = true;
+        }
+        if (!newPassword.equals(user.getPassword())) {
+            user.setPassword(newPassword);
+            updated = true;
+        }
+        if (updated) {
+            userDAO.updateUser(user); // Replace with actual data saving logic
+            System.out.println("Profile updated successfully");
+        } else {
+            System.out.println("No changes detected");
+        }
+    }
 
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
@@ -50,6 +85,12 @@ public class ProfileController implements IControllerPaths{
     public void setUser(User user)
     {this.user = user;
     System.out.println("user is: " + user.getUsername());}
+
+    @Override
+    public void initialize() {
+        initializeProfile(user);
+
+    }
     // Method to initialize the profile with user data
     public void initializeProfile(User user) {
         // Populate the UI elements with user data
@@ -87,14 +128,23 @@ public class ProfileController implements IControllerPaths{
             // Handle the exception
         }
     }
-
+    @Override
+    public void UserGoals(MouseEvent event) {
+        Navigate.caseGoto(null, user, primaryStage, "/username/UserGoals-view.fxml", "UserGoals");
+    }
+    @Override
+    public void AppUsageStart(MouseEvent event) {
+        userDAO.close();
+        Navigate.caseGoto(event, user, primaryStage,"/username/AppUsageStart-view.fxml", "Record" );
+    }
     @Override
     public void Profile(MouseEvent event) {
         return;
     }
     @Override
     public void Analytics(MouseEvent event) {
-        Navigate.goTo("/username/Analytics-view.fxml", event);
+        userDAO.close();
+        Navigate.caseGoto(event, user,  primaryStage, "/username/Analytics-view.fxml", "Analytics");
     }
     @Override
     public void Settings(MouseEvent event) {
@@ -107,6 +157,7 @@ public class ProfileController implements IControllerPaths{
 
     @Override
     public void DataMan(MouseEvent event) {
+        userDAO.close();
         Navigate.caseGoto(event, user,  primaryStage, "/username/DataManagementPage-view.fxml", "DataMan");
     }
 
@@ -115,11 +166,13 @@ public class ProfileController implements IControllerPaths{
     }
 
     public void Goals(MouseEvent event) {
-        Navigate.caseGoto(event, user,  primaryStage, "/username/Goals-view.fxml", "Goals");
+        userDAO.close();
+        Navigate.caseGoto(event, user,  primaryStage, "/username/AppGoals-view.fxml", "Goals");
     }
     @Override
     //(MouseEvent event, User user, Stage primaryStage)
     public void Home(MouseEvent event) {
+        userDAO.close();
         Navigate.caseGoto(event, user,  primaryStage, "/username/HomePage-view.fxml", "Home");
     }
 

@@ -1,6 +1,5 @@
 package username.model;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -36,38 +35,41 @@ public class Navigate {
     public static void caseGoto(MouseEvent event, User user, Stage primaryStage, String fxmlFileName, String pageName)
     {
         try {
-
             FXMLLoader loader = new FXMLLoader(Navigate.class.getResource(fxmlFileName));
             Parent root = loader.load();
             Scene scene = new Scene(root);
+
+            // Load and apply the CSS stylesheet to the new scene
+            String css = Navigate.class.getResource("/username/Stylesheet.css").toExternalForm();
+            scene.getStylesheets().add(css);
             switch (pageName){
                 case "Home":
                     HomePageController homeController = loader.getController();
-                    // Pass any necessary data to the home controller if needed
-                    // For example, you can pass the username:
                     homeController.setUser(user);
                     homeController.setPrimaryStage(primaryStage);
                     homeController.initialize();
                     break;
                 case "DataMan":
-                    DataManagementController preferences = loader.getController();
+                    DataManagementController datamanController = loader.getController();
+                    datamanController.setPrimaryStage(primaryStage);
                     System.out.println("Button clicked. Navigating to user preferences page...");
-                    preferences.setUser(user);
-                    preferences.displayActiveApps();
-                    preferences.setPrimaryStage(primaryStage);
+                    datamanController.setUser(user);
+                    datamanController.init();
                     break;
                 case "Profile":
                     ProfileController profileController = loader.getController();
                     profileController.setPrimaryStage(primaryStage); // Pass the primaryStage to the controller
                     System.out.println("user is :" + user.getUsername());
                     profileController.setUser(user);
-                    profileController.initializeProfile(user);
+                    profileController.initialize();
                     break;
                 case "Analytics":
                     AnalyticsController Analytics = loader.getController();
-                    Analytics.setPrimaryStage(primaryStage); // Pass the primaryStage to the controller
                     System.out.println("user is :" + user.getUsername());
+                    Analytics.setUserID(user.getId());
                     Analytics.setUser(user);
+                    Analytics.setPrimaryStage(primaryStage); // Pass the primaryStage to the controller
+                    Analytics.initialize();
                     break;
                 case "Login":
                     LoginController controller = loader.getController();
@@ -75,15 +77,31 @@ public class Navigate {
                     break;
                 case "SignUp":
                     break;
-                case "Goals":
-                    GoalsController goalsController = loader.getController();
-                    goalsController.setPrimaryStage(primaryStage);
-                    goalsController.setUser(user);
-                    goalsController.setUserId(user.getId());
+                case "UserGoals":
+                    UserGoalsController userGoalsController = loader.getController();
+                    System.out.println(" user: " + userGoalsController);
+                    userGoalsController.setUserId(user.getId());
+                    userGoalsController.setUser(user);
+                    userGoalsController.initialize();
+                    userGoalsController.setPrimaryStage(primaryStage);
+                    break;
+                case "AppGoals":
+                    AppGoalsController appGoalsController = loader.getController();
+                    System.out.println(" user: " + appGoalsController);
+                    appGoalsController.setUserId(user.getId());
+                    appGoalsController.setUser(user);
+                    appGoalsController.initialize();
+                    appGoalsController.setPrimaryStage(primaryStage);
                     break;
                 case "Notifications":
                     break;
                 case "Resources":
+                    break;
+                case "Record":
+                    AppUsageController appUsageController = loader.getController();
+                    appUsageController.setUser(user);
+                    appUsageController.setPrimaryStage(primaryStage);
+
                     break;
                 default:
                     FXMLLoader defaultloader = new FXMLLoader(Navigate.class.getResource("Login-view.fxml"));
