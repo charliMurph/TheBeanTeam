@@ -34,7 +34,7 @@
                 </Button>
                 <Button mnemonicParsing="false" style="-fx-background-color: NULL;">
                     <graphic>
-                        <FontAwesomeIconView fill="#af71ff" glyphName="PLAY" onMouseClicked="#" size="40" styleClass="Navicon" />
+                        <FontAwesomeIconView fill="#af71ff" glyphName="PLAY" onMouseClicked="#AppUsageStart" size="40" styleClass="Navicon" />
                     </graphic>
                 </Button>
                 <Button mnemonicParsing="false" onMouseClicked="#DataMan" style="-fx-background-color: NULL;">
