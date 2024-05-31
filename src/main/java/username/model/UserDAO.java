@@ -2,6 +2,10 @@ package username.model;
 
 import java.security.Principal;
 import java.sql.*;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -367,7 +371,7 @@ public class UserDAO implements IUserDAO {
 
             // Retrieve the hours tracked
             if (resultSet.next()) {
-                timeTracked = resultSet.getInt("hoursTracked");
+                timeTracked = resultSet.getInt("timeTracked");
             }
         } catch (SQLException ex) {
             System.err.println("Error retrieving hours tracked: " + ex.getMessage());
@@ -390,7 +394,7 @@ public class UserDAO implements IUserDAO {
             ex.printStackTrace();
         }
     }
-    public HashMap<String, Integer> rankTopApps(int id) {
+    public HashMap<String, Integer> TopApps(int id, String fromDate, String toDate) {
         String rankquery = "SELECT userPreferences.applicationName, SUM(appData.seconds) AS timeTracked " +
                 "FROM appData " +
                 "JOIN userPreferences " +
@@ -398,6 +402,7 @@ public class UserDAO implements IUserDAO {
                 "AND appData.applicationName LIKE '%' || userPreferences.applicationName || '%' " +
                 "WHERE userPreferences.isActive = 1 " +
                 "AND appData.authenticationId = ? " +
+                "AND appData.stop_time BETWEEN ? AND ?"+
                 "GROUP BY userPreferences.applicationName " +
                 "ORDER BY timeTracked DESC";
 
@@ -405,6 +410,8 @@ public class UserDAO implements IUserDAO {
 
         try (PreparedStatement rankStatement = connection.prepareStatement(rankquery)) {
             rankStatement.setInt(1, id);
+            rankStatement.setString(2, fromDate + " 00:00:00"); // Start of the day 7 days ago
+            rankStatement.setString(3, toDate + " 23:59:59"); // End of the current day
             ResultSet resultSet = rankStatement.executeQuery();
 
             while (resultSet.next()) {
@@ -414,6 +421,165 @@ public class UserDAO implements IUserDAO {
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }
+
+        return appHoursMap;
+    }
+    public HashMap<String, Integer> DoWUsage(int id, String fromDate, String toDate) {
+        HashMap<String, Integer> appHoursMap = new HashMap<>();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate startDate = LocalDate.parse(fromDate, formatter);
+        LocalDate endDate = LocalDate.parse(toDate, formatter);
+
+        while (!startDate.isAfter(endDate)) {
+            String currentDate = startDate.format(formatter);
+            String rankquery = "SELECT " +
+                    "    MAX(timeTracked) AS timeTracked " +
+                    "FROM (" +
+                    "    SELECT " +
+                    "        SUM(appData.seconds) AS timeTracked " +
+                    "    FROM " +
+                    "        appData " +
+                    "    JOIN " +
+                    "        userPreferences ON appData.authenticationId = userPreferences.authenticationId " +
+                    "    WHERE " +
+                    "        userPreferences.isActive = 1 " +
+                    "        AND appData.authenticationId = ? " +
+                    "        AND DATE(appData.stop_time) = ? " + // Filter by current date
+                    "    GROUP BY " +
+                    "        userPreferences.applicationName" +
+                    ") AS subquery";
+
+            try (PreparedStatement rankStatement = connection.prepareStatement(rankquery)) {
+                rankStatement.setInt(1, id);
+                rankStatement.setString(2, currentDate);
+                ResultSet resultSet = rankStatement.executeQuery();
+
+                if (resultSet.next()) {
+                    int hoursTracked = resultSet.getInt("timeTracked");
+                    appHoursMap.put(currentDate, hoursTracked);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            startDate = startDate.plusDays(1); // Move to the next day
+        }
+
+        return appHoursMap;
+    }
+
+    public HashMap<String, Double> getPvNP(int id, String fromDate, String toDate) {
+        // Get the current date and date 7 days ago in Brisbane timezone
+        String sqlQuery = "WITH total_seconds AS ( " +
+                "SELECT SUM(appData.seconds) AS sec " +
+                "FROM appData " +
+                "WHERE authenticationId = ? " +
+                "AND appData.stop_time BETWEEN ? AND ? " + // Filter by Brisbane date range
+                ") " +
+                "SELECT " +
+                "ROUND((total_seconds.sec * 100.0) / (authentication.userGoalWeekly * 3600), 2) AS UsedPercentage, " +
+                "ROUND(100 - ((total_seconds.sec * 100.0) / (authentication.userGoalWeekly * 3600)), 2) AS NotUsedPercentage " +
+                "FROM " +
+                "total_seconds, " +
+                "authentication " +
+                "WHERE " +
+                "authentication.id = ?";
+
+        HashMap<String, Double> appHoursMap = new HashMap<>();
+
+        try (PreparedStatement rankStatement = connection.prepareStatement(sqlQuery)) {
+            rankStatement.setInt(1, id);
+            rankStatement.setString(2, fromDate + " 00:00:00"); // Start of the day 7 days ago
+            rankStatement.setString(3, toDate + " 23:59:59"); // End of the current day
+            rankStatement.setInt(4, id);
+            ResultSet resultSet = rankStatement.executeQuery();
+
+            if (resultSet.next() && resultSet.getObject("UsedPercentage") != null) {
+                double usedPercentage = resultSet.getDouble("UsedPercentage");
+                double notUsedPercentage = resultSet.getDouble("NotUsedPercentage");
+                appHoursMap.put("non productive", usedPercentage);
+                appHoursMap.put("productive", notUsedPercentage);
+            } else {
+                System.out.println("isnull");
+                appHoursMap.put("productive", 100.0);
+                appHoursMap.put("non productive", 0.0);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return appHoursMap;
+    }
+    public HashMap<String, Integer> appByMinutesTop(int id, String fromDate, String toDate) {
+        java.lang.String rankquery = "SELECT userPreferences.applicationName, (SUM(appData.seconds) * 0.0166667) AS timeTracked " +
+                "FROM appData " +
+                "JOIN userPreferences " +
+                "ON appData.authenticationId = userPreferences.authenticationId " +
+                "AND appData.applicationName LIKE '%' || userPreferences.applicationName || '%' " +
+                "WHERE userPreferences.isActive = 1 " +
+                "AND appData.authenticationId = ? " +
+                "AND appData.stop_time BETWEEN ? AND ?"+
+                "GROUP BY userPreferences.applicationName " +
+                "ORDER BY timeTracked DESC";
+
+        HashMap<java.lang.String, java.lang.Integer> appHoursMap = new HashMap<>();
+
+        try (PreparedStatement rankStatement = connection.prepareStatement(rankquery)) {
+            rankStatement.setInt(1, id);
+            rankStatement.setString(2, fromDate + " 00:00:00"); // Start of the day 7 days ago
+            rankStatement.setString(3, toDate + " 23:59:59"); // End of the current day
+            ResultSet resultSet = rankStatement.executeQuery();
+
+            while (resultSet.next()) {
+                java.lang.String appName = resultSet.getString("applicationName");
+                int hoursTracked = resultSet.getInt("timeTracked");
+                appHoursMap.put(appName, hoursTracked);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return appHoursMap;
+    }
+    public HashMap<String, Number> approundNum(int id, String fromDate, String toDate) {
+        HashMap<String, Number> appHoursMap = new HashMap<>();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate startDate = LocalDate.parse(fromDate, formatter);
+        LocalDate endDate = LocalDate.parse(toDate, formatter);
+
+        while (!startDate.isAfter(endDate)) {
+            String currentDate = startDate.format(formatter);
+            String rankquery = "SELECT " +
+                    "    MAX(timeTracked)  * 0.0166667 AS timeTracked " +
+                    "FROM (" +
+                    "    SELECT " +
+                    "        SUM(appData.seconds) AS timeTracked " +
+                    "    FROM " +
+                    "        appData " +
+                    "    JOIN " +
+                    "        userPreferences ON appData.authenticationId = userPreferences.authenticationId " +
+                    "    WHERE " +
+                    "        userPreferences.isActive = 1 " +
+                    "        AND appData.authenticationId = ? " +
+                    "        AND DATE(appData.stop_time) = ? " + // Filter by current date
+                    "    GROUP BY " +
+                    "        userPreferences.applicationName" +
+                    ") AS subquery";
+
+            try (PreparedStatement rankStatement = connection.prepareStatement(rankquery)) {
+                rankStatement.setInt(1, id);
+                rankStatement.setString(2, currentDate);
+                ResultSet resultSet = rankStatement.executeQuery();
+
+                if (resultSet.next()) {
+                    int minTracked = resultSet.getInt("timeTracked");
+                    appHoursMap.put(currentDate, minTracked);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            startDate = startDate.plusDays(1); // Move to the next day
         }
 
         return appHoursMap;
@@ -441,35 +607,4 @@ public class UserDAO implements IUserDAO {
     }
 
 
-    public HashMap<String, Integer> getWeekPvNP(int id) {
-        String sqlQuery = "SELECT " +
-                "ROUND((SUM(appData.seconds) * 100.0) / (userPreferences.weeklyHourLimit * 3600), 2) AS weeklyLimitUsedPercentage, " +
-                "ROUND(100 - ((SUM(appData.seconds) * 100.0) / (userPreferences.weeklyHourLimit * 3600)), 2) AS weeklyLimitNotUsedPercentage " +
-                "FROM appData " +
-                "JOIN " +
-                "userPreferences ON appData.authenticationId = userPreferences.authenticationId " +
-                "WHERE " +
-                "appData.authenticationId = ? " +
-                "AND userPreferences.applicationName LIKE ? " +
-                "AND appData.applicationName LIKE ? " +
-                "GROUP BY " +
-                "userPreferences.weeklyHourLimit";
-
-        HashMap<String, Integer> appHoursMap = new HashMap<>();
-
-        try (PreparedStatement rankStatement = connection.prepareStatement(sqlQuery)) {
-            rankStatement.setInt(1, id);
-            ResultSet resultSet = rankStatement.executeQuery();
-
-            while (resultSet.next()) {
-                String appName = resultSet.getString("applicationName");
-                int hoursTracked = resultSet.getInt("timeTracked");
-                appHoursMap.put(appName, hoursTracked);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return appHoursMap;
-    }
 }

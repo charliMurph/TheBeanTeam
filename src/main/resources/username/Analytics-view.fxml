@@ -239,7 +239,7 @@
                         </DropShadow>
                     </effect>
                     <children>
-                        <LineChart fx:id="OtherPie2">
+                        <LineChart fx:id="summaryLineChart">
                             <xAxis>
                                 <CategoryAxis side="BOTTOM" />
                             </xAxis>
@@ -258,7 +258,7 @@
                         </DropShadow>
                     </effect>
                     <children>
-                        <StackedBarChart>
+                        <StackedBarChart fx:id="weekBarChart">
                             <xAxis>
                                 <CategoryAxis side="BOTTOM" />
                             </xAxis>
