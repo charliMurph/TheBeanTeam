@@ -89,6 +89,11 @@ public class UserGoalsController implements IControllerPaths {
         Navigate.caseGoto(event, user,  primaryStage,"/username/Profile-view.fxml", "Profile");
     }
     @Override
+    public void AppUsageStart(MouseEvent event) {
+        userDAO.close();
+        Navigate.caseGoto(event, user, primaryStage,"/username/AppUsageStart-view.fxml", "Record" );
+    }
+    @Override
     public void Analytics(MouseEvent event) {
         userDAO.close();
         Navigate.caseGoto(event, user, primaryStage, "/username/Analytics-view.fxml", "Analytics");

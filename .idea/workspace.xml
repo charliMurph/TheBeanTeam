@@ -4,23 +4,54 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="195bfca3-755a-419b-85be-3ab100768756" name="Changes" comment="added updated sql inserts">
-      <change afterPath="$PROJECT_DIR$/lib/javafx-base-23-ea+18-javadoc.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-base-23-ea+18-sources.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-base-23-ea+18-win.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-base-23-ea+18.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-graphics-23-ea+18-sources.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-graphics-23-ea+18-win.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-graphics-23-ea+18.jar" afterDir="false" />
+    <list default="true" id="195bfca3-755a-419b-85be-3ab100768756" name="Changes" comment="added linechart">
+      <change afterPath="$PROJECT_DIR$/changes/Navigate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/Stylesheet.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/controllers/AddAppController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/controllers/AnalyticsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/controllers/AppUsageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/controllers/DataManagementController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/controllers/DmanagementController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/controllers/GoalsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/controllers/HomeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/controllers/HomePageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/controllers/IController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/controllers/IControllerPaths.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/controllers/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/controllers/NotificationsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/controllers/ProfileController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/controllers/SignUpController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/views/AddAppPage-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/views/Analytics-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/views/AppUsageStart-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/views/DataManagementPage-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/views/Dmanagement-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/views/Goals-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/views/Home-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/views/HomePage-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/views/Login-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/views/Notifications-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/views/PreferencesPage-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/views/Profile-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/views/Resource-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/views/Settings-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changes/views/SignUp-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Screen_Time_Bean_Time.db" beforeDir="false" afterPath="$PROJECT_DIR$/Screen_Time_Bean_Time.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/AnalyticsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/AnalyticsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/AppGoalsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/AppGoalsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/AppUsageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/AppUsageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/DataManagementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/DataManagementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/HomePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/HomePageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/IControllerPaths.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/IControllerPaths.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/NotificationsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/NotificationsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/ProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/controller/UserGoalsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/controller/UserGoalsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/username/model/Navigate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/username/model/Navigate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/username/Analytics-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/username/Analytics-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/username/AppGoals-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/username/AppGoals-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/username/AppUsageStart-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/username/AppUsageStart-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/username/DataManagementPage-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/username/DataManagementPage-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/username/HomePage-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/username/HomePage-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/username/Notifications-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/username/Notifications-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/username/Profile-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/username/Profile-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/username/Login-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/username/Login-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/username/SignUp-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/username/SignUp-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/username/UserGoals-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/username/UserGoals-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -124,6 +155,11 @@
       <recent name="C:\Users\murph\v2\TheBeanTeam\src\main\resources\username" />
       <recent name="C:\Users\Steal\IdeaProjects\TheBeanTeam\src\main\java\username\controller" />
       <recent name="C:\Users\murph\TheBeanTeam\src\main\java" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\murph\v2\TheBeanTeam\src\main\java\username" />
+      <recent name="C:\Users\murph\v2\TheBeanTeam\src\main\java\username\model" />
+      <recent name="C:\Users\murph\v2\TheBeanTeam\src\main\resources\username" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="username" />
@@ -264,7 +300,31 @@
       <option name="project" value="LOCAL" />
       <updated>1716882620909</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Added stylesheet changes">
+      <option name="closed" value="true" />
+      <created>1717031094518</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1717031094518</updated>
+    </task>
+    <task id="LOCAL-00012" summary="added debug">
+      <option name="closed" value="true" />
+      <created>1717056695994</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1717056695994</updated>
+    </task>
+    <task id="LOCAL-00013" summary="added linechart">
+      <option name="closed" value="true" />
+      <created>1717116101342</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1717116101342</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -285,7 +345,10 @@
     <MESSAGE value="currently haveing problem with database locking" />
     <MESSAGE value="added isaiah changes" />
     <MESSAGE value="added updated sql inserts" />
-    <option name="LAST_COMMIT_MESSAGE" value="added updated sql inserts" />
+    <MESSAGE value="Added stylesheet changes" />
+    <MESSAGE value="added debug" />
+    <MESSAGE value="added linechart" />
+    <option name="LAST_COMMIT_MESSAGE" value="added linechart" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

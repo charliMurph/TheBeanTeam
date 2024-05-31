@@ -34,7 +34,7 @@
                 </Button>
                 <Button mnemonicParsing="false" style="-fx-background-color: NULL;">
                     <graphic>
-                        <FontAwesomeIconView fx:id="lock" fill="#af71ff" glyphName="PLAY" onMouseClicked="#DataMan" size="40" styleClass="Navicon" />
+                        <FontAwesomeIconView fill="#af71ff" glyphName="PLAY" onMouseClicked="#" size="40" styleClass="Navicon" />
                     </graphic>
                 </Button>
                 <Button mnemonicParsing="false" onMouseClicked="#DataMan" style="-fx-background-color: NULL;">
@@ -227,7 +227,7 @@
                         </DropShadow>
                     </effect>
                     <children>
-                        <PieChart fx:id="OtherPie1" />
+                        <PieChart fx:id="WeekAppPie" />
                     </children>
                 </VBox>
                 <VBox layoutX="945.0" layoutY="143.0" prefHeight="294.0" prefWidth="269.0" style="-fx-background-color: ffffff; -fx-background-radius: 10;">
@@ -258,14 +258,14 @@
                         </DropShadow>
                     </effect>
                     <children>
-                        <StackedBarChart fx:id="weekBarChart">
+                        <BarChart fx:id="WoMchart">
                             <xAxis>
                                 <CategoryAxis side="BOTTOM" />
                             </xAxis>
                             <yAxis>
                                 <NumberAxis side="LEFT" />
                             </yAxis>
-                        </StackedBarChart>
+                        </BarChart>
                     </children>
                 </VBox>
             </children>

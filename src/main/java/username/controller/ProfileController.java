@@ -133,6 +133,11 @@ public class ProfileController implements IControllerPaths{
         Navigate.caseGoto(null, user, primaryStage, "/username/UserGoals-view.fxml", "UserGoals");
     }
     @Override
+    public void AppUsageStart(MouseEvent event) {
+        userDAO.close();
+        Navigate.caseGoto(event, user, primaryStage,"/username/AppUsageStart-view.fxml", "Record" );
+    }
+    @Override
     public void Profile(MouseEvent event) {
         return;
     }

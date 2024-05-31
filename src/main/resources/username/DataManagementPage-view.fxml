@@ -27,7 +27,7 @@
                         <FontAwesomeIconView fill="#af71ff" glyphName="PIE_CHART" size="40" styleClass="Navicon" />
                     </graphic>
                 </Button>
-                <Button mnemonicParsing="false" style="-fx-background-color: NULL;">
+                <Button mnemonicParsing="false" style="-fx-background-color: NULL;" onMouseClicked="#AppUsageStart">
                     <graphic>
                         <FontAwesomeIconView fill="#af71ff" glyphName="PLAY" size="40" styleClass="Navicon" />
                     </graphic>
@@ -39,7 +39,7 @@
                 </Button>
                 <Button mnemonicParsing="false" style="-fx-background-color: NULL;">
                     <graphic>
-                        <FontAwesomeIconView fill="#af71ff" glyphName="CALENDAR" size="40" styleClass="Navicon" />
+                        <FontAwesomeIconView fill="#af71ff" glyphName="CALENDAR" size="40" styleClass="Navicon" onMouseClicked="#UserGoals" />
                     </graphic>
                 </Button>
                 <FontAwesomeIconView fill="#828282" glyphName="GEAR" size="50" translateY="190.0">

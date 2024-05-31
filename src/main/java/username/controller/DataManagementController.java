@@ -160,7 +160,11 @@ public class DataManagementController implements IControllerPaths {
     public void UserGoals(MouseEvent event) {
         Navigate.caseGoto(null, user, primaryStage, "/username/UserGoals-view.fxml", "UserGoals");
     }
-
+    @Override
+    public void AppUsageStart(MouseEvent event) {
+        userDAO.close();
+        Navigate.caseGoto(event, user, primaryStage,"/username/AppUsageStart-view.fxml", "Record" );
+    }
     public void AppGoals() {
         userDAO.close();
         Navigate.caseGoto(null, user, primaryStage, "/username/AppGoals-view.fxml", "AppGoals");

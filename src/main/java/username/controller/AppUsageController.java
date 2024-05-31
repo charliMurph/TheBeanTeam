@@ -78,6 +78,11 @@ public class AppUsageController implements IControllerPaths{
         isOn = false;
         userDAO.close();
     }
+    @Override
+    public void AppUsageStart(MouseEvent event) {
+        return;
+    }
+
     public void setUser(User user) {
         this.user = user;
     }

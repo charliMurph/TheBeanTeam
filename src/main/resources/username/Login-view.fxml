@@ -14,7 +14,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="762.0" prefWidth="873.0" style="-fx-background-color: E9E5E5;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="username.controller.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="762.0" prefWidth="873.0" style="-fx-background-color: E9E5E5;" stylesheets="@Stylesheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="username.controller.LoginController">
     <children>
         <VBox alignment="CENTER" layoutX="276.0" layoutY="99.0" prefHeight="564.0" prefWidth="321.0" spacing="20" style="-fx-background-color: FFFFFF; -fx-background-radius: 10;">
             <padding>
@@ -66,10 +66,10 @@
                 </PasswordField>
                 <Label contentDisplay="RIGHT" graphicTextGap="0.0" text="Don't have an account?" translateY="-15.0">
                     <graphic>
-                        <Hyperlink alignment="CENTER_RIGHT" contentDisplay="BOTTOM" onAction="#handleSignUpLink" prefHeight="23.0" prefWidth="53.0" text="Register" textFill="#a259ff" />
+                        <Hyperlink alignment="CENTER_RIGHT" contentDisplay="BOTTOM" onAction="#handleSignUpLink" prefHeight="23.0" prefWidth="53.0" styleClass="purple-hyperlink" text="Register" textFill="#a259ff" />
                     </graphic>
                 </Label>
-                <Button alignment="CENTER" contentDisplay="CENTER" onAction="#handleLoginButton" prefHeight="27.0" prefWidth="216.0" style="-fx-background-color: DFC6FF;" text="Login" textFill="#a259ff">
+                <Button alignment="CENTER" contentDisplay="CENTER" onAction="#handleLoginButton" prefHeight="27.0" prefWidth="216.0" style="-fx-background-color: DFC6FF;" styleClass="purple-button" text="Login" textFill="#a259ff">
                     <padding>
                         <Insets bottom="5.0" top="5.0" />
                     </padding>
@@ -77,7 +77,7 @@
                         <Insets left="6.0" />
                     </VBox.margin>
                 </Button>
-                <Hyperlink onAction="#handleSignUpLink" text="Forgot Password?" textFill="#a259ff" translateY="-15.0" />
+                <Hyperlink onAction="#handleSignUpLink" styleClass="purple-hyperlink" text="Forgot Password?" textFill="#a259ff" translateY="-15.0" />
             </children>
             <effect>
                 <DropShadow height="27.59" offsetY="1.0" radius="10.9125" spread="0.17" width="18.06">

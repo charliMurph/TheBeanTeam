@@ -97,6 +97,12 @@ public class Navigate {
                     break;
                 case "Resources":
                     break;
+                case "Record":
+                    AppUsageController appUsageController = loader.getController();
+                    appUsageController.setUser(user);
+                    appUsageController.setPrimaryStage(primaryStage);
+
+                    break;
                 default:
                     FXMLLoader defaultloader = new FXMLLoader(Navigate.class.getResource("Login-view.fxml"));
                     root = defaultloader.load();

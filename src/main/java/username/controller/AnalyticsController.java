@@ -34,6 +34,9 @@ public class AnalyticsController implements IControllerPaths {
     private PieChart AppPie;
 
     @FXML
+    private PieChart WeekAppPie;
+
+    @FXML
     public BarChart<String, Number> DoWchart;
     @FXML
     public BarChart<String, Number> WoMchart;
@@ -72,6 +75,7 @@ public class AnalyticsController implements IControllerPaths {
         }
         //Set up for daily usage
         DailyUsageSetUp();
+        WeeklyUsageSetUp();
 
 
         // set up for weekly usage
@@ -155,16 +159,11 @@ public class AnalyticsController implements IControllerPaths {
         Map<String, Integer> topRankedApps = userDAO.TopApps(id, brisbaneWeekAgoDate, brisbaneNowDate);
         System.out.println("Top apps order: " + topRankedApps);
         // Example data for PvNPie
-        HashMap<String, Double> pvnData = userDAO.getPvNP(id, brisbaneWeekAgoDate, brisbaneNowDate);
-        PvNPieint(pvnData, PvNPie);
-
+        HashMap<String, Integer> weekData = userDAO.appByMinutesTop(id, brisbaneWeekAgoDate, brisbaneNowDate);
+        weekBoxChart(weekData, WoMchart);
         // Example data for CustomPie
         HashMap<String, Integer> customData = userDAO.TopApps(id, brisbaneWeekAgoDate, brisbaneNowDate);
-        AppPieint(customData, AppPie);
-
-        // Example data for Box chart
-//        HashMap<String, Integer> dayData = userDAO.appByMinutesTop(id);
-//        dayBoxChart(dayData, DoWchart);
+        AppPieint(customData, WeekAppPie);
 
     }
     public void AppPieint(HashMap<String, Integer> data, PieChart chart) {
@@ -177,7 +176,26 @@ public class AnalyticsController implements IControllerPaths {
         chart.setLabelsVisible(false);
 
     }
+    public void weekBoxChart(HashMap<String, Integer> data, BarChart chart) {
+        // Clear previous data
+        chart.getData().clear();
 
+        // Set chart title
+        chart.setTitle("Weekly Usage");
+
+        // Create a series
+        XYChart.Series<String, Number> series = new XYChart.Series<>();
+        series.setName("Minutes");
+
+        // Add data points to the series
+        for (String app : data.keySet()) {
+            series.getData().add(new XYChart.Data<>(app, data.get(app)));
+        }
+
+        // Add the series to the chart
+        chart.getData().add(series);
+
+    }
     public void dayBoxChart(HashMap<String, Integer> data, BarChart chart) {
         // Clear previous data
         chart.getData().clear();
@@ -198,10 +216,10 @@ public class AnalyticsController implements IControllerPaths {
         chart.getData().add(series);
 
     }
-
-    public void weekBoxChart(HashMap<String, Integer> data, BarChart chart)
-    {
-
+    @Override
+    public void AppUsageStart(MouseEvent event) {
+        userDAO.close();
+        Navigate.caseGoto(event, user, primaryStage,"/username/AppUsageStart-view.fxml", "Record" );
     }
     public void Profile(MouseEvent event){
         userDAO.close();

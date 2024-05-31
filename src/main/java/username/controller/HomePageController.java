@@ -90,26 +90,14 @@ public class HomePageController implements IControllerPaths {
         userDAO.close();
         Navigate.caseGoto(event, user,  primaryStage, "/username/Analytics-view.fxml", "Analytics");
     }
-    @FXML
+    @Override
     public void AppUsageStart(MouseEvent event) {
-        try {
-            userDAO.close();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/username/AppUsageStart-view.fxml"));
-            Parent root = loader.load();
-            // Get the controller for the home page
-            AppUsageController appUsageController = loader.getController();
-            appUsageController.setUser(user);
-            appUsageController.setPrimaryStage(primaryStage);
-            Scene scene = new Scene(root);
-            primaryStage.setScene(scene);
-            primaryStage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-            // Handle the exception
-        }
+        userDAO.close();
+        Navigate.caseGoto(event, user, primaryStage,"/username/AppUsageStart-view.fxml", "Record" );
     }
     @Override
     public void UserGoals(MouseEvent event) {
+        userDAO.close();
         Navigate.caseGoto(null, user, primaryStage, "/username/UserGoals-view.fxml", "UserGoals");
     }
     @Override
